@@ -37,6 +37,6 @@ function manta_get_theme_defaults( $option ) {
 	} elseif ( isset( $manta_defaults[ $option ] ) ) {
 		return $manta_defaults[ $option ];
 	}
-	
+
 	return false;
 }
