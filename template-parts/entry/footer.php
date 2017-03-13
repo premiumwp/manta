@@ -48,7 +48,7 @@
 			'<span' . manta_get_attr( 'edit-link' ) . '>',
 			'</span>'
 		);
-		
+
 		if ( is_attachment() && wp_attachment_is_image() ) {
 			// Retrieve attachment metadata.
 			$manta_metadata = wp_get_attachment_metadata();
