@@ -10,7 +10,7 @@
 
 ?>
 
-<form method="get"<?php manta_attr( 'search-form' ); ?> action="<?php echo esc_url( home_url( '/' ) ) ?>">
+<form role="search" method="get"<?php manta_attr( 'search-form' ); ?> action="<?php echo esc_url( home_url( '/' ) ) ?>">
 	<label class="label-search">
 		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'manta' ) ?></span>
 		<input type="search"<?php manta_attr( 'search-field' ); ?> placeholder="<?php echo esc_attr_x( 'Search', 'placeholder', 'manta' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label', 'manta' ) ?>" />

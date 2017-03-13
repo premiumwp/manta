@@ -10,7 +10,7 @@
 
 ?>
 
-<aside id="secondary" aria-label="Primary Sidebar"<?php manta_attr( 'primary-sidebar' ); ?>>
+<aside id="secondary" aria-label="Primary Sidebar" role="complementary"<?php manta_attr( 'primary-sidebar' ); ?>>
 	<h2 class="screen-reader-text"><?php echo __( 'Primary Sidebar', 'manta' ); ?></h2>
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

@@ -22,7 +22,7 @@
 		 */
 		do_action( 'manta_hook_before_footer' ); ?>
 
-		<footer id="colophon" <?php manta_attr( 'site-footer' ); ?>>
+		<footer id="colophon" role="contentinfo"<?php manta_attr( 'site-footer' ); ?>>
 
 			<?php
 			/**

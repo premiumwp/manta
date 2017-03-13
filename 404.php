@@ -11,7 +11,7 @@
 get_header(); ?>
 
 	<div id="primary"<?php manta_attr( 'content-area' ); ?>>
-		<main id="main" <?php manta_attr( 'site-main' ); ?>>
+		<main id="main" role="main"<?php manta_attr( 'site-main' ); ?>>
 
 			<section<?php manta_attr( 'error-404' ); ?>>
 				<header<?php manta_attr( 'page-header' ); ?>>

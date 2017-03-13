@@ -27,7 +27,7 @@ get_header(); ?>
 			 */
 			do_action( 'manta_hook_before_main_content' ); ?>
 
-			<main id="main" <?php manta_attr( 'site-main' ); ?>>
+			<main id="main" role="main"<?php manta_attr( 'site-main' ); ?>>
 
 				<?php
 				if ( have_posts() ) :

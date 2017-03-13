@@ -51,7 +51,7 @@ do_action( 'manta_hook_before_html' ); ?>
 		 */
 		do_action( 'manta_hook_before_header' ); ?>
 
-		<header id="masthead" <?php manta_attr( 'site-header' ); ?>>
+		<header id="masthead" role="banner"<?php manta_attr( 'site-header' ); ?>>
 
 			<?php
 			/**

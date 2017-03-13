@@ -7,7 +7,7 @@
  */
 
 ?>
-<nav id="header-menu" aria-label="Header Menu"<?php manta_attr( 'header-menu' );?>>
+<nav id="header-menu" aria-label="Header Menu" role="navigation"<?php manta_attr( 'header-menu' );?>>
 	<h2 class="screen-reader-text"><?php printf( __( 'Header Menu', 'manta' ) );?></h2>
 	<button aria-controls="header-nav" aria-expanded="false"<?php manta_attr( 'menu-toggle' );?>>
 		<?php
