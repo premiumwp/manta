@@ -33,10 +33,6 @@ class Manta_Active_Callback {
 	 * @return bool
 	 */
 	public static function is_display_excerpt( $control ) {
-		if ( 'excerpt' === $control->manager->get_setting( 'manta_excerpt_option' )->value() ) {
-			return true;
-		} else {
-			return false;
-		}
+		return 'excerpt' === $control->manager->get_setting( 'manta_excerpt_option' )->value() );
 	}
 }
