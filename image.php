@@ -8,7 +8,7 @@
 get_header(); ?>
 
 	<div<?php manta_attr( 'content-sidebar-wrap' ); ?>>
-	
+
 		<div id="primary"<?php manta_attr( 'content-area' ); ?>>
 
 			<?php
@@ -21,7 +21,7 @@ get_header(); ?>
 
 			<main id="main" role="main"<?php manta_attr( 'site-main' ); ?>>
 
-			
+
 				<?php
 				/**
 				 * Fires immediately before executing main loop.
@@ -29,7 +29,7 @@ get_header(); ?>
 				 * @since 1.0.0
 				 */
 				do_action( 'manta_hook_for_main_loop' );?>
-			
+
 			</main><!-- #main -->
 
 			<?php
@@ -43,7 +43,7 @@ get_header(); ?>
 		</div><!-- #primary -->
 
 		<?php get_sidebar(); ?>
-		
+
 	</div><!-- .content-sidebar-wrap -->
 
 <?php

@@ -143,7 +143,7 @@ class Manta_Featured_Post {
 	 */
 	public function modify_main_query( $query ) {
 
-		if ( $query->is_home() && $query->is_main_query() && ! $query->is_paged ) {
+		if ( $query->is_home() && $query->is_main_query() && ! $query->is_paged ) {
 			$query->query_vars['ignore_sticky_posts'] = 1;
 		}
 	}
