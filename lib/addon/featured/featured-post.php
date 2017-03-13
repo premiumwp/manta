@@ -30,13 +30,32 @@ class Manta_Featured_Post {
 	 * @var int
 	 */
 	protected $featured_post_count = 0;
+	
+	/**
+	 * Holds top three sticky posts.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @var array
+	 */
+	protected $sticky_posts = array();
 
 	/**
 	 * Constructor method.
 	 *
 	 * @since  1.0.0
 	 */
-	public function __construct() {}
+	public function __construct() {
+		
+		// Get all sticky posts.
+		$sticky = get_option( 'sticky_posts' );
+
+		// Sort the stickies with the newest ones at the top.
+		rsort( $sticky );
+
+		// Get the 3 newest stickies.
+		$this->sticky_posts = array_slice( $sticky, 0, 3 );
+	}
 
 	/**
 	 * Register hooked functions.
@@ -45,6 +64,7 @@ class Manta_Featured_Post {
 	 */
 	public static function init() {
 		add_action( 'manta_hook_on_top_of_site_content' , array( Manta_Featured_Post::get_instance(), 'render_featured_post' ) );
+		add_action( 'pre_get_posts'                     , array( Manta_Featured_Post::get_instance(), 'modify_main_query' ) );
 		add_filter( 'manta_get_attr_featured-content'   , array( Manta_Featured_Post::get_instance(), 'style_class' ) );
 	}
 
@@ -72,9 +92,8 @@ class Manta_Featured_Post {
 		}
 
 		$args = array(
-			'posts_per_page'      => 3,
 			'ignore_sticky_posts' => 1,
-			'category_name'       => 'featured',
+			'post__in'            => $this->sticky_posts,
 		);
 
 		$featured_posts = new WP_Query( $args );
@@ -112,6 +131,21 @@ class Manta_Featured_Post {
 				?>
 			</aside><!-- #featured-content --><?php
 		endif;
+	}
+
+	/**
+	 * Modify main query.
+	 *
+	 * Modify main query to prevent showing sticky posts at the top. The 'sticky posts' will
+	 * still show in their natural position (e.g. by date)
+	 *
+	 * @since  1.0.0
+	 */
+	public function modify_main_query( $query ) {
+
+		if ( $query->is_home() && $query->is_main_query() && ! $query->is_paged ) {
+			$query->query_vars['ignore_sticky_posts'] = 1;
+		}
 	}
 
 	/**
