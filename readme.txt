@@ -63,7 +63,7 @@ normalize.css, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal
 Licenses: [MIT](http://opensource.org/licenses/MIT)
 Source:  http://github.com/necolas/normalize.css
 
-Font Awesome icons, Copyright Dave Gandy
+Font Awesome SVG icons, Copyright Dave Gandy
 License: SIL Open Font License, version 1.1.
 Source: http://fontawesome.io/
 
