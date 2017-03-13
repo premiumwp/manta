@@ -7,7 +7,7 @@
  */
 
 ?>
-<nav id="main-navigation" aria-label="Primary Menu" role="navigation"<?php manta_attr( 'main-navigation' );?>>
+<nav id="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'manta' ); ?>" role="navigation"<?php manta_attr( 'main-navigation' );?>>
 	<h2 class="screen-reader-text"><?php printf( __( 'Main Navigation', 'manta' ) );?></h2>
 	<button aria-controls="primary-menu" aria-expanded="false"<?php manta_attr( 'menu-toggle' );?>>
 		<?php
