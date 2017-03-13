@@ -63,7 +63,6 @@ function manta_setup() {
 
 	// Allows the use of valid HTML5 markup.
 	add_theme_support( 'html5', array(
-		'search-form',
 		'comment-form',
 		'comment-list',
 		'gallery',
