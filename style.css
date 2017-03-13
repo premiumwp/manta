@@ -481,6 +481,23 @@ input[type='search']::-webkit-search-results-button {
 	display: none;
 }
 
+.post-password-form {
+	margin-bottom: 1.75em;
+}
+
+.post-password-form label {
+	display: block;
+	margin-bottom: 1.75em;
+}
+
+.post-password-form input[type="password"] {
+	margin-top: 0.4375em;
+}
+
+.post-password-form > :last-child {
+	margin-bottom: 0;
+}
+
 /**
  * 2.5 Tables
  */
