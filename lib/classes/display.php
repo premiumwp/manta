@@ -296,7 +296,7 @@ class Manta_Display {
 	public static function entry_title() {
 		get_template_part( 'template-parts/entry/title' );
 	}
-	
+
 	/**
 	 * Include attachment image display template.
 	 *
