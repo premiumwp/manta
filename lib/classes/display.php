@@ -45,6 +45,7 @@ class Manta_Display {
 		add_action( 'manta_hook_for_main_loop'        , array( __CLASS__, 'loop' ), 15 );
 		add_action( 'manta_hook_for_entry_header'     , array( __CLASS__, 'entry_title' ) );
 		add_action( 'manta_hook_for_entry_header'     , array( __CLASS__, 'entry_meta' ) );
+		add_action( 'manta_hook_for_entry_content'    , array( __CLASS__, 'entry_attachment' ) );
 		add_action( 'manta_hook_for_entry_content'    , array( __CLASS__, 'entry_content' ) );
 		add_action( 'manta_hook_bottom_of_entry'      , array( __CLASS__, 'entry_footer' ) );
 
@@ -294,6 +295,17 @@ class Manta_Display {
 	 */
 	public static function entry_title() {
 		get_template_part( 'template-parts/entry/title' );
+	}
+	
+	/**
+	 * Include attachment image display template.
+	 *
+	 * @since  1.0.0
+	 */
+	public static function entry_attachment() {
+		if ( is_attachment() && wp_attachment_is_image() ) {
+			get_template_part( 'template-parts/entry/attachment' );
+		}
 	}
 
 	/**
