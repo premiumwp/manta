@@ -30,7 +30,7 @@ class Manta_Featured_Post {
 	 * @var int
 	 */
 	protected $featured_post_count = 0;
-	
+
 	/**
 	 * Holds top three sticky posts.
 	 *
@@ -46,7 +46,7 @@ class Manta_Featured_Post {
 	 * @since  1.0.0
 	 */
 	public function __construct() {
-		
+
 		// Get all sticky posts.
 		$sticky = get_option( 'sticky_posts' );
 
@@ -109,7 +109,7 @@ class Manta_Featured_Post {
 					} elseif ( $featured_posts->post_count > 1 ) {
 						$thumbnail_url = get_the_post_thumbnail_url( $featured_posts->post->ID, 'post-thumbnail' );
 					}
-					
+
 					$thumb_style = '';
 					if ( $thumbnail_url ) {
 						$thumb_style = sprintf( ' style="background-image: url(%s)"', esc_url( $thumbnail_url ) );
@@ -139,6 +139,7 @@ class Manta_Featured_Post {
 	 * Modify main query to prevent showing sticky posts at the top. The 'sticky posts' will
 	 * still show in their natural position (e.g. by date)
 	 *
+	 * @param object $query The WP_Query instance (passed by reference).
 	 * @since  1.0.0
 	 */
 	public function modify_main_query( $query ) {
