@@ -18,7 +18,7 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 			<?php if ( $manta_copyright_info ) : ?>
 				<p><?php echo implode( '<br/>', array_map( 'esc_textarea', explode( "\n", $manta_copyright_info ) ) ); ?></p>
 			<?php else : ?>
-				<p><?php bloginfo(); ?> &copy; <?php the_date( 'Y' ); ?> . <?php _e( 'All Rights Reserved', 'manta' ); ?></p>
+				<p><?php bloginfo(); ?> &copy; <?php echo date_i18n( __( 'Y', 'manta' ) ); ?> . <?php _e( 'All Rights Reserved', 'manta' ); ?></p>
 			<?php endif; ?>
 		</div><!-- .copyright-text -->
 
