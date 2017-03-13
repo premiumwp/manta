@@ -2060,8 +2060,7 @@ p.link-more {
  */
 
 .comment-respond,
-.entry-comments,
-.pingback {
+.entry-comments {
 	font-size: 16px;
 	margin-bottom: 5%;
 	padding: 30px;
@@ -2078,7 +2077,8 @@ p.link-more {
 	list-style: none;
 }
 
-.comment-inner {
+.comment-inner,
+.pingback {
 	padding-top: 40px;
 }
 
@@ -2159,8 +2159,7 @@ p.link-more {
 
 @media only screen and (min-width: 1024px) {
 	.comment-respond,
-	.entry-comments,
-	.pingback {
+	.entry-comments {
 		margin-bottom: 40px;
 		padding: 60px;
 	}
