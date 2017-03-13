@@ -2,6 +2,7 @@
 /**
  * The template for displaying image attachments
  *
+ * @package Manta
  * @since 1.0
  */
 
