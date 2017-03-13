@@ -219,6 +219,8 @@ input[type='search'] {
 .main-navigation:after,
 .post-navigation:after,
 .site-content:after,
+.entry-content:after,
+.entry-comments:after,
 .widget .search-form:after,
 .featured-content:after,
 .featured-posts:after {
@@ -800,19 +802,18 @@ td {
 .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 13px;
+	margin: 13px 13px 13px 0;
 }
 
 .alignright {
 	display: inline;
 	float: right;
-	margin-left: 13px;
+	margin: 13px 0 13px 13px;
 }
 
 .aligncenter {
 	display: block;
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0 auto 26px;
 }
 
 .alignnone {
@@ -2021,8 +2022,7 @@ p.link-more {
 
 .avatar {
 	display: block;
-	margin: 0 auto;
-	border-radius: 100%;
+	margin: 0 auto 13px;
 }
 
 .author-title {
@@ -2033,9 +2033,7 @@ p.link-more {
 @media only screen and (min-width: 860px) {
 	.avatar {
 		float: left;
-		width: 60px;
-		height: auto;
-		margin-right: 13px;
+		margin-right: 26px;
 		margin-bottom: 0;
 	}
 
@@ -2045,6 +2043,12 @@ p.link-more {
 
 	.author-bio {
 		clear: both;
+	}
+	
+	.author-description {
+		overflow: hidden;
+		position: relative;
+		top: -6px;
 	}
 }
 
