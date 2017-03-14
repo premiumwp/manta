@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, flexible-header, accessibility-ready, custom-background, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 == Description ==
-Welcome to Manta, a minimal, lightweight and mobile first theme created for WordPress without compromising standards. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
+Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
 
 == Installation ==
 
@@ -22,7 +22,7 @@ Welcome to Manta, a minimal, lightweight and mobile first theme created for Word
 
 == Usage Instructions ==
 
-1. To display featured post(s) on the homepage first create a category called "Featured" and then assign the specific post(s) you want to featured to the "Featured" category. You can display up to three featured posts.
+1. To display a featured post(s) on the homepage select the check box "Stick this post the front page" in the Publish panel (under Visability). You can display up to three featured posts on the homepage.
 2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see the available layout options in the customizer and individual page layout option.    
 
 == Copyright ==
