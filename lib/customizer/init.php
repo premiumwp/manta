@@ -40,7 +40,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	 * @access public
 	 * @var    array
 	 */
-	public $customize_controls;
+	public $customizer_controls;
 
 	/**
 	 * Hold theme customizer sections details.
@@ -52,14 +52,24 @@ class Manta_Customizer extends Manta_Sanitization {
 	public $customizer_sections;
 
 	/**
+	 * Hold theme customizer panels details.
+	 *
+	 * @since  1.1
+	 * @access public
+	 * @var    array
+	 */
+	public $customizer_panels;
+
+	/**
 	 * Constructor method.
 	 *
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		$this->defaults = manta_get_theme_defaults( 'all' );
+		$this->defaults            = manta_get_theme_defaults( 'all' );
+		$this->customizer_panels   = Manta_Customizer_Data::get_theme_panels();
 		$this->customizer_sections = Manta_Customizer_Data::get_theme_sections();
-		$this->customize_controls = Manta_Customizer_Data::get_theme_controls();
+		$this->customizer_controls  = Manta_Customizer_Data::get_theme_controls();
 	}
 
 	/**
@@ -74,32 +84,49 @@ class Manta_Customizer extends Manta_Sanitization {
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-		$wp_customize->add_panel(
-			'manta_theme_panel' , array(
-				'title'       => __( 'Theme Options', 'manta' ),
-				'priority'    => 6,
-				'description' => __( 'Options to customize site header structure and elements', 'manta' ),
-			)
-		);
-
-		foreach ( $this->customizer_sections as $key => $value ) {
-			$wp_customize->add_section( $key, $value );
+		foreach ( $this->customizer_panels as $id => $args ) {
+			$wp_customize->add_panel( $id, $args );
 		}
 
-		foreach ( $this->customize_controls as $customize_control ) {
-			$wp_customize->add_setting(
-				$customize_control['settings'], array(
-					'default'           => $this->defaults[ $customize_control['settings'] ],
-					'sanitize_callback' => array( $this, 'sanitization' ),
-					'transport'         => ( isset( $customize_control['transport'] ) && 'postMessage' === $customize_control['transport'] ) ? 'postMessage':'refresh',
-				)
-			);
+		foreach ( $this->customizer_sections as $id => $args ) {
+			$wp_customize->add_section( $id, $args );
+		}
 
-			if ( isset( $customize_control['transport'] ) ) {
-				unset( $customize_control['transport'] );
+		foreach ( $this->customizer_controls as $customizer_control ) {
+			$wp_customize->add_setting( $customizer_control['settings'], array(
+				'default'           => $this->defaults[ $customizer_control['settings'] ],
+				'sanitize_callback' => array( $this, 'sanitization' ),
+				'transport'         => ( isset( $customizer_control['transport'] ) && 'postMessage' === $customizer_control['transport'] ) ? 'postMessage':'refresh',
+			) );
+
+			if ( isset( $customizer_control['transport'] ) ) {
+				unset( $customizer_control['transport'] );
 			}
 
-			$wp_customize->add_control( $customize_control['settings'], $customize_control );
+			// Check if custom control class is available.
+			if ( isset( $customizer_control['control_class'] ) ) {
+
+				$class = $customizer_control['control_class'];
+				unset( $customizer_control['control_class'] );
+
+				// Include required custom control class.
+				if( isset( $customizer_control['control_url'] ) ) {
+					$url = apply_filters( 'manta_custom_control_class', sprintf( '/lib/customizer/controls/%s.php', $customizer_control['control_url'] ), $class );
+					require_once( get_parent_theme_file_path( $url ) );
+					unset( $customizer_control['control_url'] );
+				}
+
+				// Are we using underscores js template for control rendering?
+				if ( isset( $customizer_control['js_template'] ) ) {
+					$wp_customize->register_control_type( $class );
+					unset( $customizer_control['js_template'] );
+				}
+
+				$wp_customize->add_control( new $class( $wp_customize, $customizer_control['settings'], $customizer_control ) );
+			} else {
+
+				$wp_customize->add_control( $customizer_control['settings'], $customizer_control );
+			}
 		}
 	}
 
@@ -132,6 +159,33 @@ class Manta_Customizer extends Manta_Sanitization {
 	}
 
 	/**
+	 * Binds JS handlers to make theme Customizer control section reload changes asynchronously.
+	 *
+	 * @since 1.1
+	 */
+	public function customize_control_js() {
+		wp_enqueue_script(
+			'manta_customizer_control',
+			get_template_directory_uri() . '/assets/js/customize-control.js',
+			array( 'customize-controls', 'jquery' ),
+			'1.0.0',
+			true
+		);
+	}
+
+	/**
+	 * Enqueue customizer control CSS file.
+	 *
+	 * @since 1.1
+	 */
+	public function customize_control_css() {
+		wp_enqueue_style(
+			'manta_customizer_control_style',
+			get_template_directory_uri() . '/assets/css/customize-control.css'
+		);
+	}
+
+	/**
 	 * Returns the instance.
 	 *
 	 * @since  1.0.0
@@ -144,5 +198,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	}
 }
 
-add_action( 'customize_register'     , array( Manta_Customizer::getInstance(), 'customize_register' ) );
-add_action( 'customize_preview_init' , array( Manta_Customizer::getInstance(), 'customize_preview_js' ) );
+add_action( 'customize_register'                 , array( Manta_Customizer::getInstance(), 'customize_register' ) );
+add_action( 'customize_preview_init'             , array( Manta_Customizer::getInstance(), 'customize_preview_js' ) );
+add_action( 'customize_controls_enqueue_scripts' , array( Manta_Customizer::getInstance(), 'customize_control_js' ) );
+add_action( 'customize_controls_enqueue_scripts' , array( Manta_Customizer::getInstance(), 'customize_control_css' ) );

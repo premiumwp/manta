@@ -23,9 +23,35 @@ class Manta_Customizer_Data {
 	private function __construct() {}
 
 	/**
+	 * Set theme customizer panels.
+	 *
+	 * @since 1.1
+	 *
+	 * @return array Returns array of default theme customizer panels.
+	 */
+	public static function get_theme_panels() {
+		/**
+		 * Filter theme customizer panels array.
+		 *
+		 * @since 1.1
+		 */
+		$manta_panels = apply_filters(
+			'manta_theme_panels', array(
+				'manta_theme_panel' => array(
+					'title'       => __( 'Theme Options', 'manta' ),
+					'priority'    => 6,
+					'description' => __( 'Options to customize site header structure and elements', 'manta' ),
+				)
+			)
+		);
+
+		return $manta_panels;
+	}
+
+	/**
 	 * Set theme customizer sections.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1
 	 *
 	 * @return array Returns array of default theme customizer sections.
 	 */
@@ -54,6 +80,7 @@ class Manta_Customizer_Data {
 				),
 			)
 		);
+
 		return $manta_sections;
 	}
 
