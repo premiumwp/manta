@@ -1,13 +1,13 @@
 <?php
 /**
- * Facilitate adding and filtering attributes to html elements
+ * Facilitate adding and filtering html elements or attributes to html elements
  *
  * This file incorporates code from Stargazer WordPress Theme,
  * Copyright (c) 2013 - 2016, Justin Tadlock http://themehybrid.com/themes/stargazer.
  * Stargazer WordPress Theme is distributed under the terms of the GNU GPL.
  *
  * @package Manta
- * @since 1.0.0
+ * @since 1.1
  */
 
 /**
@@ -52,4 +52,30 @@ function manta_get_attr( $slug, $attr = array() ) {
 	}
 
 	return $out;
+}
+
+/**
+ * Output a font icon.
+ *
+ * @since 1.1
+ *
+ * @param array $args Parameters needed to display a font icon.
+ */
+function manta_icon( $args = array() ) {
+	$icon_markup = manta_get_icon( $args );
+	if ( $icon_markup ) {
+		echo $icon_markup;
+	}
+}
+
+/**
+ * Gets a font icon markup.
+ *
+ * @since 1.1
+ *
+ * @param array $args Parameters needed to display a font icon.
+ * @return string Icon markup
+ */
+function manta_get_icon( $args = array() ) {
+	return apply_filters( 'manta_get_icon', '', $args );
 }

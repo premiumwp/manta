@@ -147,18 +147,17 @@ function manta_setup() {
 	 *
 	 * @since 1.0.0
 	 */
-	$manta_theme_support = apply_filters( 'manta_theme_support', array( 'schema', 'featured' ) );
+	$manta_theme_support = apply_filters( 'manta_theme_support', array( 'schema', 'featured', 'fonticons' ) );
 	foreach ( $manta_theme_support as $support ) {
 		// Custom addon support for manta theme.
 		add_theme_support( "manta_{$support}" );
 	}
 
 	// Load theme specific functions files.
-	require_once( get_parent_theme_file_path( '/lib/functions/attr.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/functions/markup.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/defaults.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/header-style.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/inline-css.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/functions/icons.php' ) );
 
 	// Load theme specific classes files.
 	require_once( get_parent_theme_file_path( '/lib/classes/plugin-support.php' ) );
@@ -172,8 +171,9 @@ function manta_setup() {
 	require_once( get_parent_theme_file_path( '/lib/customizer/sanitization.php' ) );
 
 	// Load theme features files.
-	require_if_theme_supports( 'manta_schema'  , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );
-	require_if_theme_supports( 'manta_featured', get_parent_theme_file_path( '/lib/addon/featured/featured-post.php' ) );
+	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );
+	require_if_theme_supports( 'manta_featured' , get_parent_theme_file_path( '/lib/addon/featured/featured-post.php' ) );
+	require_if_theme_supports( 'manta_fonticons', get_parent_theme_file_path( '/lib/addon/fonticons/svg-icons.php' ) );
 
 	// Load theme customizer initiation file at last.
 	require_once( get_parent_theme_file_path( '/lib/customizer/init.php' ) );
