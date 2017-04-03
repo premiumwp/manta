@@ -50,11 +50,13 @@ class Manta_Featured_Post {
 		// Get all sticky posts.
 		$sticky = get_option( 'sticky_posts' );
 
-		// Sort the stickies with the newest ones at the top.
-		rsort( $sticky );
+		if( $sticky ) {
+			// Sort the stickies with the newest ones at the top.
+			rsort( $sticky );
 
-		// Get the 3 newest stickies.
-		$this->sticky_posts = array_slice( $sticky, 0, 3 );
+			// Get the 3 newest stickies.
+			$this->sticky_posts = array_slice( $sticky, 0, 3 );
+		}
 	}
 
 	/**
@@ -87,7 +89,7 @@ class Manta_Featured_Post {
 	 */
 	public function render_featured_post() {
 
-		if ( ! is_home() ) {
+		if ( ! is_home() || ! $this->sticky_posts ) {
 			return;
 		}
 
