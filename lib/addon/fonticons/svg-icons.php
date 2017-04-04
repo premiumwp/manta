@@ -15,7 +15,12 @@
  */
 function manta_include_svg_icons() {
 	// Define SVG sprite file.
-	$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons.svg' );
+	$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons-bare.svg' );
+
+	// Load extra svg images for social menu.
+	if ( has_nav_menu( 'social' ) ) {
+		$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons.svg' );
+	}
 
 	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
@@ -118,6 +123,48 @@ function manta_get_svg( $svg, $args = array() ) {
 	return $svg;
 }
 add_filter( 'manta_get_icon', 'manta_get_svg', 10, 2 );
+
+/**
+ * Check for social menu in class-wp-nav-menu-widget.
+ *
+ * Check for social menu in widget and return appropriate social nav menu args.
+ *
+ * @since 1.1
+ *
+ * @param array    $nav_menu_args {
+ *     An array of arguments passed to wp_nav_menu() to retrieve a custom menu.
+ *
+ *     @type callable|bool $fallback_cb Callback to fire if the menu doesn't exist. Default empty.
+ *     @type mixed         $menu        Menu ID, slug, or name.
+ * }
+ * @param stdClass $nav_menu      Nav menu object for the current menu.
+ * @param array    $args          Display arguments for the current widget.
+ * @param array    $instance      Array of settings for the current widget.
+ * @return array $nav_menu_args.
+ */
+function manta_social_menu_widget( $nav_menu_args, $nav_menu, $args, $instance ) {
+
+	$menu_arr = get_nav_menu_locations();
+
+	if ( isset( $menu_arr['social'] ) && $menu_arr['social'] === $instance['nav_menu'] ) {
+
+		$nav_menu_args = array(
+			'depth'          => 1,
+			'theme_location' => 'social',
+			'menu_id'        => 'social-nav',
+			'menu_class'     => 'social-icons-menu',
+			'container'      => false,
+			'link_before'    => '<span class="screen-reader-text" itemprop="name">',
+			'link_after'     => '</span>',
+			'items_wrap'     => '<nav id="social-menu" role="navigation" aria-label="Social Menu"' . manta_get_attr( 'social-menu' ) . '><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
+		);
+
+	}
+
+	return $nav_menu_args;
+
+}
+add_filter( 'widget_nav_menu_args', 'manta_social_menu_widget', 10, 4 );
 
 /**
  * Display SVG icons in social links menu.

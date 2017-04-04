@@ -329,7 +329,7 @@ function manta_scripts() {
 		$manta_l10n = array(
 			'expand'   => __( 'Expand child menu', 'manta' ),
 			'collapse' => __( 'Collapse child menu', 'manta' ),
-			'icon'     => manta_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) ),
+			'icon'     => manta_get_icon( array( 'icon' => 'angle-down', 'fallback' => true ) ),
 		);
 		wp_enqueue_script( 'manta-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'manta-navigation', 'mantaScreenReaderText', $manta_l10n );
