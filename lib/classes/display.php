@@ -205,7 +205,7 @@ class Manta_Display {
 	 */
 	public static function sticky_icon() {
 		if ( is_sticky() && is_home() ) {
-			manta_svg( array( 'icon' => 'thumb-tack' ) );
+			manta_icon( array( 'icon' => 'thumb-tack' ) );
 		}
 	}
 

@@ -11,7 +11,7 @@
 	<h2 class="screen-reader-text"><?php printf( __( 'Main Navigation', 'manta' ) );?></h2>
 	<button aria-controls="primary-menu" aria-expanded="false"<?php manta_attr( 'menu-toggle' );?>>
 		<?php
-		manta_svg( array( 'icon' => 'bars' ) );
+		manta_icon( array( 'icon' => 'bars' ) );
 		_e( 'Menu', 'manta' );
 		?>
 	</button>

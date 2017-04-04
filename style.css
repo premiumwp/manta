@@ -35,25 +35,23 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
  *	 3.2 Captions
  *	 3.3 Media Elements
  *   3.4 Gallery
- * 4.0  Font Icons
- * 5.0  Alignment
- * 6.0  Widgets
- * 7.0  Navigation
- *	 7.1 Menu and sub-menu toggle buttons
- *	 7.2 Header and Primary drop-down menu
- *	 7.3 Footer specific menu
- *	 7.4 Post pagination and navigation
- * 8.0  Colors
- * 9.0  Site Layout & Structure
- *	 9.1 Site Header
- *	 9.2 Featured Post
- *	 9.3 Site Content
- *	 9.4 Author
- *	 9.5 Comments
- *	 9.6 Footer Widgets
- *	 9.7 Site Footer
- * 10.0 SVG Fallbacks
- * 11.0 Infinite scroll
+ * 4.0  Alignment
+ * 5.0  Widgets
+ * 6.0  Navigation
+ *	 6.1 Menu and sub-menu toggle buttons
+ *	 6.2 Header and Primary drop-down menu
+ *	 6.3 Footer specific menu
+ *	 6.4 Post pagination and navigation
+ * 7.0  Colors
+ * 8.0  Site Layout & Structure
+ *	 8.1 Site Header
+ *	 8.2 Featured Post
+ *	 8.3 Site Content
+ *	 8.4 Author
+ *	 8.5 Comments
+ *	 8.6 Footer Widgets
+ *	 8.7 Site Footer
+ * 9.0 Infinite scroll
  */
 
 /**
@@ -783,20 +781,7 @@ td {
 }
 
 /**
- * 4.0 Font icon
- */
-
-.icon {
-	position: relative; /* Align more nicely with capital letters */
-	top: -0.0625em;
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	vertical-align: middle;
-}
-
-/**
- * 5.0 Alignment
+ * 4.0 Alignment
  */
 
 .alignleft {
@@ -821,7 +806,7 @@ td {
 }
 
 /**
- * 6.0 Widgets
+ * 5.0 Widgets
  */
 
 .widget {
@@ -910,11 +895,11 @@ td {
 }
 
 /**
- * 7.0 Navigation
+ * 6.0 Navigation
  */
 
 /**
- * 7.1 Menu and sub-menu toggle buttons
+ * 6.1 Menu and sub-menu toggle buttons
  */
 
 .menu-toggle {
@@ -924,11 +909,6 @@ td {
 .toggled-on .menu-toggle {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-}
-
-.menu-toggle .icon {
-	top: -0.0825em;
-	margin-right: 5px;
 }
 
 .sub-menu-toggle {
@@ -944,23 +924,6 @@ td {
 	padding: 12px 10px;
 }
 
-.sub-menu-toggle .icon {
-	width: 24px;
-	height: 24px;
-	-webkit-transition: transform 0.25s ease-in-out;
-	    -ms-transition: transform 0.25s ease-in-out;
-	        transition: transform 0.25s ease-in-out;
-	-webkit-transform: rotate( 0 );
-	    -ms-transform: rotate( 0 );
-	        transform: rotate( 0 );
-}
-
-.sub-menu-toggle.toggled-on .icon {
-	-webkit-transform: rotate( 180deg );
-	    -ms-transform: rotate( 180deg );
-	        transform: rotate( 180deg );
-}
-
 .menu-toggle:focus,
 .menu-toggle:hover,
 .sub-menu-toggle:focus,
@@ -974,7 +937,7 @@ td {
 }
 
 /**
- * 7.2 Header and Primary drop-down menu
+ * 6.2 Header and Primary drop-down menu
  */
 
 .nav-menu,
@@ -1028,11 +991,6 @@ td {
 	margin-right: 56px;
 }
 
-.nav-menu .menu-item-has-children > a .icon,
-.nav-menu .page_item_has_children > a .icon {
-	display: none;
-}
-
 .nav-menu .sub-menu {
 	margin-left: 0.9375em;
 }
@@ -1043,7 +1001,7 @@ td {
 }
 
 /**
- * 7.3 Footer specific menu
+ * 6.3 Footer specific menu
  */
 
 .site-footer .nav-menu {
@@ -1064,7 +1022,7 @@ td {
 }
 
 /**
- * 7.4 Post pagination and navigation
+ * 6.4 Post pagination and navigation
  */
 
 .pagination {
@@ -1178,11 +1136,6 @@ td {
 		margin-right: 0;
 	}
 
-	.nav-menu .menu-item-has-children > a .icon,
-	.nav-menu .page_item_has_children > a .icon {
-		display: inline;
-	}
-
 	.nav-menu > .menu-item:first-child > a {
 		padding-left: 0;
 	}
@@ -1244,21 +1197,6 @@ td {
 		opacity: 1;
 	}
 
-	.nav-menu .sub-menu .icon {
-		position: absolute;
-		top: 50%;
-		right: 1em;
-		left: auto;
-		margin-top: -9px;
-		-webkit-transform: rotate(-90deg);
-		        transform: rotate(-90deg);
-	}
-
-	.aligned-menu .sub-menu .icon {
-		-webkit-transform: rotate(90deg);
-		        transform: rotate(90deg);
-	}
-
 	.pagination,
 	.post-navigation {
 		margin-bottom: 40px;
@@ -1271,7 +1209,7 @@ td {
 }
 
 /**
- * 8.0 Colors
+ * 7.0 Colors
  */
 
 ::-moz-placeholder {
@@ -1405,11 +1343,11 @@ input:focus[type='submit'],
 }
 
 /**
- * 9.0 Site Layout & Structure
+ * 8.0 Site Layout & Structure
  */
 
 /**
- * 9.1 Site Header
+ * 8.1 Site Header
  */
 
 .site-branding {
@@ -1553,7 +1491,7 @@ input:focus[type='submit'],
 }
 
 /**
- * 9.2 Featured post
+ * 8.2 Featured post
  */
 
 .featured-content {
@@ -1683,7 +1621,7 @@ input:focus[type='submit'],
 }
 
 /**
- * 9.3 Site Content
+ * 8.3 Site Content
  */
 
 .site-content {
@@ -1698,19 +1636,6 @@ input:focus[type='submit'],
 
 .sticky {
 	position: relative;
-}
-
-.post:not(.sticky) .icon-thumb-tack {
-	display: none;
-}
-
-.sticky .icon-thumb-tack {
-	position: absolute;
-	top: 1.5em;
-	right: 1.5em;
-	display: block;
-	width: 20px;
-	height: 20px;
 }
 
 .hentry,
@@ -2008,7 +1933,7 @@ p.link-more {
 }
 
 /**
- * 9.4 Author
+ * 8.4 Author
  */
 
 .author-info {
@@ -2060,7 +1985,7 @@ p.link-more {
 }
 
 /**
- * 9.5 Comments
+ * 8.5 Comments
  */
 
 .comment-respond,
@@ -2174,7 +2099,7 @@ p.link-more {
 }
 
 /**
- * 9.6 Footer Widgets
+ * 8.6 Footer Widgets
  */
 
 .footer-widgets .wrap {
@@ -2232,7 +2157,7 @@ p.link-more {
 }
 
 /**
- * 9.7 Site Footer
+ * 8.7 Site Footer
  */
 
 .site-footer {
@@ -2249,55 +2174,7 @@ p.link-more {
 }
 
 /**
- * 10.0 SVG Fallbacks
- */
-
-.svg-fallback {
-	display: none;
-}
-
-.no-svg .svg-fallback {
-	display: inline-block;
-}
-
-.no-svg .sub-menu-toggle {
-	right: 0;
-	width: 2em;
-	padding: 0.5em 0 0;
-	text-align: center;
-}
-
-.no-svg .sub-menu-toggle .svg-fallback.icon-angle-down {
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 1;
-	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-	        transform: rotate(180deg);
-}
-
-.no-svg .sub-menu-toggle.toggled-on .svg-fallback.icon-angle-down {
-	-webkit-transform: rotate(0); /* Chrome, Safari, Opera */
-	        transform: rotate(0);
-}
-
-.no-svg .sub-menu-toggle .svg-fallback.icon-angle-down:before {
-	content: '\005E';
-}
-
-/* Show screen reader text in some cases */
-
-.no-svg .search-submit .screen-reader-text {
-	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 400;
-	position: relative !important; /* overrides previous !important styles */
-	clip: auto;
-	width: auto;
-	height: auto;
-}
-
-/**
- * 11.0 Infinite scroll
+ * 9.0 Infinite scroll
  */
 
 .infinite-scroll .pagination,
