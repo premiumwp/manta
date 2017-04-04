@@ -28,14 +28,14 @@ class Manta_Display {
 	 */
 	public static function initiate() {
 
-		add_action( 'wp_head'                          , array( __CLASS__, 'head' ), 0 );
+		add_action( 'wp_head'                         , array( __CLASS__, 'head' ), 0 );
 
 		// Items to be displayed on site header.
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'skip_link' ), 0 );
 		add_action( 'manta_hook_for_header_items'     , array( __CLASS__, 'site_branding' ) );
 		add_action( 'manta_hook_for_header_items'     , array( __CLASS__, 'header_extra' ) );
-		add_action( 'manta_hook_for_branding'         , array( __CLASS__, 'header_logo' ) );
-		add_action( 'manta_hook_for_branding'         , array( __CLASS__, 'header_text' ) );
+		add_action( 'manta_hook_for_site_branding'    , array( __CLASS__, 'header_logo' ) );
+		add_action( 'manta_hook_for_site_branding'    , array( __CLASS__, 'header_text' ) );
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'header_items' ) );
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'custom_header' ) );
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'menu_primary' ) );
@@ -56,8 +56,8 @@ class Manta_Display {
 		add_action( 'manta_hook_bottom_of_entry'      , array( __CLASS__, 'postwrapper_close' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_author' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_navigation' ) );
-		add_action( 'get_sidebar'                      , array( __CLASS__, 'sidebar1' ) );
-		add_action( 'get_sidebar'                      , array( __CLASS__, 'sidebar2' ) );
+		add_action( 'get_sidebar'                     , array( __CLASS__, 'sidebar1' ) );
+		add_action( 'get_sidebar'                     , array( __CLASS__, 'sidebar2' ) );
 
 		// Items to be displayed in post comments section.
 		add_action( 'manta_hook_on_top_of_comments'   , array( __CLASS__, 'comment_title' ) );
@@ -102,7 +102,7 @@ class Manta_Display {
 	 * @since 1.0.0
 	 */
 	public static function site_branding() {
-		get_template_part( 'template-parts/header/branding' );
+		manta_markup( 'site-branding' );
 	}
 
 	/**
@@ -130,7 +130,7 @@ class Manta_Display {
 	 */
 	public static function header_items() {
 		if ( has_action( 'manta_hook_for_header_items' ) ) {
-			get_template_part( 'template-parts/header/items' );
+			manta_markup( 'header-items' );
 		}
 	}
 
@@ -141,7 +141,7 @@ class Manta_Display {
 	 */
 	public static function header_extra() {
 		if ( has_action( 'manta_hook_for_header_extra' ) ) {
-			get_template_part( 'template-parts/header/extra' );
+			manta_markup( 'header-extra' );
 		}
 	}
 
@@ -152,7 +152,7 @@ class Manta_Display {
 	 */
 	public static function header_widget() {
 		if ( is_active_sidebar( 'header' ) ) {
-			get_template_part( 'template-parts/header/widget' );
+			manta_markup( 'header-widget', 'dynamic_sidebar', 'header' );
 		}
 	}
 

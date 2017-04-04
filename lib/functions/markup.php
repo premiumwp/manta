@@ -11,6 +11,40 @@
  */
 
 /**
+ * Outputs an HTML element.
+ *
+ * @since  1.1
+ *
+ * @param string   $context       Markup context.
+ * @param callable $callback      Callback function to echo content inside the wrapper.
+ * @param mixed    $callback_args Callback function args.
+ * @param string   $open          Markup wrapper opening div.
+ * @param string   $close         Markup wrapper closing div.
+ * @return string HTML markup
+ */
+function manta_markup( $context = '', $callback = '', $callback_args = '', $open = '<div%s>', $close = '</div>' ) {
+
+	if ( ! $context ) {
+		return;
+	}
+
+	printf( $open, manta_get_attr( $context ) );
+
+	$hook = str_replace( '-', '_', $context );
+	do_action( "manta_hook_for_{$hook}" );
+
+	if ( ! empty( $callback ) && is_callable( $callback ) ) {
+		if ( ! empty( $callback_args ) ) {
+			call_user_func( $callback, $callback_args );
+		} else {
+			call_user_func( $callback );
+		}
+	}
+
+	echo $close;
+}
+
+/**
  * Outputs an HTML element's attributes.
  *
  * @since  1.0.0
@@ -35,7 +69,11 @@ function manta_get_attr( $slug, $attr = array() ) {
 	$out = '';
 
 	if ( ! in_array( $slug, array( 'body', 'post', 'name', 'head' ), true ) ) {
-		$attr['class'] = $slug;
+		if ( isset( $attr['class'] ) ) {
+			$attr['class'] .= ' ' . $slug;
+		} else {
+			$attr['class'] = $slug;
+		}
 	}
 
 	/**
