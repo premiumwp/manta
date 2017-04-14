@@ -25,7 +25,7 @@ class Manta_Customizer_Data {
 	/**
 	 * Set theme customizer panels.
 	 *
-	 * @since 1.1
+	 * @since 1.0.1
 	 *
 	 * @return array Returns array of default theme customizer panels.
 	 */
@@ -33,7 +33,7 @@ class Manta_Customizer_Data {
 		/**
 		 * Filter theme customizer panels array.
 		 *
-		 * @since 1.1
+		 * @since 1.0.1
 		 */
 		$manta_panels = apply_filters(
 			'manta_theme_panels', array(
@@ -51,7 +51,7 @@ class Manta_Customizer_Data {
 	/**
 	 * Set theme customizer sections.
 	 *
-	 * @since 1.1
+	 * @since 1.0.1
 	 *
 	 * @return array Returns array of default theme customizer sections.
 	 */

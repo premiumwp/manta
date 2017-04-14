@@ -7,7 +7,7 @@
  * distributed under the terms of the GNU GPL.
  *
  * @package Manta
- * @since 1.1
+ * @since 1.0.1
  */
 
 /**
@@ -129,7 +129,7 @@ add_filter( 'manta_get_icon', 'manta_get_svg', 10, 2 );
  *
  * Check for social menu in widget and return appropriate social nav menu args.
  *
- * @since 1.1
+ * @since 1.0.1
  *
  * @param array    $nav_menu_args {
  *     An array of arguments passed to wp_nav_menu() to retrieve a custom menu.

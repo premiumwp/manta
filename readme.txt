@@ -3,7 +3,7 @@
 Created by: PremiumWP
 Requires at least: WordPress 4.7
 Tested up to: WordPress 4.7
-Version: 1.0.0
+Version: 1.0.1
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later
@@ -83,3 +83,8 @@ Source: https://unsplash.com/photos/kVCRP3uiLiE
 
 = 1.0.0 - Mar 01 2017 =
 * Initial release
+
+= 1.0.1 - Apr 14 2017 =
+1. Minor theme corrections.
+2. Customizer improvements.
+3. SVG icons improvements and optimization.

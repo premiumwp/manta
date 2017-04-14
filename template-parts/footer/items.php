@@ -26,9 +26,16 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 		<div<?php manta_attr( 'site-credit' ); ?>>
 			<?php
 			printf(
+				__( 'Powered by %1$s', 'manta' ),
+				'<a href="' . esc_url( __( 'https://wordpress.org/', 'manta' ) ) . '">WordPress</a>'
+			);
+			?>
+			<span class="sep"> | </span>
+			<?php
+			printf(
 				__( 'Theme by %1$s', 'manta' ),
 				// Note: URI is escaped via `WP_Theme::markup_header()`.
-				'<a href="' . wp_get_theme( get_template() )->display( 'AuthorURI' ) . '" rel="nofollow">PremiumWP</a>'
+				'<a href="' . wp_get_theme( get_template() )->display( 'AuthorURI' ) . '" rel="designer">PremiumWP</a>'
 			);
 			?>
 		</div><!-- .site-credit -->

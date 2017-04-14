@@ -7,13 +7,13 @@
  * Stargazer WordPress Theme is distributed under the terms of the GNU GPL.
  *
  * @package Manta
- * @since 1.1
+ * @since 1.0.1
  */
 
 /**
  * Outputs an HTML element.
  *
- * @since  1.1
+ * @since  1.0.1
  *
  * @param string   $context       Markup context.
  * @param callable $callback      Callback function to echo content inside the wrapper.
@@ -95,7 +95,7 @@ function manta_get_attr( $slug, $attr = array() ) {
 /**
  * Output a font icon.
  *
- * @since 1.1
+ * @since 1.0.1
  *
  * @param array $args Parameters needed to display a font icon.
  */
@@ -109,7 +109,7 @@ function manta_icon( $args = array() ) {
 /**
  * Gets a font icon markup.
  *
- * @since 1.1
+ * @since 1.0.1
  *
  * @param array $args Parameters needed to display a font icon.
  * @return string Icon markup
