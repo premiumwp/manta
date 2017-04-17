@@ -10,8 +10,8 @@
 
 if ( is_home() && ! is_front_page() ) :?>
 
-	<header<?php manta_attr( 'page-header' ); ?>>
-		<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+	<header<?php manta_attr( 'page-header', array( 'class' => 'screen-reader-text' ) ); ?>>
+		<h1<?php manta_attr( 'page-title');?>><?php single_post_title(); ?></h1>
 	</header><!-- .page-header -->
 
 <?php

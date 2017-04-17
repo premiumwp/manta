@@ -102,8 +102,7 @@ dfn[title] {
 
 body {
 	font: 400 16px/1.625 'Noto Sans', sans-serif;
-	margin: 0;
-	padding: 2.5em;
+	margin: 1rem;
 	word-wrap: break-word;
 	color: #333;
 }

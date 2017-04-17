@@ -847,36 +847,36 @@ td {
 	margin-left: 13px;
 }
 
-.widget .search-form {
-	position: relative;
-}
-
-.widget input[type='search'].search-field {
-	width: calc(100% - 42px);
-	border-radius: 2px 0 0 2px;
-}
-
-.widget .search-submit {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	overflow: hidden;
-	width: 42px;
-	padding: 0;
-	border-left-width: 0;
-	border-radius: 0 2px 2px 0;
-}
-
 .widget_calendar table {
-	border-width: 1px;
-	border-style: solid;
+	margin: 0;
 }
 
 .widget_calendar td,
 .widget_calendar th {
+	line-height: 2.3333;
 	text-align: center;
-	border: none;
+	padding: 0;
+}
+
+.widget_calendar caption {
+	font-weight: 700;
+	margin: 0 0 1.6em;
+	letter-spacing: 0.04em;
+}
+
+.widget_calendar tbody a {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+	background-color: #333;
+	color: #fff;
+	display: block;
+	font-weight: 700;
+}
+
+.widget_calendar tbody a:hover,
+.widget_calendar tbody a:focus {
+	background-color: #707070;
+	background-color: rgba(51, 51, 51, 0.7);
+	color: #fff;
 }
 
 .widget select {
@@ -1070,6 +1070,10 @@ td {
 
 .nav-links a {
 	color: #333;
+}
+
+.page-links {
+	margin: 0 0 26px;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -1647,7 +1651,8 @@ input:focus[type='submit'],
 }
 
 .page-header,
-.post-wrapper {
+.post-wrapper,
+.page-content {
 	padding: 30px;
 }
 
@@ -1715,6 +1720,27 @@ p.link-more {
 	display: none;
 }
 
+.search-form {
+	position: relative;
+}
+
+input[type='search'].search-field {
+	width: calc(100% - 42px);
+	border-radius: 2px 0 0 2px;
+}
+
+.search-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	width: 42px;
+	padding: 0;
+	border-left-width: 0;
+	border-radius: 0 2px 2px 0;
+}
+
 @media only screen and (min-width: 640px) {
 	.entry-meta {
 		font-size: 16px;
@@ -1734,9 +1760,13 @@ p.link-more {
 		padding: 0;
 	}
 
-	.page-header,
-	.post-wrapper {
+	.post-wrapper,
+	.page-content {
 		padding: 40px 60px 60px;
+	}
+
+	.page-header {
+		padding: 40px;
 	}
 
 	.hentry,

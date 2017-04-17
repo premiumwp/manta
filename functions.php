@@ -133,7 +133,7 @@ function manta_setup() {
 			'flex-width'             => false,
 			'flex-height'            => true,
 			'header-text'            => true,
-			'default-text-color'     => '',
+			'default-text-color'     => '333',
 			'wp-head-callback'       => 'manta_header_style',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
@@ -200,12 +200,12 @@ function manta_widgets_init() {
 	$widgets = apply_filters(
 		'manta_register_sidebar', array(
 			array(
-				'name' => __( 'Sidebar-Primary', 'manta' ),
+				'name' => __( 'Primary Sidebar', 'manta' ),
 				'id' => 'sidebar-1',
 				'description' => __( 'Add widgets here to appear in your primary sidebar.', 'manta' ),
 			),
 			array(
-				'name' => __( 'Sidebar-Secondary', 'manta' ),
+				'name' => __( 'Secondary Sidebar', 'manta' ),
 				'id' => 'sidebar-2',
 				'description' => is_active_sidebar( 'sidebar-1' ) ? $secondary_sidebar_text1 : $secondary_sidebar_text2,
 			),
@@ -215,17 +215,17 @@ function manta_widgets_init() {
 				'description' => '',
 			),
 			array(
-				'name' => __( 'footer-widget-1', 'manta' ),
+				'name' => __( 'Footer Widget 1', 'manta' ),
 				'id' => 'footer-1',
 				'description' => '',
 			),
 			array(
-				'name' => __( 'footer-widget-2', 'manta' ),
+				'name' => __( 'Footer Widget 2', 'manta' ),
 				'id' => 'footer-2',
 				'description' => '',
 			),
 			array(
-				'name' => __( 'footer-widget-3', 'manta' ),
+				'name' => __( 'Footer Widget 3', 'manta' ),
 				'id' => 'footer-3',
 				'description' => '',
 			),
