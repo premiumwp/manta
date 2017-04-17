@@ -53,6 +53,10 @@ abstract class Manta_Sanitization {
 				$sanitized_value = $this->sanitize_number( $option, $setting );
 				break;
 
+			case 'range':
+				$sanitized_value = $this->sanitize_number( $option, $setting );
+				break;
+
 			case 'text':
 				$sanitized_value = $this->sanitize_text( $option );
 				break;
@@ -65,8 +69,12 @@ abstract class Manta_Sanitization {
 				$sanitized_value = $this->sanitize_url( $option );
 				break;
 
+			case 'color':
+				$sanitized_value = $this->sanitize_color( $option );
+				break;
+
 			default:
-				$sanitized_value = $settings->default;
+				$sanitized_value = $setting->default;
 				break;
 		}
 		return $sanitized_value;
@@ -85,6 +93,8 @@ abstract class Manta_Sanitization {
 	private function sanitize_select( $option, $setting ) {
 		$choices = $setting->manager->get_control( $setting->id )->choices;
 		if ( array_key_exists( $option, $choices ) ) :
+			return $option;
+		elseif ( in_array( $option, $choices, true ) ) :
 			return $option;
 		else :
 			return $setting->default;
@@ -131,7 +141,7 @@ abstract class Manta_Sanitization {
 	}
 
 	/**
-	 * Sanitize and Validate excerpt length
+	 * Sanitize and Validate number
 	 *
 	 * @since 1.0.0
 	 * @access private
@@ -141,12 +151,27 @@ abstract class Manta_Sanitization {
 	 * @return integer
 	 */
 	private function sanitize_number( $option, $setting ) {
-		$option = absint( $option );
-		if ( $option ) :
+		$attr = $setting->manager->get_control( $setting->id )->input_attrs;
+		$option = abs( $option );
+		if ( isset( $attr['max'] ) ) {
+			$option = $option > $attr['max'] ? $attr['max'] : $option;
+		}
+
+		if ( isset( $attr['min'] ) ) {
+			$option = $option < $attr['min'] ? $attr['min'] : $option;
+		}
+
+		if ( isset( $attr['step'] ) && is_float( $attr['step'] ) ) {
+			$option = abs( floatval( $option ) );
+		} else {
+			$option = absint( $option );
+		}
+
+		if ( $option ) {
 			return $option;
-		else :
-			return $setting->default;
-		endif;
+		}
+
+		return $setting->default;
 	}
 
 	/**
@@ -164,5 +189,18 @@ abstract class Manta_Sanitization {
 		else :
 			return '';
 		endif;
+	}
+
+	/**
+	 * Sanitizes a hex color.
+	 *
+	 * @since 1.0.1
+	 * @access private
+	 *
+	 * @param str $option color.
+	 * @return string|void
+	 */
+	private function sanitize_color( $option ) {
+		return sanitize_hex_color( $option );
 	}
 }
