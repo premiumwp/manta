@@ -1529,6 +1529,7 @@ a.featured-post-link {
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	left: 0;
 	width: 100%;
 	z-index: 99;
 }
@@ -1722,7 +1723,8 @@ a.featured-post-link:focus {
 	border-bottom-width: 0;
 }
 
-.thumbnails {
+.thumbnails,
+.single-thumb > img {
 	margin-bottom: 0;
 }
 
@@ -1955,17 +1957,17 @@ input[type='search'].search-field {
 	}
 
 	.content-area {
-		width: 880px;
+		width: 860px;
 	}
 
 	.primary-sidebar {
-		width: 360px;
+		width: 380px;
 	}
 
 	.sidebar-content-sidebar .content-area,
 	.sidebar-sidebar-content .content-area,
 	.content-sidebar-sidebar .content-area {
-		width: 660px;
+		width: 640px;
 	}
 }
 

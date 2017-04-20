@@ -89,7 +89,7 @@ class Manta_Featured_Post {
 	 */
 	public function render_featured_post() {
 
-		if ( ! is_home() || ! $this->sticky_posts ) {
+		if ( ! is_home() || ! $this->sticky_posts || is_paged() ) {
 			return;
 		}
 

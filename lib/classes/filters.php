@@ -182,6 +182,10 @@ class Manta_Filters {
 	 * @return string
 	 */
 	public static function background_thumbnail_image( $css ) {
+		if ( 'small' !== get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+		
 		$css .= '
 			@media only screen and (min-width: 1024px) {
 				.post-thumbnail {
@@ -211,7 +215,7 @@ class Manta_Filters {
 			
 			@media only screen and (min-width: 1200px) {
 				.post-thumbnail {
-					width: 200px;
+					width: 250px;
 					height: 200px;
 				}
 			}
