@@ -15,7 +15,7 @@
 
 	<header<?php manta_attr( 'entry-header' ); ?>>
 
-		<?php the_title( sprintf( '<h2%1$s><a href="%2$s" rel="bookmark">', manta_get_attr( 'entry-title' ), esc_url( get_permalink() ) ), '</a></h2>' );?>
+		<?php the_title( sprintf( '<h2%1$s>', manta_get_attr( 'entry-title' ) ), '</h2>' );?>
 
 	</header><!-- .entry-header -->
 

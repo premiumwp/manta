@@ -600,9 +600,6 @@ td {
 .wp-caption {
 	max-width: 100%;
 	margin-bottom: 1.625rem;
-	padding: 2px;
-	border-width: 1px;
-	border-style: solid;
 }
 
 .wp-caption img[class*='wp-image-'],
@@ -1064,8 +1061,13 @@ td {
 }
 
 .meta-nav {
-	font-size: 16px;
+	background: transparent;
+	color: #666666;
 	display: block;
+	font-size: 0.6875rem;
+	letter-spacing: 0.1818em;
+	margin-bottom: 0.875rem;
+	text-transform: uppercase;
 }
 
 .nav-links a {
@@ -1312,8 +1314,7 @@ input:focus[type='submit'],
 .entry-meta > span,
 .entry-footer,
 .comment-header,
-.site-footer,
-.wp-caption {
+.site-footer {
 	border-color: #e6e6e6;
 }
 
@@ -1498,12 +1499,9 @@ input:focus[type='submit'],
  * 8.2 Featured post
  */
 
-.featured-content {
-	margin-bottom: 5%;
-}
-
 .featured-posts {
-	margin: 0;
+	position: relative;
+	margin-bottom: 5%;
 	padding: 50% 3% 3%;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -1527,12 +1525,23 @@ input:focus[type='submit'],
 	margin-bottom: 0;
 }
 
-@media only screen and (min-width: 860px) {
-	.featured-content {
-		margin-bottom: 40px;
-	}
+a.featured-post-link {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+}
 
+a.featured-post-link:hover,
+a.featured-post-link:focus {
+	border-bottom-width: 0;
+	background-color: rgba( 255, 255, 255, 0.2 );
+}
+
+@media only screen and (min-width: 860px) {
 	.featured-posts {
+		margin-bottom: 40px;
 		padding: 10% 0 5%;
 	}
 
@@ -1544,6 +1553,14 @@ input:focus[type='submit'],
 }
 
 @media only screen and (min-width: 1024px) {
+	.featured-posts {
+		margin-bottom: 0;
+	}
+
+	.featured-content {
+		margin-bottom: 40px;
+	}
+
 	.multiple-featured-posts .featured-content {
 		width: 100%;
 	}
@@ -1700,8 +1717,16 @@ input:focus[type='submit'],
 	display: none;
 }
 
+.post-thumbnail:hover,
+.post-thumbnail:focus {
+	border-bottom-width: 0;
+}
+
+.thumbnails {
+	margin-bottom: 0;
+}
+
 p.link-more {
-	line-height: 1;
 	margin-bottom: 0;
 }
 
@@ -1848,14 +1873,12 @@ input[type='search'].search-field {
 	}
 
 	.small-thumb:not(.both-sidebar) .site-main .hentry {
-		padding: 60px;
+		padding: 40px;
 	}
 
 	.small-thumb:not(.both-sidebar) .site-main .post-thumbnail {
 		display: inline-block;
 		float: left;
-		width: 31%;
-		height: auto;
 		margin-right: 30px;
 	}
 
@@ -1895,14 +1918,12 @@ input[type='search'].search-field {
 	}
 
 	.small-thumb .site-main .hentry {
-		padding: 60px;
+		padding: 40px;
 	}
 
 	.small-thumb .site-main .post-thumbnail {
 		display: inline-block;
 		float: left;
-		width: 31%;
-		height: auto;
 		margin-right: 30px;
 	}
 
@@ -1945,20 +1966,6 @@ input[type='search'].search-field {
 	.sidebar-sidebar-content .content-area,
 	.content-sidebar-sidebar .content-area {
 		width: 660px;
-	}
-
-	.small-thumb .content-area {
-		width: 940px;
-	}
-
-	.small-thumb.sidebar-content-sidebar .content-area,
-	.small-thumb.sidebar-sidebar-content .content-area,
-	.small-thumb.content-sidebar-sidebar .content-area {
-		width: 720px;
-	}
-
-	.small-thumb .primary-sidebar {
-		width: 300px;
 	}
 }
 

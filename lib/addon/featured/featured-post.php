@@ -118,12 +118,14 @@ class Manta_Featured_Post {
 					}
 				?>
 					<div<?php manta_attr( 'featured-posts' ); ?><?php echo $thumb_style; ?>>
+						<?php the_title( sprintf( '<a class="featured-post-link" href="%1$s"><span class="screen-reader-text">', esc_url( get_permalink() ) ), '</span></a>' );?>
 						<div<?php manta_attr( 'featured-wrapper' ); ?>>
 							<div<?php manta_attr( 'featured-head' ); ?>>
 								<?php apply_filters( 'manta_featured_title_text', _e( 'Featured', 'manta' ) ); ?>
 							</div><!-- .featured-head -->
 							<?php get_template_part( 'lib/addon/featured/content' );?>
 						</div><!-- .featured-wrapper -->
+						
 					</div><!-- #featured-posts -->
 				<?php
 				endwhile;
