@@ -22,7 +22,6 @@ function manta_get_theme_defaults( $option ) {
 	 * @since 1.0.0
 	 */
 	$manta_defaults = apply_filters( 'manta_theme_defaults', array(
-		'manta_logo_image'           => '',
 		'manta_header_layout'        => 'left',
 		'manta_excerpt_option'       => 'excerpt',
 		'manta_excerpt_length'       => 40,
@@ -38,5 +37,5 @@ function manta_get_theme_defaults( $option ) {
 		return $manta_defaults[ $option ];
 	}
 
-	return false;
+	return '';
 }

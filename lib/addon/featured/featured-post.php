@@ -67,6 +67,7 @@ class Manta_Featured_Post {
 	public static function init() {
 		add_action( 'manta_hook_on_top_of_site_content' , array( Manta_Featured_Post::get_instance(), 'render_featured_post' ) );
 		add_action( 'pre_get_posts'                     , array( Manta_Featured_Post::get_instance(), 'modify_main_query' ) );
+		remove_action( 'manta_hook_on_top_of_entry'     , array( 'Manta_Display', 'sticky_icon' ) );
 		add_filter( 'manta_get_attr_featured-content'   , array( Manta_Featured_Post::get_instance(), 'style_class' ) );
 	}
 
