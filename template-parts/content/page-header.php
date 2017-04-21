@@ -28,7 +28,7 @@ elseif ( is_search() ) :?>
 
 	<header<?php manta_attr( 'page-header' ); ?>>
 		<h1<?php manta_attr( 'page-title' ); ?>>
-			<?php printf( __( 'Search Results for: %s', 'manta' ), '<span>' . get_search_query() . '</span>' ); ?>
+			<?php printf( esc_html__( 'Search Results for: %s', 'manta' ), '<span>' . get_search_query() . '</span>' ); ?>
 		</h1>
 	</header><!-- .page-header -->
 

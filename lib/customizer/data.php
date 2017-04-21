@@ -38,9 +38,9 @@ class Manta_Customizer_Data {
 		$manta_panels = apply_filters(
 			'manta_theme_panels', array(
 				'manta_theme_panel' => array(
-					'title'       => __( 'Theme Options', 'manta' ),
+					'title'       => esc_html__( 'Theme Options', 'manta' ),
 					'priority'    => 6,
-					'description' => __( 'Options to customize site header structure and elements', 'manta' ),
+					'description' => esc_html__( 'Options to customize site header structure and elements', 'manta' ),
 				)
 			)
 		);
@@ -64,19 +64,19 @@ class Manta_Customizer_Data {
 		$manta_sections = apply_filters(
 			'manta_theme_sections', array(
 				'manta_content_section' => array(
-					'title'       => __( 'Post Content', 'manta' ),
+					'title'       => esc_html__( 'Post Content', 'manta' ),
 					'panel'       => 'manta_theme_panel',
-					'description' => __( 'Options to change content display', 'manta' ),
+					'description' => esc_html__( 'Options to change content display', 'manta' ),
 				),
 				'manta_layout_section'  => array(
-					'title'       => __( 'Content Layout', 'manta' ),
+					'title'       => esc_html__( 'Content Layout', 'manta' ),
 					'panel'       => 'manta_theme_panel',
-					'description' => __( 'Options to change content/sidebar display and positioning', 'manta' ),
+					'description' => esc_html__( 'Options to change content/sidebar display and positioning', 'manta' ),
 				),
 				'manta_footer_section'  => array(
-					'title'       => __( 'Site Footer', 'manta' ),
+					'title'       => esc_html__( 'Site Footer', 'manta' ),
 					'panel'       => 'manta_theme_panel',
-					'description' => __( 'Options to change footer text and navigation', 'manta' ),
+					'description' => esc_html__( 'Options to change footer text and navigation', 'manta' ),
 				),
 			)
 		);
@@ -100,35 +100,35 @@ class Manta_Customizer_Data {
 		$manta_controls = apply_filters(
 			'manta_theme_controls', array(
 				array(
-					'label'       => __( 'Header Layout', 'manta' ),
+					'label'       => esc_html__( 'Header Layout', 'manta' ),
 					'section'     => 'manta_layout_section',
 					'settings'    => 'manta_header_layout',
 					'type'        => 'select',
 					'choices'     => array(
-						'left'    => __( 'Left aligned', 'manta' ),
-						'right'   => __( 'Right aligned', 'manta' ),
-						'center'  => __( 'Center aligned', 'manta' ),
+						'left'    => esc_html__( 'Left aligned', 'manta' ),
+						'right'   => esc_html__( 'Right aligned', 'manta' ),
+						'center'  => esc_html__( 'Center aligned', 'manta' ),
 					),
 				),
 				array(
-					'label'       => __( 'Excerpt or Full Content', 'manta' ),
+					'label'       => esc_html__( 'Excerpt or Full Content', 'manta' ),
 					'section'     => 'manta_content_section',
 					'settings'    => 'manta_excerpt_option',
 					'type'        => 'select',
 					'choices'     => array(
-						'excerpt' => __( 'Excerpt', 'manta' ),
-						'content' => __( 'Full content', 'manta' ),
+						'excerpt' => esc_html__( 'Excerpt', 'manta' ),
+						'content' => esc_html__( 'Full content', 'manta' ),
 					),
 				),
 				array(
-					'label'       => __( 'Excerpt Length (from 1 to 500 words)', 'manta' ),
+					'label'       => esc_html__( 'Excerpt Length (from 1 to 500 words)', 'manta' ),
 					'section'     => 'manta_content_section',
 					'settings'    => 'manta_excerpt_length',
 					'type'        => 'number',
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
-					'label'       => __( 'Change Excerpt Read More Text', 'manta' ),
+					'label'       => esc_html__( 'Change Excerpt Read More Text', 'manta' ),
 					'section'     => 'manta_content_section',
 					'settings'    => 'manta_excerpt_teaser',
 					'type'        => 'text',
@@ -136,29 +136,29 @@ class Manta_Customizer_Data {
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
-					'label'       => __( 'Thumbnail Display Options', 'manta' ),
+					'label'       => esc_html__( 'Thumbnail Display Options', 'manta' ),
 					'section'     => 'manta_content_section',
 					'settings'    => 'manta_thumbnails_display',
 					'type'        => 'select',
 					'choices'     => array(
-						'large'   => __( 'Large thumbnails', 'manta' ),
-						'small'   => __( 'Small thumbnails', 'manta' ),
-						'none'    => __( 'Do not display thumbnails', 'manta' ),
+						'large'   => esc_html__( 'Large thumbnails', 'manta' ),
+						'small'   => esc_html__( 'Small thumbnails', 'manta' ),
+						'none'    => esc_html__( 'Do not display thumbnails', 'manta' ),
 					),
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
-					'label'       => __( 'Display Thumbnail on Single Posts', 'manta' ),
+					'label'       => esc_html__( 'Display Thumbnail on Single Posts', 'manta' ),
 					'section'     => 'manta_content_section',
 					'settings'    => 'manta_thumbnails_on_single',
-					'description' => __( 'Displays the thumbnail image on singular posts and pages', 'manta' ),
+					'description' => esc_html__( 'Displays the thumbnail image on singular posts and pages', 'manta' ),
 					'type'        => 'checkbox',
 				),
 				array(
-					'label'       => __( 'Copyright Text', 'manta' ),
+					'label'       => esc_html__( 'Copyright Text', 'manta' ),
 					'section'     => 'manta_footer_section',
 					'settings'    => 'manta_copyright',
-					'description' => __( 'Change default copyright text', 'manta' ),
+					'description' => esc_html__( 'Change default copyright text', 'manta' ),
 					'transport'   => 'postMessage',
 					'type'        => 'textarea',
 				),

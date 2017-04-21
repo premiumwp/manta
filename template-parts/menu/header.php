@@ -8,11 +8,11 @@
 
 ?>
 <nav id="header-menu" aria-label="<?php esc_attr_e( 'Header Menu', 'manta' ); ?>" role="navigation"<?php manta_attr( 'header-menu' );?>>
-	<h2 class="screen-reader-text"><?php printf( __( 'Header Menu', 'manta' ) );?></h2>
+	<h2 class="screen-reader-text"><?php printf( esc_html__( 'Header Menu', 'manta' ) );?></h2>
 	<button aria-controls="header-nav" aria-expanded="false"<?php manta_attr( 'menu-toggle' );?>>
 		<?php
 		manta_icon( array( 'icon' => 'bars' ) );
-		_e( 'Menu', 'manta' );
+		esc_html_e( 'Menu', 'manta' );
 		?>
 	</button>
 

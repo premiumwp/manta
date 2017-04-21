@@ -3,7 +3,7 @@
 Created by: PremiumWP
 Requires at least: WordPress 4.7
 Tested up to: WordPress 4.7
-Version: 1.0.1
+Version: 1.0.2
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later
@@ -88,3 +88,17 @@ Source: https://unsplash.com/photos/kVCRP3uiLiE
 1. Minor theme corrections.
 2. Customizer improvements.
 3. SVG icons improvements and optimization.
+
+= 1.0.2 - Apr 21 2017 =
+1. Removed border from image captions in post content.
+2. Create bottom margin between featured posts on smaller screens.
+3. Make entire featured posts box clickable.
+4. Reduce gap between thumbnail image and post title.
+5. Correct size for smaller thumbnails, preferbelly square thumbnails.
+6. Correct Content and sidebar size for small size thumbnails.
+7. Remove underline smaller thumbnail on hover.
+8. Read more link underline or color change on hover.
+9. Style change for Previous post/ Next post links.
+10. Fixed featured posts appear on paged archives.
+11. Change sidebar width for larger screens.
+12. Footer widget minor style correction.

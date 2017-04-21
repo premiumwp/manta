@@ -67,6 +67,7 @@ class Manta_Featured_Post {
 	public static function init() {
 		add_action( 'manta_hook_on_top_of_site_content' , array( Manta_Featured_Post::get_instance(), 'render_featured_post' ) );
 		add_action( 'pre_get_posts'                     , array( Manta_Featured_Post::get_instance(), 'modify_main_query' ) );
+		remove_action( 'manta_hook_on_top_of_entry'     , array( 'Manta_Display', 'sticky_icon' ) );
 		add_filter( 'manta_get_attr_featured-content'   , array( Manta_Featured_Post::get_instance(), 'style_class' ) );
 	}
 
@@ -89,7 +90,7 @@ class Manta_Featured_Post {
 	 */
 	public function render_featured_post() {
 
-		if ( ! is_home() || ! $this->sticky_posts ) {
+		if ( ! is_home() || ! $this->sticky_posts || is_paged() ) {
 			return;
 		}
 
@@ -118,12 +119,14 @@ class Manta_Featured_Post {
 					}
 				?>
 					<div<?php manta_attr( 'featured-posts' ); ?><?php echo $thumb_style; ?>>
+						<?php the_title( sprintf( '<a class="featured-post-link" href="%1$s"><span class="screen-reader-text">', esc_url( get_permalink() ) ), '</span></a>' );?>
 						<div<?php manta_attr( 'featured-wrapper' ); ?>>
 							<div<?php manta_attr( 'featured-head' ); ?>>
-								<?php apply_filters( 'manta_featured_title_text', _e( 'Featured', 'manta' ) ); ?>
+								<?php apply_filters( 'manta_featured_title_text', esc_html_e( 'Featured', 'manta' ) ); ?>
 							</div><!-- .featured-head -->
 							<?php get_template_part( 'lib/addon/featured/content' );?>
 						</div><!-- .featured-wrapper -->
+						
 					</div><!-- #featured-posts -->
 				<?php
 				endwhile;

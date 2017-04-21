@@ -8,7 +8,7 @@
 
 ?>
 <nav id="footer-menu" aria-label="<?php esc_attr_e( 'Footer Menu', 'manta' ); ?>" role="navigation"<?php manta_attr( 'footer-menu' );?>>
-	<h2 class="screen-reader-text"><?php printf( __( 'Footer Menu', 'manta' ) );?></h2>
+	<h2 class="screen-reader-text"><?php printf( esc_html__( 'Footer Menu', 'manta' ) );?></h2>
 	<?php
 	wp_nav_menu(
 		array(

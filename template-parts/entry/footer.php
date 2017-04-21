@@ -16,7 +16,7 @@
 		<?php if ( $categories_list ) : ?>
 			<span<?php manta_attr( 'cat-links' ) ?>>
 				<?php
-				printf( __( 'Filed Under: ', 'manta' ) );
+				printf( esc_html__( 'Filed Under: ', 'manta' ) );
 				echo $categories_list;
 				?>
 			</span>
@@ -26,7 +26,7 @@
 		<?php if ( $tags_list ) : ?>
 			<span<?php manta_attr( 'tags-links' ) ?>>
 				<?php
-				printf( __( 'Tagged With: ', 'manta' ) );
+				printf( esc_html__( 'Tagged With: ', 'manta' ) );
 				echo $tags_list;
 				?>
 			</span>
@@ -54,7 +54,7 @@
 			$manta_metadata = wp_get_attachment_metadata();
 
 			printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-				_x( 'Full size', 'Used before full size attachment link.', 'manta' ),
+				esc_html_x( 'Full size', 'Used before full size attachment link.', 'manta' ),
 				esc_url( wp_get_attachment_url() ),
 				$manta_metadata['width'],
 				$manta_metadata['height']

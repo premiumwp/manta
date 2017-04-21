@@ -31,6 +31,7 @@ class Manta_Filters {
 		add_filter( 'excerpt_length'                     , array( __CLASS__, 'change_excerpt_length' ) );
 		add_filter( 'excerpt_more'                       , array( __CLASS__, 'modify_excerpt_teaser' ) );
 		add_filter( 'wp_get_attachment_image_attributes' , array( __CLASS__, 'custom_logo_attr' ), 10, 2 );
+		add_filter( 'manta_get_inline_style'             , array( __CLASS__, 'background_thumbnail_image' ) );
 	}
 
 	/**
@@ -170,6 +171,57 @@ class Manta_Filters {
 		}
 
 		return $attr;
+	}
+	
+	/**
+	 * Set thumbnail image as background image for center cropping.
+	 *
+	 * @since 1.0.2
+	 *
+	 * @param str $css Custom inline css.
+	 * @return string
+	 */
+	public static function background_thumbnail_image( $css ) {
+		if ( 'small' !== get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+		
+		$css .= '
+			@media only screen and (min-width: 1024px) {
+				.post-thumbnail {
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: cover;
+					width: 150px;
+					height: 150px;
+				}
+				
+				.post-thumbnail:hover,
+				.post-thumbnail:focus {
+					opacity: 0.7;
+				}
+				
+				.thumbnails {
+					min-width: 100%;
+					min-height: 100%;
+					opacity: 0;
+				}
+				
+				.thumbnails:hover,
+				.thumbnails:focus {
+					opacity: 0;
+				}
+			}
+			
+			@media only screen and (min-width: 1200px) {
+				.post-thumbnail {
+					width: 250px;
+					height: 200px;
+				}
+			}
+		';
+
+		return $css;
 	}
 }
 
