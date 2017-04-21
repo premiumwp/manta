@@ -9,5 +9,5 @@
 ?>
 
 <a class="skip-link screen-reader-text" href="#content">
-	<?php _e( 'Skip to content', 'manta' ); ?>
+	<?php esc_html_e( 'Skip to content', 'manta' ); ?>
 </a><!-- .skip-link -->

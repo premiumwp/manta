@@ -20,7 +20,7 @@ $manta_author = get_comment_author();
 		<header<?php manta_attr( 'comment-header' )?>>
 
 			<?php if ( '0' === $comment->comment_approved ) : ?>
-				<em><?php printf( __( 'Your comment is awaiting moderation.', 'manta' ) );?></em><br />
+				<em><?php printf( esc_html__( 'Your comment is awaiting moderation.', 'manta' ) );?></em><br />
 			<?php endif;?>
 
 			<div<?php manta_attr( 'comment-author' ); ?>>
@@ -37,7 +37,7 @@ $manta_author = get_comment_author();
 			<div<?php manta_attr( 'comment-meta' ); ?>>
 				<time datetime="<?php echo esc_attr( get_comment_time( 'c' ) ); ?>"<?php manta_attr( 'comment-time' ); ?>>
 					<?php echo esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) );
-					printf( __( ' ago', 'manta' ) );?>
+					printf( esc_html__( ' ago', 'manta' ) );?>
 				</time>
 			</div>
 
@@ -52,7 +52,7 @@ $manta_author = get_comment_author();
 					'max_depth' => get_option( 'thread_comments_depth' ),
 				)
 			);
-			edit_comment_link( __( '(Edit)', 'manta' ) );?>
+			edit_comment_link( esc_html__( '(Edit)', 'manta' ) );?>
 		</div>
 
 	</article><!-- #comment-## -->

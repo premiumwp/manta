@@ -63,7 +63,7 @@ class Manta_Back_Compat {
 	 * @global string $wp_version WordPress version.
 	 */
 	public static function upgrade_notice() {
-		$message = sprintf( __( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] );
+		$message = sprintf( esc_html__( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] );
 		printf( '<div class="error"><p>%s</p></div>', $message ); // WPCS : XSS OK.
 	}
 
@@ -76,7 +76,7 @@ class Manta_Back_Compat {
 	 */
 	public static function customize() {
 		wp_die(
-			sprintf( __( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] ), '', array(
+			sprintf( esc_html__( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] ), '', array(
 			'back_link' => true,
 		) );
 	}
@@ -91,7 +91,7 @@ class Manta_Back_Compat {
 	public static function preview() {
 		if ( isset( $_GET['preview'] ) ) {
 			wp_die(
-			sprintf( __( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] ) );
+			sprintf( esc_html__( 'manta requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'manta' ), $GLOBALS['wp_version'] ) );
 		}
 	}
 }

@@ -85,9 +85,9 @@ function manta_setup() {
 
 	// This theme uses wp_nav_menu() in four locations.
 	register_nav_menus( array(
-		'primary'   => __( 'Primary', 'manta' ),
-		'header'    => __( 'Header', 'manta' ),
-		'footer'    => __( 'Footer', 'manta' ),
+		'primary'   => esc_html__( 'Primary', 'manta' ),
+		'header'    => esc_html__( 'Header', 'manta' ),
+		'footer'    => esc_html__( 'Footer', 'manta' ),
 	) );
 
 	/**
@@ -189,8 +189,8 @@ add_action( 'after_setup_theme' , 'manta_setup', 5 );
  */
 function manta_widgets_init() {
 
-	$secondary_sidebar_text1 = __( 'Add widgets here to appear in your secondary sidebar.', 'manta' );
-	$secondary_sidebar_text2 = __( 'Add at least one widget to primary sidebar before adding widgets here.', 'manta' );
+	$secondary_sidebar_text1 = esc_html__( 'Add widgets here to appear in your secondary sidebar.', 'manta' );
+	$secondary_sidebar_text2 = esc_html__( 'Add at least one widget to primary sidebar before adding widgets here.', 'manta' );
 
 	/**
 	 * Filter register widgets args.
@@ -200,32 +200,32 @@ function manta_widgets_init() {
 	$widgets = apply_filters(
 		'manta_register_sidebar', array(
 			array(
-				'name' => __( 'Primary Sidebar', 'manta' ),
+				'name' => esc_html__( 'Primary Sidebar', 'manta' ),
 				'id' => 'sidebar-1',
-				'description' => __( 'Add widgets here to appear in your primary sidebar.', 'manta' ),
+				'description' => esc_html__( 'Add widgets here to appear in your primary sidebar.', 'manta' ),
 			),
 			array(
-				'name' => __( 'Secondary Sidebar', 'manta' ),
+				'name' => esc_html__( 'Secondary Sidebar', 'manta' ),
 				'id' => 'sidebar-2',
 				'description' => is_active_sidebar( 'sidebar-1' ) ? $secondary_sidebar_text1 : $secondary_sidebar_text2,
 			),
 			array(
-				'name' => __( 'Header', 'manta' ),
+				'name' => esc_html__( 'Header', 'manta' ),
 				'id' => 'header',
 				'description' => '',
 			),
 			array(
-				'name' => __( 'Footer Widget 1', 'manta' ),
+				'name' => esc_html__( 'Footer Widget 1', 'manta' ),
 				'id' => 'footer-1',
 				'description' => '',
 			),
 			array(
-				'name' => __( 'Footer Widget 2', 'manta' ),
+				'name' => esc_html__( 'Footer Widget 2', 'manta' ),
 				'id' => 'footer-2',
 				'description' => '',
 			),
 			array(
-				'name' => __( 'Footer Widget 3', 'manta' ),
+				'name' => esc_html__( 'Footer Widget 3', 'manta' ),
 				'id' => 'footer-3',
 				'description' => '',
 			),
@@ -327,8 +327,8 @@ function manta_scripts() {
 	// Theme navigation.
 	if ( has_nav_menu( 'primary' ) || has_nav_menu( 'header' ) ) {
 		$manta_l10n = array(
-			'expand'   => __( 'Expand child menu', 'manta' ),
-			'collapse' => __( 'Collapse child menu', 'manta' ),
+			'expand'   => esc_html__( 'Expand child menu', 'manta' ),
+			'collapse' => esc_html__( 'Collapse child menu', 'manta' ),
 			'icon'     => manta_get_icon( array( 'icon' => 'angle-down', 'fallback' => true ) ),
 		);
 		wp_enqueue_script( 'manta-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );

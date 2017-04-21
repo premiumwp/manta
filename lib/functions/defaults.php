@@ -26,7 +26,7 @@ function manta_get_theme_defaults( $option ) {
 		'manta_header_layout'        => 'left',
 		'manta_excerpt_option'       => 'excerpt',
 		'manta_excerpt_length'       => 40,
-		'manta_excerpt_teaser'       => __( 'Read More', 'manta' ),
+		'manta_excerpt_teaser'       => esc_html__( 'Read More', 'manta' ),
 		'manta_thumbnails_display'   => 'large',
 		'manta_thumbnails_on_single' => '',
 		'manta_copyright'            => '',

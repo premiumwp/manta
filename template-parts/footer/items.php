@@ -18,7 +18,7 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 			<?php if ( $manta_copyright_info ) : ?>
 				<p><?php echo implode( '<br/>', array_map( 'esc_textarea', explode( "\n", $manta_copyright_info ) ) ); ?></p>
 			<?php else : ?>
-				<p><?php bloginfo(); ?> &copy; <?php echo date_i18n( __( 'Y', 'manta' ) ); ?> . <?php _e( 'All Rights Reserved', 'manta' ); ?></p>
+				<p><?php bloginfo(); ?> &copy; <?php echo date_i18n( __( 'Y', 'manta' ) ); ?> . <?php esc_html_e( 'All Rights Reserved', 'manta' ); ?></p>
 			<?php endif; ?>
 		</div><!-- .copyright-text -->
 
@@ -26,14 +26,14 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 		<div<?php manta_attr( 'site-credit' ); ?>>
 			<?php
 			printf(
-				__( 'Powered by %1$s', 'manta' ),
+				esc_html__( 'Powered by %1$s', 'manta' ),
 				'<a href="' . esc_url( __( 'https://wordpress.org/', 'manta' ) ) . '">WordPress</a>'
 			);
 			?>
 			<span class="sep"> | </span>
 			<?php
 			printf(
-				__( 'Theme by %1$s', 'manta' ),
+				esc_html__( 'Theme by %1$s', 'manta' ),
 				// Note: URI is escaped via `WP_Theme::markup_header()`.
 				'<a href="' . wp_get_theme( get_template() )->display( 'AuthorURI' ) . '" rel="designer">PremiumWP</a>'
 			);

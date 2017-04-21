@@ -17,7 +17,7 @@ if ( ( is_home() || is_archive() ) && 'content' !== get_theme_mod( 'manta_excerp
 	the_excerpt();
 } else {
 	the_content( sprintf(
-		__( 'Continue reading %s', 'manta' ),
+		esc_html__( 'Continue reading %s', 'manta' ),
 		the_title( '<span class="screen-reader-text">', '</span>', false )
 	) );
 
@@ -26,7 +26,7 @@ if ( ( is_home() || is_archive() ) && 'content' !== get_theme_mod( 'manta_excerp
 	 * Quicktag has been used for one or more times in a single post).
 	 */
 	wp_link_pages( array(
-		'before' => '<div' . manta_get_attr( 'page-links' ) . '>' . __( 'Pages:', 'manta' ),
+		'before' => '<div' . manta_get_attr( 'page-links' ) . '>' . esc_html__( 'Pages:', 'manta' ),
 		'after'  => '</div>',
 	) );
 }

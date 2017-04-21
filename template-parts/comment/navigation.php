@@ -11,7 +11,7 @@ $manta_next_link = get_next_comments_link();
 ?>
 
 <nav id="comment-nav" <?php manta_attr( 'comment-navigation' ); ?>>
-	<h2 class="screen-reader-text"><?php printf( __( 'Comment navigation', 'manta' ) );?></h2>
+	<h2 class="screen-reader-text"><?php printf( esc_html__( 'Comment navigation', 'manta' ) );?></h2>
 
 	<div<?php manta_attr( 'nav-links' ); ?>>
 		<?php if ( $manta_prev_link ) : ?>

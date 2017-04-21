@@ -25,12 +25,12 @@
 	?>
 
 	<div<?php manta_attr( 'author-description' ); ?>>
-		<h2<?php manta_attr( 'author-title' ); ?>><span class="screen-reader-text"><?php _e( 'Author', 'manta' ); ?></span><?php the_author(); ?></h2>
+		<h2<?php manta_attr( 'author-title' ); ?>><span class="screen-reader-text"><?php esc_html_e( 'Author', 'manta' ); ?></span><?php the_author(); ?></h2>
 
 		<p<?php manta_attr( 'author-bio' ); ?>>
 			<?php the_author_meta( 'description' ); ?>
 			<p><a<?php manta_attr( 'author-link' ); ?> href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				<?php printf( __( 'View all posts by %s', 'manta' ), get_the_author() ); ?>
+				<?php printf( esc_html__( 'View all posts by %s', 'manta' ), get_the_author() ); ?>
 			</a></p>
 		</p><!-- .author-bio -->
 	</div><!-- .author-description -->

@@ -71,7 +71,7 @@ do_action( 'manta_hook_before_comments' );?>
 
 	// If comments are closed and there are comments, let's leave a little note. ?>
 	<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-		<p<?php manta_attr( 'no-comments' ); ?>><?php _e( 'Comments are closed.', 'manta' ); ?></p>
+		<p<?php manta_attr( 'no-comments' ); ?>><?php esc_html_e( 'Comments are closed.', 'manta' ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( have_comments() ) :?>

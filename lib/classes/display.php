@@ -347,9 +347,9 @@ class Manta_Display {
 	public static function post_pagination() {
 		if ( ! is_singular() ) {
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous', 'manta' ),
-				'next_text'          => __( 'Next', 'manta' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'manta' ) . ' </span>',
+				'prev_text'          => esc_html__( 'Previous', 'manta' ),
+				'next_text'          => esc_html__( 'Next', 'manta' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'manta' ) . ' </span>',
 			) );
 		}
 	}
@@ -364,11 +364,11 @@ class Manta_Display {
 	public static function post_navigation() {
 		if ( is_singular( 'post' ) ) {
 			the_post_navigation( array(
-				'next_text' => '<span' . manta_get_attr( 'meta-nav' ) . ' aria-hidden="true">' . __( 'Next', 'manta' ) . '</span>
-					<span class="screen-reader-text">' . __( 'Next post:', 'manta' ) . '</span>
+				'next_text' => '<span' . manta_get_attr( 'meta-nav' ) . ' aria-hidden="true">' . esc_html__( 'Next', 'manta' ) . '</span>
+					<span class="screen-reader-text">' . esc_html__( 'Next post:', 'manta' ) . '</span>
 					<span' . manta_get_attr( 'post-title' ) . '>%title</span>',
-				'prev_text' => '<span' . manta_get_attr( 'meta-nav' ) . ' aria-hidden="true">' . __( 'Previous', 'manta' ) . '</span>
-					<span class="screen-reader-text">' . __( 'Previous post:', 'manta' ) . '</span>
+				'prev_text' => '<span' . manta_get_attr( 'meta-nav' ) . ' aria-hidden="true">' . esc_html__( 'Previous', 'manta' ) . '</span>
+					<span class="screen-reader-text">' . esc_html__( 'Previous post:', 'manta' ) . '</span>
 					<span' . manta_get_attr( 'post-title' ) . '>%title</span>',
 			) );
 		}

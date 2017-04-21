@@ -52,7 +52,7 @@ class Manta_Layouts {
 	 */
 	public function customizer_layout_options( $controls ) {
 		$controls[] = array(
-			'label'       => __( 'Global Content Layout', 'manta' ),
+			'label'       => esc_html__( 'Global Content Layout', 'manta' ),
 			'section'     => 'manta_layout_section',
 			'settings'    => 'manta_global_layout',
 			'type'        => 'select',
@@ -60,15 +60,15 @@ class Manta_Layouts {
 		);
 
 		$controls[] = array(
-			'label'       => __( 'Force global layout everywhere', 'manta' ),
+			'label'       => esc_html__( 'Force global layout everywhere', 'manta' ),
 			'section'     => 'manta_layout_section',
 			'settings'    => 'manta_enforce_global',
-			'description' => __( 'Override the specific layouts on all posts/pages.', 'manta' ),
+			'description' => esc_html__( 'Override the specific layouts on all posts/pages.', 'manta' ),
 			'type'        => 'checkbox',
 		);
 
 		$controls[] = array(
-			'label'       => __( 'Posts Content Layout', 'manta' ),
+			'label'       => esc_html__( 'Posts Content Layout', 'manta' ),
 			'section'     => 'manta_layout_section',
 			'settings'    => 'manta_post_layout',
 			'type'        => 'select',
@@ -76,7 +76,7 @@ class Manta_Layouts {
 		);
 
 		$controls[] = array(
-			'label'       => __( 'Pages Content Layout', 'manta' ),
+			'label'       => esc_html__( 'Pages Content Layout', 'manta' ),
 			'section'     => 'manta_layout_section',
 			'settings'    => 'manta_page_layout',
 			'type'        => 'select',
@@ -95,8 +95,8 @@ class Manta_Layouts {
 	 */
 	public function layout_choices() {
 		$basic_layouts = array(
-			'only-content'      => __( 'Only Content (No sidebar)', 'manta' ),
-			'only-content-full' => __( 'Only Content full width', 'manta' ),
+			'only-content'      => esc_html__( 'Only Content (No sidebar)', 'manta' ),
+			'only-content-full' => esc_html__( 'Only Content full width', 'manta' ),
 		);
 
 		$two_col_layouts = array();
@@ -104,16 +104,16 @@ class Manta_Layouts {
 
 		if ( is_active_sidebar( 'sidebar-1' ) ) {
 			$two_col_layouts = array(
-				'content-sidebar' => __( 'Content-Sidebar', 'manta' ),
-				'sidebar-content' => __( 'Sidebar-Content', 'manta' ),
+				'content-sidebar' => esc_html__( 'Content-Sidebar', 'manta' ),
+				'sidebar-content' => esc_html__( 'Sidebar-Content', 'manta' ),
 			);
 		}
 
 		if ( is_active_sidebar( 'sidebar-1' ) && is_active_sidebar( 'sidebar-2' ) ) {
 			$three_col_layouts = array(
-				'content-sidebar-sidebar' => __( 'Content-Sidebar-Sidebar', 'manta' ),
-				'sidebar-sidebar-content' => __( 'Sidebar-Sidebar-Content', 'manta' ),
-				'sidebar-content-sidebar' => __( 'Sidebar-Content-Sidebar', 'manta' ),
+				'content-sidebar-sidebar' => esc_html__( 'Content-Sidebar-Sidebar', 'manta' ),
+				'sidebar-sidebar-content' => esc_html__( 'Sidebar-Sidebar-Content', 'manta' ),
+				'sidebar-content-sidebar' => esc_html__( 'Sidebar-Content-Sidebar', 'manta' ),
 			);
 		}
 
@@ -153,7 +153,7 @@ class Manta_Layouts {
 	public function add_layout_metabox() {
 		add_meta_box(
 			'manta_layout_meta',
-			__( 'Post Layout', 'manta' ),
+			esc_html__( 'Post Layout', 'manta' ),
 			array( $this, 'render_layout_metabox' ),
 			array( 'post', 'page' ),
 			'side',
@@ -182,7 +182,7 @@ class Manta_Layouts {
 			<div class="manta-layouts">
 				<label for="meta-global-layout" style="display:block;margin-bottom:10px;">
 					<input type="radio" name="manta-layout-meta" id="layout-global" value="" <?php echo $checked; // WPCS : XSS OK. ?>/>
-					<?php _e( 'Global Layout', 'manta' ); ?>
+					<?php esc_html_e( 'Global Layout', 'manta' ); ?>
 				</label>
 				<?php foreach ( $layouts as $layout => $layout_name ) { ?>
 					<label for="meta-<?php echo esc_attr( $layout ); ?>" style="display:block;margin-bottom:10px;">
