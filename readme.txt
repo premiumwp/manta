@@ -23,7 +23,7 @@ Manta is a minimal, lightweight and mobile first WordPress theme that is flexibl
 == Usage Instructions ==
 
 1. To display a featured post(s) on the homepage select the check box "Stick this post the front page" in the Publish panel (under Visability). You can display up to three featured posts on the homepage.
-2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see the available layout options in the customizer and individual page layout option.    
+2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see all the available layout options in the customizer and individual page layout option.    
 
 == Copyright ==
 
@@ -67,17 +67,23 @@ Font Awesome SVG icons, Copyright Dave Gandy
 License: SIL Open Font License, version 1.1.
 Source: http://fontawesome.io/
 
-Screenshot header image, by Lauren Mancke (https://unsplash.com/@laurenmancke)
-License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
-Source: https://unsplash.com/photos/sil2Hx4iupI
+Images Used in Screenshot
 
-Screenshot first featured post image, by Julia D'Alkmin (https://unsplash.com/@jdalkmin)
+https://unsplash.com/photos/th3rQu0K3aM
+by Averie Woodard (https://unsplash.com/@averieclaire)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
-Source: https://unsplash.com/photos/WKCjwrtjhVg
 
-Screenshot Second featured post image, by Brooke Lark (https://unsplash.com/@brookelark)
+https://unsplash.com/photos/JWiMShWiF14
+by Jeff Sheldon (https://unsplash.com/@ugmonk)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
-Source: https://unsplash.com/photos/kVCRP3uiLiE
+
+https://unsplash.com/photos/jUPOXXRNdcA
+by Brooke Lark (https://unsplash.com/@brookelark)
+License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+https://pixabay.com/en/bunting-wood-evening-fire-outdoor-1807471/
+by sasint (https://pixabay.com/en/users/sasint-3639875/)
+License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
 

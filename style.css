@@ -1,6 +1,6 @@
 /*
 Theme Name: Manta
-Theme URI: https://www.premiumwp.com/manta
+Theme URI: https://www.premiumwp.com/themes/manta/
 Author: PremiumWP
 Author URI: https://www.premiumwp.com/
 Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
@@ -1588,17 +1588,17 @@ a.featured-post-link:focus {
 	}
 
 	.two-featured .featured-posts {
-		width: 49.5%;
+		width: 49%;
 		height: 288px;
 		max-height: 288px;
-		margin-left: 1%;
+		margin-left: 2%;
 	}
 
 	.three-featured .featured-posts {
-		width: 33%;
+		width: 32.5%;
 		height: 307px;
 		max-height: 307px;
-		margin-left: 0.5%;
+		margin-left: 1.25%;
 	}
 
 	.two-featured .featured-posts:first-child,
