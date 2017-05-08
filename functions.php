@@ -264,18 +264,18 @@ function manta_font_url() {
 
 	/*
 	 * Translators: If there are characters in your language that are not supported
-	 * by Noto Sans, translate this to 'off'. Do not translate into your own language.
+	 * by Sintony, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'manta' ) ) {
-		$fonts[] = 'Noto Sans:400,600,400italic,600italic';
+	if ( 'off' !== _x( 'on', 'Sintony font: on or off', 'manta' ) ) {
+		$fonts[] = 'Sintony:400,600,400italic,600italic';
 	}
 
 	/*
 	 * Translators: If there are characters in your language that are not supported
-	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
+	 * by Archivo Narrow, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'manta' ) ) {
-		$fonts[] = 'Source Sans Pro:400,600,400italic,600italic';
+	if ( 'off' !== _x( 'on', 'Archivo Narrow font: on or off', 'manta' ) ) {
+		$fonts[] = 'Archivo Narrow:400,600,400italic,600italic';
 	}
 
 	if ( $fonts ) {

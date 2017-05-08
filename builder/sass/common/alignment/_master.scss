@@ -1,0 +1,19 @@
+/**
+ * 5.0 - Alignment
+ */
+
+.alignleft {
+	float: left;
+	margin: mrem(0.25) mrem() mrem() 0;
+}
+
+.alignright {
+	float: right;
+	margin: mrem(0.25) 0 mrem() mrem();
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto mrem();
+}

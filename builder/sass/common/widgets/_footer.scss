@@ -1,0 +1,45 @@
+/**
+ * 7.2 - Footer Widgets
+ */
+
+.footer-widgets {
+	background-color: $content__bg-color;
+}
+
+.footer-widgets .wrap {
+	@extend %structure;
+}
+
+.footer-widgets .widget {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.footer-widget:last-child .widget {
+	padding-bottom: 40px;
+}
+
+@mixin fw--md() {
+	.footer-widgets .widget {
+		padding: 40px 0 0;
+	}
+}
+
+@mixin fw--lg() {
+	.footer-widgets .wrap {
+		display: flex;
+	}
+
+	.footer-widget {
+		flex: 1;
+	}
+
+	.footer-widgets .widget {
+		margin-right: 40px;
+		padding: 40px 0;
+	}
+
+	.footer-widget:last-child .widget {
+		margin-right: 0;
+	}
+}

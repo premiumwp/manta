@@ -1,0 +1,108 @@
+/**
+ * 12.0 - Media queries
+ */
+
+// small screen size (sm)
+@media only screen and (min-width: 640px) {
+	// Typographical elements
+	@include te--sm();
+	
+	// Entry Meta
+	@include entry--sm();
+}
+
+// medium screen size (md)
+@media only screen and (min-width: 860px) {
+	// Image Gallery
+	@include gal--md();
+
+	// Footer Widgets
+	@include fw--md();
+	
+	// Structure Items
+	@include str--md();
+
+	// Featured posts
+	@include featured--md();
+	
+	// Post Author
+	@include author--md();
+	
+	// Comment form
+	@include comment--md();
+}
+
+// large scree size(lg)
+@media only screen and (min-width: 1024px) {
+	// Image Gallery
+	@include gal--lg();
+
+	// Header Widgets
+	@include hw--lg();
+	
+	// Footer Widgets
+	@include fw--lg();
+	
+	// Menu buttons
+	@include nb--lg();
+	
+	// Navigation menu
+	@include nav--lg();
+	
+	// Header menu
+	@include header-nav--lg();
+
+	// Primary menu
+	@include primary-nav--lg();
+	
+	// Structure Items
+	@include str--lg();
+	
+	// Header Items
+	@include h--lg();
+
+	// Featured posts
+	@include featured--lg();
+	
+	// Content
+	@include content--lg();
+
+	// Content Sidebar wrap
+	@include cs--lg();
+	
+	// Post entry
+	@include entry--lg();
+	
+	// Post Author
+	@include author--lg();
+}
+
+// Extra large screen size (xl)
+@media only screen and (min-width: 1200px) {
+	// Structure Items
+	@include str--xl();
+
+	// Featured posts
+	@include featured--xl();
+
+	// Content Sidebar wrap
+	@include cs--xl();
+	
+	// Post entry
+	@include entry--xl();
+	
+	// Post Author
+	@include author--xl();
+}
+
+// Very large screen size (xx)
+@media only screen and (min-width: 1340px) {
+	// Structure Items
+	@include str--xx();
+
+	// Featured posts
+	@include featured--xx();
+
+	// Content Sidebar wrap
+	@include cs--xx();
+}

@@ -1,0 +1,144 @@
+/**
+ * 7.2 Featured Posts
+ */
+
+.featured-posts {
+	position: relative;
+	margin-bottom: 40px;
+	padding: 30% 40px 40px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.featured-head {
+	display: inline-block;
+	margin-bottom: 1px;
+	padding: 0.5em 1.5em;
+	background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.featured-posts .hentry {
+	margin-bottom: 0;
+	padding: 1.5em;
+	background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+a.featured-post-link {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+a.featured-post-link:hover,
+a.featured-post-link:focus {
+	border-bottom-width: 0;
+	box-shadow: none;
+	background-color: rgba( 255, 255, 255, 0.2 );
+}
+
+@mixin featured--md() {
+	.featured-posts {
+		padding-top: 10%;
+	}
+
+	.featured-wrapper {
+		float: right;
+		width: 50%;
+	}
+
+	.featured-head {
+		padding: 0.5em 40px;
+	}
+
+	.featured-posts .hentry {
+		padding: 40px;
+	}
+}
+
+@mixin featured--lg() {
+	.featured-posts {
+		margin-bottom: 0;
+	}
+
+	.featured-content {
+		margin-bottom: 40px;
+	}
+
+	.multiple-featured-posts .featured-content {
+		width: 100%;
+	}
+
+	.multiple-featured-posts .featured-posts {
+		position: relative;
+		display: block;
+		float: left;
+		padding: 0;
+	}
+
+	.multiple-featured-posts .featured-wrapper {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		float: none;
+		width: 100%;
+		margin-right: 0;
+	}
+
+	.multiple-featured-posts .featured-head {
+		display: none;
+	}
+
+	.two-featured .featured-posts {
+		width: 49%;
+		height: 288px;
+		max-height: 288px;
+		margin-left: 2%;
+	}
+
+	.three-featured .featured-posts {
+		width: 32.5%;
+		height: 307px;
+		max-height: 307px;
+		margin-left: 1.25%;
+	}
+
+	.two-featured .featured-posts:first-child,
+	.three-featured .featured-posts:first-child {
+		margin-left: 0;
+	}
+
+	.three-featured .entry-title {
+		font-size: 30px;
+		line-height: 1.2;
+		min-height: 72px;
+	}
+}
+
+@mixin featured--xl() {
+	.two-featured .featured-posts {
+		height: 345px;
+		max-height: 345px;
+	}
+
+	.three-featured .featured-posts {
+		height: 365px;
+		max-height: 365px;
+	}
+}
+
+@mixin featured--xx() {
+	.two-featured .featured-posts {
+		height: 385px;
+		max-height: 385px;
+	}
+
+	.three-featured .featured-posts {
+		height: 410px;
+		max-height: 410px;
+	}
+}

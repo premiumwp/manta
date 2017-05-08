@@ -1,0 +1,40 @@
+/**
+ * 8.1 - Menu and sub-menu toggle buttons
+ */
+
+.menu-toggle {
+	width: 100%;
+	border-top: 1px solid $border__color;
+	background-color: transparent;
+	color: $body__text-color;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus,
+.sub-menu-toggle:hover,
+.sub-menu-toggle:focus {
+	color: $link__text-color;
+	background-color: transparent;
+}
+
+.toggled-on .menu-toggle {
+	border-bottom: 1px solid $border__color;
+}
+
+.sub-menu-toggle {
+	position: absolute;
+	top: 0;
+	right: -10px;
+	height: 56px;
+	padding: 13px 10px;
+	color: $body__text-color;
+	background-color: transparent; 
+}
+
+@mixin nb--lg() {
+	.menu-toggle,
+	.sub-menu-toggle,
+	.sidebar-toggle {
+		display: none;
+	}
+}

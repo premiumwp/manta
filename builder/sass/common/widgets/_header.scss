@@ -1,0 +1,35 @@
+/**
+ * 7.1 - Header Widgets
+ */
+
+.header-widget {
+	display: table;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.header-widget .widget {
+	margin-bottom: 0;
+	padding: 0 0 40px;
+}
+
+@mixin hw--lg() {
+	.aligned .header-widget {
+		display: block;
+	}
+
+	.aligned .header-widget .widget {
+		margin: 0;
+		padding: 20px 40px;
+	}
+	
+	.left .header-widget .widget {
+		float: right;
+		padding-right: 0;
+	}
+	
+	.right .header-widget .widget {
+		float: left;
+		padding-left: 0;
+	}
+}

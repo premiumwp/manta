@@ -1,0 +1,70 @@
+/*
+Theme Name: Manta
+Theme URI: https://www.premiumwp.com/themes/manta/
+Author: PremiumWP
+Author URI: https://www.premiumwp.com/
+Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
+Version: 1.0.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: manta
+Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, flexible-header, accessibility-ready, custom-background, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Manta is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+
+/**
+ * Table of Contents
+ * 1.0 - HTML5 Reset
+ *	 1.1 - Baseline Normalize
+ *	 1.2 - Box Sizing
+ *	 1.3 - Float Clearing
+ * 2.0 - Defaults
+ *	 2.1 - Typographical Elements
+ *	 2.2 - Headings
+ *	 2.3 - Objects
+ *	 2.4 - Forms
+ *	 2.5 - Tables
+ *	 2.6 - Screen Reader Text
+ * 3.0  Media
+ *	 3.1 Smiley
+ *	 3.2 Captions
+ *	 3.3 Media Elements
+ *   3.4 Gallery
+ * 4.0  Alignment
+ * 5.0  Widgets
+ * 6.0  Navigation
+ *	 6.1 Menu and sub-menu toggle buttons
+ *	 6.2 Header and Primary drop-down menu
+ *	 6.3 Footer specific menu
+ *	 6.4 Post pagination and navigation
+ * 7.0  Colors
+ * 8.0  Site Layout & Structure
+ *	 8.1 Site Header
+ *	 8.2 Featured Post
+ *	 8.3 Site Content
+ *	 8.4 Author
+ *	 8.5 Comments
+ *	 8.6 Footer Widgets
+ *	 8.7 Site Footer
+ * 9.0 Infinite scroll
+ */
+
+@import "variables/master";
+@import "functions/master";
+@import "mixins/master";
+
+@import "common/reset/master";
+@import "common/elements/master";
+@import "common/clearing/master";
+@import "common/accessibility/master";
+@import "common/alignment/master";
+@import "common/media/master";
+@import "common/widgets/master";
+@import "common/menu/master";
+@import "structure/master";
+@import "responsive/master";

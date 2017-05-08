@@ -1,0 +1,59 @@
+/**
+ * 7.0 Site Layout & Structure
+ */
+
+.hide-on-mobile {
+	display: none;
+}
+
+@mixin str--md() {
+	%structure {
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0;
+	}
+}
+
+@mixin str--lg() {
+	%structure {
+		max-width: 960px;
+	}
+	
+	.hide-on-mobile {
+		display: block;
+	}
+	
+	.nav-menu .moved-item {
+		display: none;
+	}
+}
+
+@mixin str--xl() {
+	%structure {
+		max-width: 1140px;
+	}
+}
+
+@mixin str--xx() {
+	%structure {
+		max-width: 1280px;
+	}
+}
+
+%content {
+	padding: 40px;
+	background-color: $content__bg-color;
+	margin-bottom: 40px;
+}
+
+#main-navigation .wrap,
+#header-nav {
+	padding: 0 40px;
+	@extend %structure;
+}
+
+@import "header";
+@import "featured";
+@import "content";
+@import "footer";

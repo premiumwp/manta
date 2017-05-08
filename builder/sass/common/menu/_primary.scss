@@ -1,0 +1,28 @@
+/**
+ * 8.2 - Primary drop-down menu
+ */
+
+@mixin primary-nav--lg() {
+	#main-navigation {
+		border-top: 1px solid $border__color;
+		text-align: center;
+	}
+
+	#main-navigation.left  {
+		text-align: left;
+	}
+
+	#main-navigation.right {
+		text-align: right;
+	}
+
+	.left #primary-menu {
+		position: relative;
+		left: -1.25em;
+	}
+
+	.right #primary-menu {
+		position: relative;
+		right: -1.25em;
+	}
+}
