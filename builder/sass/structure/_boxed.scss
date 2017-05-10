@@ -37,6 +37,7 @@
 }
 
 .boxed .navigation {
+	margin-bottom: 0;
 	padding: 0 20px;
 	background-color: $content__bg-color;
 	overflow: hidden;
@@ -54,11 +55,7 @@
 
 .boxed .widget {
 	margin-bottom: 0;
-	padding-top: 0;
-}
-
-.boxed .footer-widgets .widget {
-	padding-bottom: 40px;
+	padding-bottom: 0;
 }
 
 .boxed .page-header, .boxed .post-wrapper, .boxed .page-content, .boxed .author-info, .boxed .comment-respond, .boxed .entry-comments, .boxed .woo-content {
@@ -106,12 +103,16 @@
 	}
 
 	.boxed.content-sidebar .post-wrapper,
-	.boxed.content-sidebar-sidebar .post-wrapper {
+	.boxed.content-sidebar .site-main .thumb-small,
+	.boxed.content-sidebar-sidebar .post-wrapper,
+	.boxed.content-sidebar-sidebar .site-main .thumb-small {
 		padding-right: 0;
 	}
 	
 	.boxed.sidebar-content .post-wrapper,
-	.boxed.sidebar-sidebar-content .post-wrapper {
+	.boxed.sidebar-content .site-main .thumb-small,
+	.boxed.sidebar-sidebar-content .post-wrapper,
+	.boxed.sidebar-sidebar-content .site-main .thumb-small {
 		padding-left: 0;
 	}
 	
@@ -134,6 +135,11 @@
 		margin-left: -40px
 	}
 	
+	body.boxed .site-main .thumb-small {
+		margin-bottom: 0;
+		padding-top: 0;
+	}
+	
 	.boxed.sidebar-content-sidebar .post-wrapper {
 		padding-left: 0;
 		padding-right: 0;
@@ -150,6 +156,10 @@
 	.boxed.content-sidebar-sidebar #tertiary .widget,
 	.boxed.sidebar-sidebar-content #tertiary .widget {
 		padding-right: 0;
+	}
+	
+	.boxed .pagination {
+		margin-bottom: 40px;
 	}
 	
 	.boxed .footer-widgets {

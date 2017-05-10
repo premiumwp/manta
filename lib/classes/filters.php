@@ -95,21 +95,21 @@ class Manta_Filters {
 			} else {
 				$classes[] = 'full-content';
 			}
-
-			// Adds a class to style thumbnails.
-			if ( 'large' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'thumb-large';
-			} elseif ( 'large_above' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'thumb-above-title';
-			} elseif ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'thumb-below-title';
-			} elseif ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'thumb-small left';
-			} elseif ( 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'thumb-small right';
-			} else {
-				$classes[] = 'no-thumb';
-			}
+		}
+		
+		// Adds a class to style thumbnails.
+		if ( 'large' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-large';
+		} elseif ( 'large_above' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-above-title';
+		} elseif ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-below-title';
+		} elseif ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-small left';
+		} elseif ( 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-small right';
+		} else {
+			$classes[] = 'no-thumb';
 		}
 
 		return $classes;

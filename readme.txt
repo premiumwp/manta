@@ -3,7 +3,7 @@
 Created by: PremiumWP
 Requires at least: WordPress 4.7
 Tested up to: WordPress 4.7
-Version: 1.0.2
+Version: 1.1
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later

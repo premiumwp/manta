@@ -4,7 +4,7 @@ Theme URI: https://www.premiumwp.com/themes/manta/
 Author: PremiumWP
 Author URI: https://www.premiumwp.com/
 Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
-Version: 1.0.2
+Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: manta
@@ -1113,7 +1113,11 @@ a.featured-post-link:focus {
   margin-bottom: 0; }
 
 .thumb-above-title .thumbnails,
-.thumb-below-title .thumbnails {
+.thumb-below-title .thumbnails,
+.thumb-small .thumbnails,
+.thumb-above-title .single-thumb > img,
+.thumb-below-title .single-thumb > img,
+.thumb-small .single-thumb > img {
   margin-bottom: 1.75rem; }
 
 .entry-header {
@@ -1289,6 +1293,7 @@ a.featured-post-link:focus {
   padding-top: 40px; }
 
 .boxed .navigation {
+  margin-bottom: 0;
   padding: 0 20px;
   background-color: #fff;
   overflow: hidden; }
@@ -1303,10 +1308,7 @@ a.featured-post-link:focus {
 
 .boxed .widget {
   margin-bottom: 0;
-  padding-top: 0; }
-
-.boxed .footer-widgets .widget {
-  padding-bottom: 40px; }
+  padding-bottom: 0; }
 
 .boxed .page-header, .boxed .post-wrapper, .boxed .page-content, .boxed .author-info, .boxed .comment-respond, .boxed .entry-comments, .boxed .woo-content {
   margin-bottom: 0; }
@@ -1598,6 +1600,14 @@ a.featured-post-link:focus {
     position: relative;
     right: -1.25em; }
 
+  .right #primary-menu .sub-menu {
+    right: 0; }
+
+  .right #primary-menu .sub-menu .sub-menu {
+    top: -1px;
+    right: 224px;
+    left: auto; }
+
   .fixed-nav .site-navigation-fixed {
     position: fixed;
     top: 0;
@@ -1802,7 +1812,8 @@ a.featured-post-link:focus {
   body:not(.both-sidebar) .site-main .thumb-small .thumbnails {
     min-width: 100%;
     min-height: 100%;
-    opacity: 0; }
+    opacity: 0;
+    margin-bottom: 0; }
 
   body:not(.both-sidebar) .site-main .thumb-small .thumbnails:hover,
   body:not(.both-sidebar) .site-main .thumb-small .thumbnails:focus {
@@ -1868,11 +1879,15 @@ a.featured-post-link:focus {
     margin-left: 0; }
 
   .boxed.content-sidebar .post-wrapper,
-  .boxed.content-sidebar-sidebar .post-wrapper {
+  .boxed.content-sidebar .site-main .thumb-small,
+  .boxed.content-sidebar-sidebar .post-wrapper,
+  .boxed.content-sidebar-sidebar .site-main .thumb-small {
     padding-right: 0; }
 
   .boxed.sidebar-content .post-wrapper,
-  .boxed.sidebar-sidebar-content .post-wrapper {
+  .boxed.sidebar-content .site-main .thumb-small,
+  .boxed.sidebar-sidebar-content .post-wrapper,
+  .boxed.sidebar-sidebar-content .site-main .thumb-small {
     padding-left: 0; }
 
   .boxed.sidebar-content .navigation,
@@ -1892,6 +1907,10 @@ a.featured-post-link:focus {
   .boxed.sidebar-content-sidebar .page-header {
     margin-left: -40px; }
 
+  body.boxed .site-main .thumb-small {
+    margin-bottom: 0;
+    padding-top: 0; }
+
   .boxed.sidebar-content-sidebar .post-wrapper {
     padding-left: 0;
     padding-right: 0; }
@@ -1905,6 +1924,9 @@ a.featured-post-link:focus {
   .boxed.content-sidebar-sidebar #tertiary .widget,
   .boxed.sidebar-sidebar-content #tertiary .widget {
     padding-right: 0; }
+
+  .boxed .pagination {
+    margin-bottom: 40px; }
 
   .boxed .footer-widgets {
     border-top: 1px solid #e6e6e6; } }
@@ -1968,7 +1990,8 @@ a.featured-post-link:focus {
   .site-main .thumb-small .thumbnails {
     min-width: 100%;
     min-height: 100%;
-    opacity: 0; }
+    opacity: 0;
+    margin-bottom: 0; }
 
   .site-main .thumb-small .thumbnails:hover,
   .site-main .thumb-small .thumbnails:focus {

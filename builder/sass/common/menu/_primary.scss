@@ -31,6 +31,16 @@
 		right: -1.25em;	
 	}
 	
+	.right #primary-menu .sub-menu {
+		right: 0;
+	}
+
+	.right #primary-menu .sub-menu .sub-menu {
+		top: -1px;
+		right: 224px;
+		left: auto;
+	}
+	
 	.fixed-nav .site-navigation-fixed {
 		position: fixed;
 		top: 0;

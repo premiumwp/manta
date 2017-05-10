@@ -12,7 +12,11 @@
 }
 
 .thumb-above-title .thumbnails,
-.thumb-below-title .thumbnails {
+.thumb-below-title .thumbnails,
+.thumb-small .thumbnails,
+.thumb-above-title .single-thumb > img,
+.thumb-below-title .single-thumb > img,
+.thumb-small .single-thumb > img {
 	margin-bottom: mrem();
 }
 
@@ -131,6 +135,7 @@
 		min-width: 100%;
 		min-height: 100%;
 		opacity: 0;
+		margin-bottom: 0;
 	}
 				
 	body:not(.both-sidebar) .site-main .thumb-small .thumbnails:hover,
@@ -175,6 +180,7 @@
 		min-width: 100%;
 		min-height: 100%;
 		opacity: 0;
+		margin-bottom: 0;
 	}
 				
 	.site-main .thumb-small .thumbnails:hover,
