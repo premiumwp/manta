@@ -1,5 +1,5 @@
 /**
- * 8.3 - Footer specific menu
+ * 8.4 - Footer menu
  */
 
 #footer-menu .nav-menu {
@@ -14,8 +14,10 @@
 	padding: 0 1em 1.75em;
 }
 
-#footer-menu .menu-item a:hover,
-#footer-menu .menu-item a:focus {
+#footer-menu .menu-item-has-children:hover,
+#footer-menu .menu-item-has-children a:focus,
+#footer-menu .page_item_has_children:hover,
+#footer-menu .page_item_has_children a:focus {
 	background-color: transparent;
 }
 

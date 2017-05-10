@@ -132,9 +132,8 @@ function manta_setup() {
 			'height'                 => 340,
 			'flex-width'             => false,
 			'flex-height'            => true,
-			'header-text'            => true,
-			'default-text-color'     => '333',
-			'wp-head-callback'       => 'manta_header_style',
+			'header-text'            => false,
+			'wp-head-callback'       => '',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
 		)
@@ -156,7 +155,6 @@ function manta_setup() {
 	// Load theme specific functions files.
 	require_once( get_parent_theme_file_path( '/lib/functions/markup.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/defaults.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/functions/header-style.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/inline-css.php' ) );
 
 	// Load theme specific classes files.
@@ -169,6 +167,9 @@ function manta_setup() {
 	require_once( get_parent_theme_file_path( '/lib/customizer/active-callback.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/data.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/sanitization.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-css.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-php.php' ) );
 
 	// Load theme features files.
 	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );
@@ -229,6 +230,16 @@ function manta_widgets_init() {
 				'id' => 'footer-3',
 				'description' => '',
 			),
+			array(
+				'name' => esc_html__( 'Footer Widget 4', 'manta' ),
+				'id' => 'footer-4',
+				'description' => '',
+			),
+			array(
+				'name' => esc_html__( 'Footer Widget 5', 'manta' ),
+				'id' => 'footer-5',
+				'description' => '',
+			),
 		)
 	);
 	foreach ( $widgets as $widget ) {
@@ -267,7 +278,7 @@ function manta_font_url() {
 	 * by Sintony, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Sintony font: on or off', 'manta' ) ) {
-		$fonts[] = 'Sintony:400,600,400italic,600italic';
+		$fonts[] = 'Sintony:400,700,400italic,700italic';
 	}
 
 	/*
@@ -275,8 +286,10 @@ function manta_font_url() {
 	 * by Archivo Narrow, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Archivo Narrow font: on or off', 'manta' ) ) {
-		$fonts[] = 'Archivo Narrow:400,600,400italic,600italic';
+		$fonts[] = 'Archivo Narrow:400,700,400italic,700italic';
 	}
+
+	$fonts = apply_filters( 'manta_fonts', $fonts );
 
 	if ( $fonts ) {
 		$fonts_url = add_query_arg( array(

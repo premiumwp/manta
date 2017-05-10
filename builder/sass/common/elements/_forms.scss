@@ -138,20 +138,3 @@ input[type='search'].search-field {
 	border-left-width: 0;
 	border-radius: 0 2px 2px 0;
 }
-
-.woocommerce #respond input#submit,
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button {
-	line-height: initial;
-	font-size: 1rem;
-	padding: calc( 1.25em + 1px );
-}
-
-.woocommerce-cart table.cart td.actions .coupon .input-text {
-	padding: 1.25em;
-}
-
-.mce-toolbar .mce-ico {
-	color: currentColor;
-}

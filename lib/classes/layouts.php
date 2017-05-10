@@ -60,19 +60,12 @@ class Manta_Layouts {
 		);
 
 		$controls[] = array(
-			'label'       => esc_html__( 'Force global layout everywhere', 'manta' ),
-			'section'     => 'manta_layout_section',
-			'settings'    => 'manta_enforce_global',
-			'description' => esc_html__( 'Override the specific layouts on all posts/pages.', 'manta' ),
-			'type'        => 'checkbox',
-		);
-
-		$controls[] = array(
 			'label'       => esc_html__( 'Posts Content Layout', 'manta' ),
 			'section'     => 'manta_layout_section',
 			'settings'    => 'manta_post_layout',
 			'type'        => 'select',
 			'choices'     => $this->layout_choices(),
+			'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
 		);
 
 		$controls[] = array(
@@ -81,6 +74,14 @@ class Manta_Layouts {
 			'settings'    => 'manta_page_layout',
 			'type'        => 'select',
 			'choices'     => $this->layout_choices(),
+			'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
+		);
+
+		$controls[] = array(
+			'label'       => esc_html__( 'Different layout for posts/pages', 'manta' ),
+			'section'     => 'manta_layout_section',
+			'settings'    => 'manta_enforce_global',
+			'type'        => 'checkbox',
 		);
 
 		return $controls;
@@ -244,7 +245,7 @@ class Manta_Layouts {
 	 */
 	public function layout_css_classes( $classes ) {
 		$global_layout = $this->get_layout( 'global' );
-		$force_global = ( '' !== get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) ? true : false;
+		$force_global = ( '' === get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) ? true : false;
 
 		if ( is_home() || is_archive() || is_search() || $force_global ) {
 			$classes[] = esc_attr( $global_layout );

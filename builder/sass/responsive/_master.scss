@@ -1,8 +1,11 @@
 /**
- * 12.0 - Media queries
+ * 11.0 - Media queries
  */
 
 // small screen size (sm)
+/**
+ * 11.1 - Screen >= 640px
+ */
 @media only screen and (min-width: 640px) {
 	// Typographical elements
 	@include te--sm();
@@ -12,6 +15,9 @@
 }
 
 // medium screen size (md)
+/**
+ * 11.2 - Screen >= 860px
+ */
 @media only screen and (min-width: 860px) {
 	// Image Gallery
 	@include gal--md();
@@ -30,9 +36,15 @@
 	
 	// Comment form
 	@include comment--md();
+	
+	// Boxed Layout
+	@include boxed--md();
 }
 
 // large scree size(lg)
+/**
+ * 11.3 - Screen >= 1024px
+ */
 @media only screen and (min-width: 1024px) {
 	// Image Gallery
 	@include gal--lg();
@@ -75,9 +87,18 @@
 	
 	// Post Author
 	@include author--lg();
+	
+	// Site Footer
+	@include footer--lg();
+	
+	// Boxed Layout
+	@include boxed--lg();
 }
 
 // Extra large screen size (xl)
+/**
+ * 11.4 - Screen >= 1200px
+ */
 @media only screen and (min-width: 1200px) {
 	// Structure Items
 	@include str--xl();
@@ -93,9 +114,15 @@
 	
 	// Post Author
 	@include author--xl();
+	
+	// Boxed Layout
+	@include boxed--xl();
 }
 
 // Very large screen size (xx)
+/**
+ * 11.5 - Screen >= 1340px
+ */
 @media only screen and (min-width: 1340px) {
 	// Structure Items
 	@include str--xx();
@@ -105,4 +132,7 @@
 
 	// Content Sidebar wrap
 	@include cs--xx();
+	
+	// Boxed Layout
+	@include boxed--xx();
 }

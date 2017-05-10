@@ -35,4 +35,16 @@ class Manta_Active_Callback {
 	public static function is_display_excerpt( $control ) {
 		return 'excerpt' === $control->manager->get_setting( 'manta_excerpt_option' )->value();
 	}
+
+	/**
+	 * Check if single post or page will have different content layout.
+	 *
+	 * @since 1.1
+	 *
+	 * @param object $control whole wp_customize_control object.
+	 * @return bool
+	 */
+	public static function is_different_layout( $control ) {
+		return '' !== $control->manager->get_setting( 'manta_enforce_global' )->value();
+	}
 }

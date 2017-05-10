@@ -2,8 +2,6 @@
  * 8.0 - Navigation
  */
 
-@import "buttons";
-
 .nav-menu,
 .nav-menu .sub-menu {
 	display: none;
@@ -65,9 +63,15 @@
 		transition: all 0.15s ease-in-out 0.2s;
 	}
 
-	.nav-menu a:hover,
-	.menu-item:hover a,
-	.nav-menu a:focus {
+	.menu-item-has-children,
+	.page_item_has_children {
+		transition: all 0.15s ease-in-out 0.2s;
+	}
+	
+	.menu-item-has-children:hover,
+	.page_item_has_children:hover,
+	.menu-item-has-children a:focus,
+	.page_item_has_children a:focus {
 		background-color: $light__bg-color;
 		-webkit-transition-delay: 0s;
 		        transition-delay: 0s;
@@ -115,6 +119,7 @@
 	}
 }
 
+@import "buttons";
 @import "primary";
 @import "header";
 @import "footer";

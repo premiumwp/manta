@@ -1,5 +1,5 @@
 /**
- * 7.1 Site Header
+ * 9.1 Site Header
  */
 
 .site-header {
@@ -31,6 +31,7 @@ p.site-title {
 
 .site-title a:hover,
 .site-title a:focus {
+	box-shadow: none;
 	color: $body__text-color;
 }
 

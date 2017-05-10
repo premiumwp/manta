@@ -21,7 +21,8 @@ if ( is_singular() ) {
 	
 	// Use thumbnail image as background image for center cropping (only if small thumbnail option selected).
 	$manta_thumb_style = '';
-	if ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+	if ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) )
+		|| 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
 		$manta_thumbnail_url = get_the_post_thumbnail_url();
 		if ( $manta_thumbnail_url ) {
 			$manta_thumb_style = sprintf( ' style="background-image: url(%s)"', esc_url( $manta_thumbnail_url ) );

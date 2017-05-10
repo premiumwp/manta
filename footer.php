@@ -23,14 +23,17 @@
 		do_action( 'manta_hook_before_footer' ); ?>
 
 		<footer id="colophon" role="contentinfo"<?php manta_attr( 'site-footer' ); ?>>
+			<div<?php manta_attr( 'wrap' ); ?>>
 
-			<?php
-			/**
-			 * Fires immediately after opening site footer tag.
-			 *
-			 * @since 1.0.0
-			 */
-			do_action( 'manta_hook_for_footer_items' );?>
+				<?php
+				/**
+				 * Fires immediately after opening site footer tag.
+				 *
+				 * @since 1.0.0
+				 */
+				do_action( 'manta_hook_for_footer_items' );?>
+
+			</div>
 
 		</footer><!-- #colophon -->
 

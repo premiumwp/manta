@@ -82,7 +82,9 @@ class Manta_Customizer extends Manta_Sanitization {
 	public function customize_register( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+		$wp_customize->get_control( 'blogdescription' )->priority   = 20;
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+		$wp_customize->get_section( 'colors' )->panel               = 'manta_theme_panel';
 
 		foreach ( $this->customizer_panels as $id => $args ) {
 			$wp_customize->add_panel( $id, $args );
