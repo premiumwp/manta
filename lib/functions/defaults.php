@@ -22,7 +22,7 @@ function manta_get_theme_defaults( $option ) {
 	 * @since 1.0.0
 	 */
 	$manta_defaults = apply_filters( 'manta_theme_defaults', array(
-		'manta_title_link_color'      => '#606060',
+		'manta_title_link_color'      => '#333',
 		'manta_title_link_hover_color'=> '#333',
 		'manta_heading_text_color'    => '#333',
 		'manta_content_text_color'    => '#333',
@@ -30,8 +30,8 @@ function manta_get_theme_defaults( $option ) {
 		'manta_link_hover_color'      => '#0067ac',
 		'manta_display_site_title'    => 1,
 		'manta_display_site_desc'     => 1,
-		'manta_body_font_family'      => 'Sintony',
-		'manta_heading_font_family'   => 'Archivo Narrow',
+		'manta_body_font_family'      => 'Noto Sans',
+		'manta_heading_font_family'   => 'Source Sans Pro',
 		'manta_small_base_font_size'  => 16,
 		'manta_large_base_font_size'  => 18,
 		'manta_base_line_height'      => 1.75,

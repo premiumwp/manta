@@ -116,7 +116,7 @@ class Manta_Customizer_Data {
 					'type'          => 'checkbox',
 				),
 				array(
-					'label'         => esc_html__( 'Display Site description', 'manta' ),
+					'label'         => esc_html__( 'Display Tagline', 'manta' ),
 					'section'       => 'title_tagline',
 					'settings'      => 'manta_display_site_desc',
 					'transport'     => 'postMessage',

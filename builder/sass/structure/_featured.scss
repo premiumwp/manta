@@ -40,6 +40,10 @@ a.featured-post-link:focus {
 	background-color: rgba( 255, 255, 255, 0.2 );
 }
 
+.featured-posts .entry-header {
+	margin-bottom: 0;
+}
+
 @mixin featured--md() {
 	.featured-posts {
 		padding-top: 10%;

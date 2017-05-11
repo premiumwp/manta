@@ -191,7 +191,7 @@ add_action( 'after_setup_theme' , 'manta_setup', 5 );
 function manta_widgets_init() {
 
 	$secondary_sidebar_text1 = esc_html__( 'Add widgets here to appear in your secondary sidebar.', 'manta' );
-	$secondary_sidebar_text2 = esc_html__( 'Add at least one widget to primary sidebar before adding widgets here.', 'manta' );
+	$secondary_sidebar_text2 = esc_html__( 'This is the secondary sidebar if you are using a three column site layout option. This widget area is not suitable to display every type of widget due to its narrow width.', 'manta' );
 
 	/**
 	 * Filter register widgets args.
@@ -203,7 +203,7 @@ function manta_widgets_init() {
 			array(
 				'name' => esc_html__( 'Primary Sidebar', 'manta' ),
 				'id' => 'sidebar-1',
-				'description' => esc_html__( 'Add widgets here to appear in your primary sidebar.', 'manta' ),
+				'description' => esc_html__( 'This is the primary sidebar if you are using a two or three column site layout option.', 'manta' ),
 			),
 			array(
 				'name' => esc_html__( 'Secondary Sidebar', 'manta' ),
@@ -213,7 +213,7 @@ function manta_widgets_init() {
 			array(
 				'name' => esc_html__( 'Header', 'manta' ),
 				'id' => 'header',
-				'description' => '',
+				'description' => esc_html__( 'The header widget appears next to your site title or logo. This widget area is not suitable to display every type of widget, and works best with a custom menu, search form, or text widget.', 'manta' ),
 			),
 			array(
 				'name' => esc_html__( 'Footer Widget 1', 'manta' ),
@@ -275,18 +275,18 @@ function manta_font_url() {
 
 	/*
 	 * Translators: If there are characters in your language that are not supported
-	 * by Sintony, translate this to 'off'. Do not translate into your own language.
+	 * by Noto Sans, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Sintony font: on or off', 'manta' ) ) {
-		$fonts[] = 'Sintony:400,700,400italic,700italic';
+	if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'manta' ) ) {
+		$fonts[] = 'Noto Sans:400,700,400italic,700italic';
 	}
 
 	/*
 	 * Translators: If there are characters in your language that are not supported
-	 * by Archivo Narrow, translate this to 'off'. Do not translate into your own language.
+	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Archivo Narrow font: on or off', 'manta' ) ) {
-		$fonts[] = 'Archivo Narrow:400,700,400italic,700italic';
+	if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'manta' ) ) {
+		$fonts[] = 'Source Sans Pro:400,700,400italic,700italic';
 	}
 
 	$fonts = apply_filters( 'manta_fonts', $fonts );

@@ -15,6 +15,10 @@
 	padding: 0 40px;
 }
 
+#colophon .copyright-text p {
+	margin-bottom: 0;
+}
+
 @mixin footer--lg() {
 	#colophon.aligned > .wrap {
 		display: flex;
@@ -28,10 +32,6 @@
 	#colophon.aligned .footer-items .wrap {
 		float: right;
 		width: auto;
-	}
-
-	#colophon.aligned .copyright-text p {
-		margin-bottom: 0;
 	}
 
 	#colophon.aligned .nav-menu .menu-item a {
