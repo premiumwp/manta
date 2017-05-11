@@ -12,11 +12,11 @@
 
 .footer-widgets .widget {
 	margin-bottom: 0;
-	padding-bottom: 0;
+	padding-top: 0;
 }
 
-.footer-widget:last-child .widget {
-	padding-bottom: 40px;
+.footer-widget:first-child .widget {
+	padding-top: 40px;
 }
 
 @mixin fw--md() {

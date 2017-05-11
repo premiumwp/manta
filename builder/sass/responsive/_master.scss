@@ -31,6 +31,9 @@
 	// Featured posts
 	@include featured--md();
 	
+	// Content
+	@include content--md();
+	
 	// Post Author
 	@include author--md();
 	
@@ -75,9 +78,6 @@
 
 	// Featured posts
 	@include featured--lg();
-	
-	// Content
-	@include content--lg();
 
 	// Content Sidebar wrap
 	@include cs--lg();

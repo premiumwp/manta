@@ -53,7 +53,7 @@
 			var $menuToggle = $("#main-navigation").find( '.menu-toggle' );
 			if ( 'none' === $menuToggle.css( 'display' ) ) {
 				// apply matching height to nav wrapper div to avoid awkward content jumps
-				$(".nav-placeholder").height($("#main-navigation").outerHeight()).css('min-height','79px');
+				$(".nav-placeholder").height($("#main-navigation").outerHeight()).css('min-height','84px');
 			} else {
 				// apply auto height for smaller screens
 				$(".nav-placeholder").css({"height": "auto", "min-height": "initial"});

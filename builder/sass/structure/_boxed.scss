@@ -32,8 +32,11 @@
 	padding-top: 0;
 }
 
-.boxed .thumb-large.has-post-thumbnail .post-wrapper {
-	padding-top: 40px;
+.boxed .thumb-small .thumbnails,
+.boxed .thumb-large .thumbnails,
+.boxed .thumb-small .single-thumb > img,
+.boxed .thumb-large .single-thumb > img {
+	margin-bottom: mrem();
 }
 
 .boxed .navigation {
@@ -55,7 +58,7 @@
 
 .boxed .widget {
 	margin-bottom: 0;
-	padding-bottom: 0;
+	padding-top: 0;
 }
 
 .boxed .page-header, .boxed .post-wrapper, .boxed .page-content, .boxed .author-info, .boxed .comment-respond, .boxed .entry-comments, .boxed .woo-content {
