@@ -292,7 +292,8 @@ function manta_icons_css( $output ) {
 						transform: rotate(-90deg);
 			}
 
-			.aligned-menu .sub-menu .icon {
+			.left #header-nav .sub-menu .icon,
+			.right #primary-menu .sub-menu .icon {
 				-webkit-transform: rotate(90deg);
 						transform: rotate(90deg);
 			}
