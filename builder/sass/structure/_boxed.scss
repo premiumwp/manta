@@ -18,7 +18,6 @@
 .boxed .featured-content {
 	background-color: $content__bg-color;
 	margin-bottom: 0;
-	padding-bottom: 40px;
 	margin-top: -40px;
 }
 
@@ -45,9 +44,12 @@
 	overflow: hidden;
 }
 
+.boxed .pagination {
+	padding: 0 40px;
+}
+
 .boxed .page-numbers {
-	display: block;
-	float: left;
+	border: 1px solid $border__color;
 }
 
 .boxed .nav-next a,
@@ -74,6 +76,7 @@
 
 	.boxed .wrap,
 	.boxed #main-navigation .wrap,
+	.boxed #colophon > .wrap,
 	.boxed .header-items,
 	.boxed .footer-widget > .wrap {
 		max-width: 720px;
@@ -89,9 +92,14 @@
 	
 	.boxed .wrap,
 	.boxed #main-navigation .wrap,
+	.boxed #colophon > .wrap,
 	.boxed .header-items,
 	.boxed .footer-widget > .wrap {
 		max-width: 880px;
+	}
+	
+	.boxed .featured-content {
+		padding-bottom: 40px;
 	}
 	
 	.boxed .two-featured .featured-posts {
@@ -123,6 +131,13 @@
 	.boxed.sidebar-content-sidebar .navigation {
 		margin-left: -20px;
 		padding: 0 20px 0 0;
+	}
+	
+	.boxed.sidebar-content .pagination,
+	.boxed.sidebar-sidebar-content .pagination,
+	.boxed.sidebar-content-sidebar .pagination {
+		margin-left: 0;
+		padding: 0 40px 0 0;
 	}
 	
 	.boxed.sidebar-content .comments-area,
@@ -179,7 +194,8 @@
 	.boxed .wrap,
 	.boxed #main-navigation .wrap,
 	.boxed .header-items,
-	.boxed .footer-widget > .wrap {
+	.boxed .footer-widget > .wrap,
+	.boxed #colophon > .wrap {
 		max-width: 1060px;
 	}
 	
@@ -211,7 +227,8 @@
 	.boxed .wrap,
 	.boxed #main-navigation .wrap,
 	.boxed .header-items,
-	.boxed .footer-widget > .wrap {
+	.boxed .footer-widget > .wrap,
+	.boxed #colophon > .wrap {
 		max-width: 1120px;
 	}
 	

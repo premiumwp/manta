@@ -1276,7 +1276,6 @@ a.featured-post-link:focus {
 .boxed .featured-content {
   background-color: #fff;
   margin-bottom: 0;
-  padding-bottom: 40px;
   margin-top: -40px; }
 
 .boxed .page-header {
@@ -1298,9 +1297,11 @@ a.featured-post-link:focus {
   background-color: #fff;
   overflow: hidden; }
 
+.boxed .pagination {
+  padding: 0 40px; }
+
 .boxed .page-numbers {
-  display: block;
-  float: left; }
+  border: 1px solid #e6e6e6; }
 
 .boxed .nav-next a,
 .boxed .nav-previous a {
@@ -1439,6 +1440,7 @@ a.featured-post-link:focus {
 
   .boxed .wrap,
   .boxed #main-navigation .wrap,
+  .boxed #colophon > .wrap,
   .boxed .header-items,
   .boxed .footer-widget > .wrap {
     max-width: 720px; } }
@@ -1480,13 +1482,13 @@ a.featured-post-link:focus {
     display: flex; }
 
   .footer-widget {
-    flex: 1; }
+    flex: 1;
+    margin-right: 40px; }
 
   .footer-widgets .widget {
-    margin-right: 40px;
     padding: 40px 0; }
 
-  .footer-widget:last-child .widget {
+  .footer-widget:last-child {
     margin-right: 0; }
 
   .menu-toggle,
@@ -1863,9 +1865,13 @@ a.featured-post-link:focus {
 
   .boxed .wrap,
   .boxed #main-navigation .wrap,
+  .boxed #colophon > .wrap,
   .boxed .header-items,
   .boxed .footer-widget > .wrap {
     max-width: 880px; }
+
+  .boxed .featured-content {
+    padding-bottom: 40px; }
 
   .boxed .two-featured .featured-posts {
     width: 50%;
@@ -1892,6 +1898,12 @@ a.featured-post-link:focus {
   .boxed.sidebar-content-sidebar .navigation {
     margin-left: -20px;
     padding: 0 20px 0 0; }
+
+  .boxed.sidebar-content .pagination,
+  .boxed.sidebar-sidebar-content .pagination,
+  .boxed.sidebar-content-sidebar .pagination {
+    margin-left: 0;
+    padding: 0 40px 0 0; }
 
   .boxed.sidebar-content .comments-area,
   .boxed.sidebar-sidebar-content .comments-area,
@@ -2013,7 +2025,8 @@ a.featured-post-link:focus {
   .boxed .wrap,
   .boxed #main-navigation .wrap,
   .boxed .header-items,
-  .boxed .footer-widget > .wrap {
+  .boxed .footer-widget > .wrap,
+  .boxed #colophon > .wrap {
     max-width: 1060px; }
 
   .boxed .content-area {
@@ -2062,7 +2075,8 @@ a.featured-post-link:focus {
   .boxed .wrap,
   .boxed #main-navigation .wrap,
   .boxed .header-items,
-  .boxed .footer-widget > .wrap {
+  .boxed .footer-widget > .wrap,
+  .boxed #colophon > .wrap {
     max-width: 1120px; }
 
   .boxed .content-area {
