@@ -103,7 +103,8 @@ class Manta_Featured_Post {
 		$this->featured_post_count = $featured_posts->post_count;
 
 		if ( $featured_posts->have_posts() ) :?>
-			<aside id="featured-content"<?php manta_attr( 'featured-content' ); ?>>
+			<aside id="featured-content" role="complementary"<?php manta_attr( 'featured-content' ); ?>>
+				<h2 class="screen-reader-text"><?php echo esc_html__( 'Featured Content', 'manta' ); ?></h2>
 				<?php
 				while ( $featured_posts->have_posts() ) : $featured_posts->the_post();
 
