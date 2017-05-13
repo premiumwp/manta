@@ -29,6 +29,7 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 	 *
 	 * @since 1.1
 	 *
+	 * @param  string $output Manta inline css.
 	 * @return string Manta modified inline css.
 	 */
 	public function customized_css( $output ) {
@@ -40,7 +41,7 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 
 		return $this->css;
 	}
-	
+
 	/**
 	 * Hide/Display title tagline customized CSS.
 	 *

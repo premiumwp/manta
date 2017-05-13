@@ -26,14 +26,14 @@
 			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'manta' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 		<?php elseif ( is_search() ) :
 			// Message to be shown if no results found for a search query. ?>
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'manta' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'manta' ); ?></p>
 			<?php get_search_form(); ?>
 		<?php else :
 			/*
 			 * Message to be shown for any other situation (where posts cannot be
 			 * found) then the two mentioned above.
 			 */ ?>
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'manta' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'manta' ); ?></p>
 			<?php get_search_form(); ?>
 		<?php endif; ?>
 	</div><!-- .page-content -->

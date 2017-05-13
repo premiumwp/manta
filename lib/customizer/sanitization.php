@@ -76,7 +76,7 @@ abstract class Manta_Sanitization {
 			default:
 				$sanitized_value = $setting->default;
 				break;
-		}
+		} // End switch().
 		return $sanitized_value;
 	}
 

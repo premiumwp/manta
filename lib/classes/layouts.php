@@ -211,7 +211,7 @@ class Manta_Layouts {
 		$is_valid_nonce = ( isset( $_POST['manta_layout_nonce'] ) && wp_verify_nonce( $_POST['manta_layout_nonce'], basename( __FILE__ ) ) ) ? true : false;
 
 		// Exits script depending on user capability.
-		if ( isset( $_POST['post_type']) && 'page' === $_POST['post_type'] ) {
+		if ( isset( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
 			if ( ! current_user_can( 'edit_page' , $post_id ) ) {
 				return;
 			}

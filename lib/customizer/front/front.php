@@ -79,7 +79,7 @@ class Manta_Customizer_Front_Base {
 	 * @since 1.1
 	 * @access public
 	 *
-	 * @param string $fonts Font name.
+	 * @param string $font Font name.
 	 * @return bool
 	 */
 	public function is_google_font( $font ) {
@@ -93,7 +93,7 @@ class Manta_Customizer_Front_Base {
 	 * @since 1.1
 	 * @access public
 	 *
-	 * @param string $fonts Font name.
+	 * @param string $font Font name.
 	 * @return bool
 	 */
 	public function is_google_sans_font( $font ) {
@@ -106,7 +106,7 @@ class Manta_Customizer_Front_Base {
 	 * @since 1.1
 	 * @access public
 	 *
-	 * @param string $fonts Font name.
+	 * @param string $font Font name.
 	 * @return bool
 	 */
 	public function is_google_serif_font( $font ) {
@@ -119,7 +119,7 @@ class Manta_Customizer_Front_Base {
 	 * @since 1.1
 	 * @access public
 	 *
-	 * @param string $fonts Font stack.
+	 * @param string $font Font stack.
 	 * @return bool
 	 */
 	public function is_web_safe_font( $font ) {
@@ -132,20 +132,20 @@ class Manta_Customizer_Front_Base {
 	 * @since 1.1
 	 *
 	 * @param string $name Theme modification name.
-	 * @param string $type Type of mod value
+	 * @param string $type Type of mod value.
 	 * @return mixed escaped theme modification value.
 	 */
 	public function get_mod( $name, $type = 'html' ) {
 		$default = false;
 
-		if ( isset( $this->mods[$name] ) ) {
+		if ( isset( $this->mods[ $name ] ) ) {
 
 			/** This filter is documented in wp-includes/theme.php */
-			return apply_filters( "theme_mod_{$name}", $this->escape( $this->mods[$name], $type ) );
+			return apply_filters( "theme_mod_{$name}", $this->escape( $this->mods[ $name ], $type ) );
 		}
 
-		if ( isset( $this->defaults[$name] ) ) {
-			$default = $this->defaults[$name];
+		if ( isset( $this->defaults[ $name ] ) ) {
+			$default = $this->defaults[ $name ];
 			$default = sprintf( $default, get_template_directory_uri(), get_stylesheet_directory_uri() );
 		}
 
@@ -186,7 +186,7 @@ class Manta_Customizer_Front_Base {
 				break;
 
 			case 'color':
-				$escaped_mod = ( $mod && preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $mod ) ) ? $mod : false;
+				$escaped_mod = ( $mod && preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $mod ) ) ? $mod : false;
 				break;
 
 			default:

@@ -50,7 +50,7 @@ class Manta_Featured_Post {
 		// Get all sticky posts.
 		$sticky = get_option( 'sticky_posts' );
 
-		if( $sticky ) {
+		if ( $sticky ) {
 			// Sort the stickies with the newest ones at the top.
 			rsort( $sticky );
 
@@ -127,7 +127,7 @@ class Manta_Featured_Post {
 							</div><!-- .featured-head -->
 							<?php get_template_part( 'lib/addon/featured/content' );?>
 						</div><!-- .featured-wrapper -->
-						
+
 					</div><!-- #featured-posts -->
 				<?php
 				endwhile;

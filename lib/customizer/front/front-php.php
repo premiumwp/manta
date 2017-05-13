@@ -56,13 +56,13 @@ class Manta_Customizer_Front_End extends Manta_Customizer_Front_Base {
 
 		if ( $this->is_google_font( $body_font ) ) {
 			$google_fonts[] = "{$body_font}:400,600,400italic,600italic";
-		} else if ( manta_get_theme_defaults( 'manta_body_font_family' ) === $body_font ) {
+		} elseif ( manta_get_theme_defaults( 'manta_body_font_family' ) === $body_font ) {
 			$google_fonts[] = $fonts[0];
 		}
 
 		if ( $body_font !== $heading_font && $this->is_google_font( $heading_font ) ) {
 			$google_fonts[] = "{$heading_font}:400,600,400italic,600italic";
-		} else if ( manta_get_theme_defaults( 'manta_heading_font_family' ) === $heading_font ) {
+		} elseif ( manta_get_theme_defaults( 'manta_heading_font_family' ) === $heading_font ) {
 			$google_fonts[] = $fonts[1];
 		}
 
@@ -77,7 +77,7 @@ class Manta_Customizer_Front_End extends Manta_Customizer_Front_Base {
 	 * @return object Customizer instance.
 	 */
 	public static function getInstance() {
-		null === self::$instance and self::$instance = new self;
+		null === self::$instance && self::$instance = new self;
 		return self::$instance;
 	}
 }

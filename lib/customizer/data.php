@@ -390,6 +390,7 @@ class Manta_Customizer_Data {
 	/**
 	 * Get web safe stack.
 	 *
+	 * @param   string $name Font stack identifier.
 	 * @return  array Returns list of web safe font stack.
 	 * @since   1.1
 	 */
@@ -414,7 +415,7 @@ class Manta_Customizer_Data {
 	public static function get_all_web_fonts_list() {
 		$google_sans_fonts  = self::get_google_sans_fonts_list();
 		$google_serif_fonts = self::get_google_serif_fonts_list();
-		
+
 		return array_merge( $google_sans_fonts, $google_serif_fonts );
 	}
 

@@ -77,7 +77,7 @@ class Manta_Filters {
 
 		return $classes;
 	}
-	
+
 	/**
 	 * Adds custom classes to the array of post class.
 	 *
@@ -96,7 +96,7 @@ class Manta_Filters {
 				$classes[] = 'full-content';
 			}
 		}
-		
+
 		// Adds a class to style thumbnails.
 		if ( 'large' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
 			$classes[] = 'thumb-large';
@@ -142,7 +142,7 @@ class Manta_Filters {
 	 * @return array
 	 */
 	public static function add_header_item_classes( $attr ) {
-		
+
 		// Adds a class for header items alignment.
 		if ( 'left' === get_theme_mod( 'manta_header_alignment', manta_get_theme_defaults( 'manta_header_alignment' ) ) ) {
 			$attr['class'] .= ' aligned left';
@@ -152,7 +152,7 @@ class Manta_Filters {
 
 		return $attr;
 	}
-	
+
 	/**
 	 * Adds custom classes to main navigation.
 	 *
@@ -172,7 +172,7 @@ class Manta_Filters {
 
 		return $attr;
 	}
-	
+
 	/**
 	 * Adds custom classes to site footer.
 	 *
