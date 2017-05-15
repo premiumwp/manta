@@ -81,6 +81,12 @@ class Manta_Customizer_Data {
 					'description'        => esc_html__( 'Options to change content display', 'manta' ),
 					'description_hidden' => true,
 				),
+				'manta_dimension_section' => array(
+					'title'              => esc_html__( 'Dimensions', 'manta' ),
+					'panel'              => 'manta_theme_panel',
+					'description'        => esc_html__( 'Options to change various site deimensions', 'manta' ),
+					'description_hidden' => true,
+				),
 				'manta_copyright_section' => array(
 					'title'              => esc_html__( 'Copyright', 'manta' ),
 					'panel'              => 'manta_theme_panel',
@@ -296,6 +302,30 @@ class Manta_Customizer_Data {
 					'section'       => 'manta_content_section',
 					'settings'      => 'manta_thumbnails_on_single',
 					'type'          => 'checkbox',
+				),
+				array(
+					'label'         => esc_html__( 'Overall site width', 'manta' ),
+					'section'       => 'manta_dimension_section',
+					'settings'      => 'manta_overall_site_width',
+					'description'   => esc_html__( 'Change overall site width for laptops and desktops. ', 'manta' ),
+					'type'          => 'number',
+					'input_attrs'   => array( 'step' => 2, 'min' => 960 ),
+				),
+				array(
+					'label'         => esc_html__( 'Primary sidebar width', 'manta' ),
+					'section'       => 'manta_dimension_section',
+					'settings'      => 'manta_primary_sidebar_width',
+					'description'   => esc_html__( 'Change primary sidebar width for laptops and desktops. ', 'manta' ),
+					'type'          => 'number',
+					'input_attrs'   => array( 'step' => 2, 'min' => 300 ),
+				),
+				array(
+					'label'         => esc_html__( 'Secondary sidebar width', 'manta' ),
+					'section'       => 'manta_dimension_section',
+					'settings'      => 'manta_secondary_sidebar_width',
+					'description'   => esc_html__( 'Change secondary sidebar width for laptops and desktops. ', 'manta' ),
+					'type'          => 'number',
+					'input_attrs'   => array( 'step' => 2, 'min' => 180 ),
 				),
 				array(
 					'label'         => esc_html__( 'Copyright Text', 'manta' ),
