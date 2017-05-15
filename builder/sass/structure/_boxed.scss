@@ -46,6 +46,7 @@
 
 .boxed .pagination {
 	padding: 0 40px;
+	margin-bottom: 40px;
 }
 
 .boxed .page-numbers {
@@ -59,6 +60,10 @@
 
 .boxed .widget {
 	margin-bottom: 0;
+	padding-top: 0;
+}
+
+.boxed .footer-widget:first-child .widget {
 	padding-top: 0;
 }
 
@@ -175,12 +180,12 @@
 		padding-right: 0;
 	}
 	
-	.boxed .pagination {
-		margin-bottom: 40px;
-	}
-	
 	.boxed .footer-widgets {
 		border-top: 1px solid $border__color;
+	}
+	
+	.boxed .footer-widget:first-child .widget {
+		padding-top: 40px;
 	}
 }
 

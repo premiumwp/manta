@@ -28,7 +28,7 @@
 }
 
 .entry-meta {
-	font-size: 15px;
+	font-size: 0.9rem;
 	width: 100%;
 	text-transform: capitalize;
 }
@@ -76,19 +76,13 @@ a.more-link:focus {
 }
 
 .entry-footer {
-	font-size: 16px;
+	font-size: 0.9rem;
 	padding-top: mem(0.5);
 	border-top: 1px solid $border__color;
 }
 
 .entry-footer > span {
 	display: block;
-}
-
-@mixin entry--sm() {
-	.entry-meta {
-		font-size: 16px;
-	}
 }
 
 @mixin entry--lg() {
