@@ -137,8 +137,14 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 		$tertiary_width = $this->get_mod( 'manta_secondary_sidebar_width', 'integer' );
 		
 		if ( get_theme_mod( 'manta_change_site_width', manta_get_theme_defaults( 'manta_change_site_width' ) ) && $site_width ) {
+			
+			// Applicable screen size for full width layout to keep at least 20px space on either side.
+			$screen_width = $site_width + 40;
+
+			// Maintain 40px padding on both sides for boxed layout.
 			$inner_width = $site_width - 80;
-			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %1$spx}}', $site_width );
+
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %2$spx}}', $screen_width, $site_width );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
 		}
 
