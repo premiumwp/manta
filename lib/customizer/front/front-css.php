@@ -136,27 +136,20 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 		$secondary_width = $this->get_mod( 'manta_primary_sidebar_width', 'integer' );
 		$tertiary_width = $this->get_mod( 'manta_secondary_sidebar_width', 'integer' );
 		
-		if ( $site_width ) {
+		if ( get_theme_mod( 'manta_change_site_width', manta_get_theme_defaults( 'manta_change_site_width' ) ) && $site_width ) {
 			$inner_width = $site_width - 80;
-			if ( 'boxed' === get_theme_mod( 'manta_site_layout', manta_get_theme_defaults( 'manta_site_layout' ) ) ) {
-				$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
-			} else {
-				$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %1$spx}}', $site_width );
-			}
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %1$spx}}', $site_width );
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
 		}
-		
-		if ( $site_width ) {
-			$min_width = $site_width;
-		} else {
-			$min_width = 1024;
-		}
-		
-		if ( $secondary_width ) {
+
+		$min_width = 1024;
+
+		if ( get_theme_mod( 'manta_change_primary_sidebar_width', manta_get_theme_defaults( 'manta_change_primary_sidebar_width' ) ) && $secondary_width ) {
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#secondary{flex: 0 0 %2$spx}}', $min_width, $secondary_width );
 		}
-		
-		if ( $tertiary_width ) {
-			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#tertiary{flex: 0 0 %2$spx}}', $min_width, $tertiary_width );
+
+		if ( get_theme_mod( 'manta_change_secondary_sidebar_width', manta_get_theme_defaults( 'manta_change_secondary_sidebar_width' ) ) && $tertiary_width ) {
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#tertiary{max-width: %2$spx}}', $min_width, $tertiary_width );
 		}
 	}
 }

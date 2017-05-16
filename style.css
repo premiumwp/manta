@@ -1748,7 +1748,8 @@ a.more-link:focus {
     flex: 0 0 300px; }
 
   .secondary-sidebar {
-    flex: 0 0 180px; }
+    max-width: 180px;
+    width: 100%; }
 
   .content-sidebar .content-area,
   .sidebar-content .primary-sidebar,
@@ -1960,7 +1961,7 @@ a.more-link:focus {
     flex: 0 0 380px; }
 
   .secondary-sidebar {
-    flex: 0 0 200px; }
+    max-width: 200px; }
 
   .site-main .thumb-small {
     padding: 40px;
