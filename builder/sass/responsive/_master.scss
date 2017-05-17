@@ -127,6 +127,9 @@
 	// Featured posts
 	@include featured--xx();
 	
+	// Content sidebar wrap
+	@include cs--xx();
+	
 	// Boxed Layout
 	@include boxed--xx();
 }

@@ -54,12 +54,12 @@
 
 	.nav-menu a {
 		padding: 1.25rem;
-		transition: all 0.15s ease-in-out 0.2s;
+		transition: all 0.15s ease-in-out 0.15s;
 	}
 
 	.menu-item-has-children,
 	.page_item_has_children {
-		transition: all 0.15s ease-in-out 0.2s;
+		transition: background-color 0.15s ease-in-out 0.15s;
 	}
 	
 	.menu-item-has-children:hover,
@@ -83,8 +83,8 @@
 		display: block;
 		visibility: hidden;
 		margin-left: 0;
-		-webkit-transition: all 0.2s ease 0.2s;
-		        transition: all 0.2s ease 0.2s;
+		-webkit-transition: all 0.2s ease-in-out 0.2s;
+		        transition: all 0.2s ease-in-out 0.2s;
 		text-align: left;
 		opacity: 0;
 	}
