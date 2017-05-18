@@ -1,0 +1,163 @@
+/**
+ * 2.1 Typographical Elements
+ */
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: $magic__number;
+	font-family: $font__main;
+	word-wrap: break-word;
+	color: $body__text-color;
+	background-color: $body__bg-color;
+}
+
+a {
+	text-decoration: none;
+	color: $link__text-color;
+	-webkit-transition: all .1s ease-in-out;
+	transition: all .1s ease-in-out;
+}
+
+a:focus {
+	outline: thin dotted;
+	outline-offset: -1px;
+}
+
+a:hover,
+a:focus {
+	color: $link__hover-color;
+	text-decoration: none;
+	box-shadow: inset 0 0 0 currentColor, 0 1px 0 currentColor;
+}
+
+a:hover > img,
+a:focus > img {
+	opacity: 0.9;
+}
+
+address,
+p {
+	margin: 0 0 mrem();
+}
+
+ol,
+ul {
+	margin: 0 0 mrem();
+	padding: 0 0 0 mem();
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+hr {
+	overflow: visible;
+	height: 1px;
+	margin-bottom: mrem();
+	border: 0;
+	background-color: $border__color;
+}
+
+abbr,
+dfn[title],
+acronym {
+	cursor: help;
+	border-bottom: 1px dotted $border__color;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+mark,
+ins {
+	color: #000;
+	background: #ddd;
+}
+
+dl,
+dd {
+	margin: 0 0 mrem();
+}
+
+dt {
+	font-weight: 700;
+}
+
+code,
+kbd,
+tt,
+var,
+samp,
+pre {
+	font-family: $font__code;
+	font-size: 1rem;
+}
+
+pre {
+	border: 1px solid $border__color;
+	line-height: $magic__number;
+	margin: 0 0 mrem();
+	max-width: 100%;
+	overflow: auto;
+	padding: mem();
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+code {
+	background-color: $light__bg-color;
+	padding: 0.125em 0.25em;
+}
+
+blockquote {
+	border-left: 4px solid $border__color;
+	color: $light__text-color;
+	font-size: 1.125rem;
+	font-style: italic;
+	line-height: $magic__number;
+	margin-bottom: mrem();
+	padding-left: mem(0.5);
+}
+
+blockquote p {
+	margin-bottom: mrem();
+}
+
+blockquote > p:last-child {
+	margin-bottom: 0;
+}
+
+blockquote cite,
+blockquote small {
+	color: #333;
+	font-size: 0.8rem;
+	line-height: 1.25 * $magic__number;
+}
+
+blockquote em,
+blockquote i,
+blockquote cite {
+	font-style: normal;
+}
+
+blockquote strong,
+blockquote b {
+	font-weight: 400;
+}
+
+@mixin te--sm() {
+	html {
+		font-size: 18px;
+	}
+}

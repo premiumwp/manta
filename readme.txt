@@ -2,8 +2,8 @@
 
 Created by: PremiumWP
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.7
-Version: 1.0.2
+Tested up to: WordPress 4.7.5
+Version: 1.1
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later
@@ -108,3 +108,18 @@ License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 10. Fixed featured posts appear on paged archives.
 11. Change sidebar width for larger screens.
 12. Footer widget minor style correction.
+
+= 1.1 - May 18 2017 =
+
+1. New: Additional manta customizer options introduced.
+2. Error Fix: Drop down sub-menu erroneous behavior on hover-off on Google chrome/ Opera.
+3. Error Fix: Thumbnails hidden on Small thumb both sidebar layout ( 1024<= screen <= 1200px).
+4. Error Fix: Hover on sticky main menu does not work when it is just above Featured posts.
+5. Error Fix: WooCommerce Sidebar appearing below main content (should be floated on side).
+6. Error Fix: Page 404, Sidebar appearing below main content (should be floated on side).
+7. Error Fix: Wrong header action hook in search results template.
+8. Styling Issue: Footer widget should be hidden while Jetpack infinite scroll. Make it visible again at the end of infinite scroll.
+9. Styling Issue: Button and input text height mismatch in several wooCommerce forms.
+10. Styling Issue: Paragraph rich text buttons font color remain black on hover (while background color changes, which affects visibility ).
+11. Modify: Increase number of footer widgets from 3 to 5.
+12. Modify: Background color for featured posts without featured image.

@@ -1,0 +1,47 @@
+/**
+ * 10.0 - Plugins Compatibility
+ */
+
+/**
+ * 10.1 - Jetpack
+ */
+
+.infinite-scroll .pagination,
+.infinite-scroll.neverending .site-footer,
+.infinite-scroll.neverending .footer-widgets {
+	display: none;
+}
+
+.infinity-end.neverending .site-footer,
+.infinity-end.neverending .footer-widgets {
+	display: block;
+}
+
+/**
+ * 10.2 - WooCommerce
+ */
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	line-height: initial;
+	font-size: 1rem;
+	padding: calc( 1.25em + 1px );
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+	padding: 1.25em;
+}
+
+.woo-content {
+	@extend %content;
+}
+
+/**
+ * 10.3 - Gravity Forms
+ */
+
+.mce-toolbar .mce-ico {
+	color: currentColor;
+}

@@ -35,6 +35,22 @@
 			</div>
 		
 		<?php endif; ?>
+		
+		<?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
+			
+			<div<?php manta_attr( 'footer-widget' ); ?>>
+				<?php dynamic_sidebar( 'footer-4' ); ?>
+			</div>
+		
+		<?php endif; ?>
+		
+		<?php if ( is_active_sidebar( 'footer-5' ) ) : ?>
+			
+			<div<?php manta_attr( 'footer-widget' ); ?>>
+				<?php dynamic_sidebar( 'footer-5' ); ?>
+			</div>
+		
+		<?php endif; ?>
 	</div>
 
 </aside>

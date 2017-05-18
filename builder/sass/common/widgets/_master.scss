@@ -1,0 +1,79 @@
+/**
+ * 7.0 Widgets
+ */
+
+.widget {
+	padding: 40px;
+	margin-bottom: 40px;
+	font-size: 0.9rem;
+	line-height: 1.86666667;
+	background-color: transparent;
+}
+
+h3.widget-title {
+	font-size: 1.25rem;
+	margin-bottom: mrem(0.5);
+}
+
+.widget ul {
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+.widget li,
+.widget li li:first-child {
+	margin-top: mrem(0.5);
+	padding-top: mrem(0.5);
+	border-top: 1px dotted $border__color;
+}
+
+.widget li:first-child,
+.widget .nav-menu li,
+.widget .nav-menu li li {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: none;
+}
+
+.widget li li {
+	margin-left: mrem(0.5);
+}
+
+.widget_calendar table {
+	margin: 0;
+}
+
+.widget_calendar td,
+.widget_calendar th {
+	line-height: 2.3333;
+	text-align: center;
+	padding: 0;
+}
+
+.widget_calendar caption {
+	font-weight: 700;
+	margin: 0 0 1.75rem;
+	letter-spacing: 0.04em;
+}
+
+.widget_calendar tbody a {
+	font-weight: 700;
+}
+
+.widget_calendar tbody a:hover,
+.widget_calendar tbody a:focus {
+	font-weight: 400;
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+.widget .post-date {
+	display: block;
+}
+
+@import "header";
+@import "sidebar";
+@import "footer";

@@ -1,0 +1,12 @@
+@function mrem($val:1) {
+
+	@return ($val * $magic__number) * 1rem;
+
+}
+
+@function mem($val:1) {
+
+	@return ($val * $magic__number) * 1em;
+
+}
+

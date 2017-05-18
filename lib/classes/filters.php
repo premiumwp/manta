@@ -27,11 +27,14 @@ class Manta_Filters {
 	 */
 	public static function initiate() {
 		add_filter( 'body_class'                         , array( __CLASS__, 'add_body_classes' ) );
-		add_filter( 'manta_get_attr_header-menu'         , array( __CLASS__, 'add_header_menu_classes' ) );
+		add_filter( 'post_class'                         , array( __CLASS__, 'add_post_classes' ) );
+		add_filter( 'manta_get_attr_site-header'         , array( __CLASS__, 'add_site_header_classes' ) );
+		add_filter( 'manta_get_attr_header-items'        , array( __CLASS__, 'add_header_item_classes' ) );
+		add_filter( 'manta_get_attr_main-navigation'     , array( __CLASS__, 'add_main_navigation_classes' ) );
+		add_filter( 'manta_get_attr_site-footer'         , array( __CLASS__, 'add_site_footer_classes' ) );
 		add_filter( 'excerpt_length'                     , array( __CLASS__, 'change_excerpt_length' ) );
 		add_filter( 'excerpt_more'                       , array( __CLASS__, 'modify_excerpt_teaser' ) );
 		add_filter( 'wp_get_attachment_image_attributes' , array( __CLASS__, 'custom_logo_attr' ), 10, 2 );
-		add_filter( 'manta_get_inline_style'             , array( __CLASS__, 'background_thumbnail_image' ) );
 	}
 
 	/**
@@ -54,11 +57,11 @@ class Manta_Filters {
 			$classes[] = 'hfeed';
 		}
 
-		// Adds a class for header content alignment.
-		if ( 'left' === get_theme_mod( 'manta_header_layout', manta_get_theme_defaults( 'manta_header_layout' ) ) ) {
-			$classes[] = 'branding-wrapper';
-		} elseif ( 'right' === get_theme_mod( 'manta_header_layout', manta_get_theme_defaults( 'manta_header_layout' ) ) ) {
-			$classes[] = 'wrapper-branding';
+		// Adds a class for overall site layout.
+		if ( 'boxed' === get_theme_mod( 'manta_site_layout', manta_get_theme_defaults( 'manta_site_layout' ) ) ) {
+			$classes[] = 'boxed';
+		} else {
+			$classes[] = 'full-width';
 		}
 
 		// Adds a class for displayed sidebars.
@@ -72,35 +75,119 @@ class Manta_Filters {
 			$classes[] = 'no-sidebar';
 		}
 
+		return $classes;
+	}
+
+	/**
+	 * Adds custom classes to the array of post class.
+	 *
+	 * @since 1.1
+	 *
+	 * @param array $classes Classes for the post element.
+	 * @return array
+	 */
+	public static function add_post_classes( $classes ) {
 		if ( is_home() || is_search() || is_archive() ) {
+
 			// Adds a class to identify excerpt or full content on home, search or archive pages.
 			if ( 'excerpt' === get_theme_mod( 'manta_excerpt_option', manta_get_theme_defaults( 'manta_excerpt_option' ) ) ) {
 				$classes[] = 'excerpt';
 			} else {
 				$classes[] = 'full-content';
 			}
+		}
 
-			// Adds a class to style smaller thumbnails.
-			if ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-				$classes[] = 'small-thumb';
-			}
+		// Adds a class to style thumbnails.
+		if ( 'large' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-large';
+		} elseif ( 'large_above' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-above-title';
+		} elseif ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-below-title';
+		} elseif ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-small left';
+		} elseif ( 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			$classes[] = 'thumb-small right';
+		} else {
+			$classes[] = 'no-thumb';
 		}
 
 		return $classes;
 	}
 
 	/**
-	 * Adds custom classes to header menu.
+	 * Adds custom classes to site header.
+	 *
+	 * @since 1.1
+	 *
+	 * @param array $attr attribute values array.
+	 * @return array
+	 */
+	public static function add_site_header_classes( $attr ) {
+
+		// Adds a class for fixed main navigation.
+		if ( get_theme_mod( 'manta_sticky_main_menu', manta_get_theme_defaults( 'manta_sticky_main_menu' ) ) ) {
+			$attr['class'] .= ' fixed-nav';
+		}
+
+		return $attr;
+	}
+
+	/**
+	 * Adds custom classes to header items.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param array $attr attribute values array.
 	 * @return array
 	 */
-	public static function add_header_menu_classes( $attr ) {
-		// Adds a class for header menu content alignment.
-		if ( 'left' === get_theme_mod( 'manta_header_layout', manta_get_theme_defaults( 'manta_header_layout' ) ) ) {
-			$attr['class'] .= ' aligned-menu';
+	public static function add_header_item_classes( $attr ) {
+
+		// Adds a class for header items alignment.
+		if ( 'left' === get_theme_mod( 'manta_header_alignment', manta_get_theme_defaults( 'manta_header_alignment' ) ) ) {
+			$attr['class'] .= ' aligned left';
+		} elseif ( 'right' === get_theme_mod( 'manta_header_alignment', manta_get_theme_defaults( 'manta_header_alignment' ) ) ) {
+			$attr['class'] .= ' aligned right';
+		}
+
+		return $attr;
+	}
+
+	/**
+	 * Adds custom classes to main navigation.
+	 *
+	 * @since 1.1
+	 *
+	 * @param array $attr attribute values array.
+	 * @return array
+	 */
+	public static function add_main_navigation_classes( $attr ) {
+
+		// Adds a class for main navigation alignment.
+		if ( 'left' === get_theme_mod( 'manta_main_menu_alignment', manta_get_theme_defaults( 'manta_main_menu_alignment' ) ) ) {
+			$attr['class'] .= ' aligned left';
+		} elseif ( 'right' === get_theme_mod( 'manta_main_menu_alignment', manta_get_theme_defaults( 'manta_main_menu_alignment' ) ) ) {
+			$attr['class'] .= ' aligned right';
+		}
+
+		return $attr;
+	}
+
+	/**
+	 * Adds custom classes to site footer.
+	 *
+	 * @since 1.1
+	 *
+	 * @param array $attr attribute values array.
+	 * @return array
+	 */
+	public static function add_site_footer_classes( $attr ) {
+
+		// Adds a class for site footer alignment.
+		if ( 'left' === get_theme_mod( 'manta_footer_alignment', manta_get_theme_defaults( 'manta_footer_alignment' ) ) ) {
+			$attr['class'] .= ' aligned left';
+		} elseif ( 'right' === get_theme_mod( 'manta_footer_alignment', manta_get_theme_defaults( 'manta_footer_alignment' ) ) ) {
+			$attr['class'] .= ' aligned right';
 		}
 
 		return $attr;
@@ -171,57 +258,6 @@ class Manta_Filters {
 		}
 
 		return $attr;
-	}
-	
-	/**
-	 * Set thumbnail image as background image for center cropping.
-	 *
-	 * @since 1.0.2
-	 *
-	 * @param str $css Custom inline css.
-	 * @return string
-	 */
-	public static function background_thumbnail_image( $css ) {
-		if ( 'small' !== get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-			return;
-		}
-		
-		$css .= '
-			@media only screen and (min-width: 1024px) {
-				.post-thumbnail {
-					background-repeat: no-repeat;
-					background-position: center center;
-					background-size: cover;
-					width: 150px;
-					height: 150px;
-				}
-				
-				.post-thumbnail:hover,
-				.post-thumbnail:focus {
-					opacity: 0.7;
-				}
-				
-				.thumbnails {
-					min-width: 100%;
-					min-height: 100%;
-					opacity: 0;
-				}
-				
-				.thumbnails:hover,
-				.thumbnails:focus {
-					opacity: 0;
-				}
-			}
-			
-			@media only screen and (min-width: 1200px) {
-				.post-thumbnail {
-					width: 250px;
-					height: 200px;
-				}
-			}
-		';
-
-		return $css;
 	}
 }
 

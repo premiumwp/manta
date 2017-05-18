@@ -73,6 +73,7 @@ class Manta_Plugin_Support {
 		add_theme_support( 'woocommerce' );
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' );
 		add_action( 'woocommerce_before_main_content', array( __CLASS__, 'woocommerce_start' ) );
 		add_action( 'woocommerce_after_main_content',  array( __CLASS__, 'woocommerce_end' ) );
 	}
@@ -89,7 +90,7 @@ class Manta_Plugin_Support {
 				<?php
 				/** This action is documented in /index.php */
 				do_action( 'manta_hook_before_main_content' ); ?>
-				<main id="main" role="main"<?php manta_attr( 'site-main' ); ?>>
+				<main id="main" role="main"<?php manta_attr( 'site-main', array( 'class' => 'woo-content' ) ); ?>>
 		<?php
 	}
 
@@ -107,6 +108,7 @@ class Manta_Plugin_Support {
 				do_action( 'manta_hook_after_main_content' ); ?>
 
 			</div><!-- #primary -->
+			<?php get_sidebar(); ?>
 		</div><!-- .content-sidebar-wrap -->
 		<?php
 	}

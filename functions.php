@@ -132,9 +132,8 @@ function manta_setup() {
 			'height'                 => 340,
 			'flex-width'             => false,
 			'flex-height'            => true,
-			'header-text'            => true,
-			'default-text-color'     => '333',
-			'wp-head-callback'       => 'manta_header_style',
+			'header-text'            => false,
+			'wp-head-callback'       => '',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
 		)
@@ -156,7 +155,6 @@ function manta_setup() {
 	// Load theme specific functions files.
 	require_once( get_parent_theme_file_path( '/lib/functions/markup.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/defaults.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/functions/header-style.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/functions/inline-css.php' ) );
 
 	// Load theme specific classes files.
@@ -169,6 +167,9 @@ function manta_setup() {
 	require_once( get_parent_theme_file_path( '/lib/customizer/active-callback.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/data.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/sanitization.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-css.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-php.php' ) );
 
 	// Load theme features files.
 	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );
@@ -190,7 +191,7 @@ add_action( 'after_setup_theme' , 'manta_setup', 5 );
 function manta_widgets_init() {
 
 	$secondary_sidebar_text1 = esc_html__( 'Add widgets here to appear in your secondary sidebar.', 'manta' );
-	$secondary_sidebar_text2 = esc_html__( 'Add at least one widget to primary sidebar before adding widgets here.', 'manta' );
+	$secondary_sidebar_text2 = esc_html__( 'This is the secondary sidebar if you are using a three column site layout option. This widget area is not suitable to display every type of widget due to its narrow width.', 'manta' );
 
 	/**
 	 * Filter register widgets args.
@@ -202,7 +203,7 @@ function manta_widgets_init() {
 			array(
 				'name' => esc_html__( 'Primary Sidebar', 'manta' ),
 				'id' => 'sidebar-1',
-				'description' => esc_html__( 'Add widgets here to appear in your primary sidebar.', 'manta' ),
+				'description' => esc_html__( 'This is the primary sidebar if you are using a two or three column site layout option.', 'manta' ),
 			),
 			array(
 				'name' => esc_html__( 'Secondary Sidebar', 'manta' ),
@@ -212,7 +213,7 @@ function manta_widgets_init() {
 			array(
 				'name' => esc_html__( 'Header', 'manta' ),
 				'id' => 'header',
-				'description' => '',
+				'description' => esc_html__( 'The header widget appears next to your site title or logo. This widget area is not suitable to display every type of widget, and works best with a custom menu, search form, or text widget.', 'manta' ),
 			),
 			array(
 				'name' => esc_html__( 'Footer Widget 1', 'manta' ),
@@ -227,6 +228,16 @@ function manta_widgets_init() {
 			array(
 				'name' => esc_html__( 'Footer Widget 3', 'manta' ),
 				'id' => 'footer-3',
+				'description' => '',
+			),
+			array(
+				'name' => esc_html__( 'Footer Widget 4', 'manta' ),
+				'id' => 'footer-4',
+				'description' => '',
+			),
+			array(
+				'name' => esc_html__( 'Footer Widget 5', 'manta' ),
+				'id' => 'footer-5',
 				'description' => '',
 			),
 		)
@@ -267,7 +278,7 @@ function manta_font_url() {
 	 * by Noto Sans, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'manta' ) ) {
-		$fonts[] = 'Noto Sans:400,600,400italic,600italic';
+		$fonts[] = 'Noto Sans:400,700,400italic,700italic';
 	}
 
 	/*
@@ -275,8 +286,10 @@ function manta_font_url() {
 	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'manta' ) ) {
-		$fonts[] = 'Source Sans Pro:400,600,400italic,600italic';
+		$fonts[] = 'Source Sans Pro:400,700,400italic,700italic';
 	}
+
+	$fonts = apply_filters( 'manta_fonts', $fonts );
 
 	if ( $fonts ) {
 		$fonts_url = add_query_arg( array(
@@ -329,7 +342,10 @@ function manta_scripts() {
 		$manta_l10n = array(
 			'expand'   => esc_html__( 'Expand child menu', 'manta' ),
 			'collapse' => esc_html__( 'Collapse child menu', 'manta' ),
-			'icon'     => manta_get_icon( array( 'icon' => 'angle-down', 'fallback' => true ) ),
+			'icon'     => manta_get_icon( array(
+				'icon' => 'angle-down',
+				'fallback' => true,
+			) ),
 		);
 		wp_enqueue_script( 'manta-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'manta-navigation', 'mantaScreenReaderText', $manta_l10n );

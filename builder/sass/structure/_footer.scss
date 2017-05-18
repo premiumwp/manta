@@ -1,0 +1,56 @@
+/**
+ * 9.4 Site Footer
+ */
+
+#colophon {
+	font-size: 0.9rem;
+	padding: 40px 0;
+	text-align: center;
+	border-top: 1px solid $border__color;
+	background-color: $content__bg-color;
+}
+
+#colophon > .wrap {
+	@extend %structure;
+	padding: 0 40px;
+}
+
+#colophon .copyright-text p {
+	margin-bottom: 0;
+}
+
+@mixin footer--lg() {
+	#colophon.aligned > .wrap {
+		display: flex;
+		text-align: left;
+	}
+
+	#colophon.aligned .footer-items {
+		flex: 1;
+	}
+
+	#colophon.aligned .footer-items .wrap {
+		float: right;
+		width: auto;
+	}
+
+	#colophon.aligned .nav-menu .menu-item a {
+		padding-bottom: 0;
+	}
+
+	#colophon.left .menu-item:last-child a {
+		padding-right: 0;
+	}
+
+	#colophon.right .menu-item:first-child a {
+		padding-left: 0;
+	}
+
+	#colophon.left .footer-items .wrap {
+		float: left;
+	}
+
+	#colophon.left > .wrap {
+		flex-direction: row-reverse;
+	}
+}

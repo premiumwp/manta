@@ -1,0 +1,41 @@
+/**
+ * 8.3 - Header menu
+ */
+
+@mixin header-nav--lg() {
+	#header-menu {
+		text-align: center;
+	}
+
+	#header-menu .nav-menu a {
+		padding: 1.25em;
+	}
+
+	.aligned #header-menu {
+		text-align: left;
+	}
+
+	.left #header-menu {
+		position: relative;
+		float: right;
+		clear: right;
+		right: -1.25em;
+	}
+
+	.left #header-menu .sub-menu {
+		right: 0;
+	}
+
+	.left #header-menu .sub-menu .sub-menu {
+		top: -1px;
+		right: 224px;
+		left: auto;
+	}
+
+	.right #header-menu {
+		position: relative;
+		float: left;
+		clear: left;
+		left: -1.25em;
+	}
+}

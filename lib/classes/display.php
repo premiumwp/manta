@@ -51,8 +51,10 @@ class Manta_Display {
 
 		add_action( 'manta_hook_after_main_content'   , array( __CLASS__, 'post_pagination' ) );
 		add_action( 'manta_hook_on_top_of_entry'      , array( __CLASS__, 'sticky_icon' ) );
-		add_action( 'manta_hook_on_top_of_entry'      , array( __CLASS__, 'post_thumbnails' ) );
+		add_action( 'manta_hook_on_top_of_entry'      , array( __CLASS__, 'thumbnails' ) );
 		add_action( 'manta_hook_on_top_of_entry'      , array( __CLASS__, 'postwrapper_open' ) );
+		add_action( 'manta_hook_on_top_of_entry'      , array( __CLASS__, 'thumb_above_title' ) );
+		add_action( 'manta_hook_before_entry_content' , array( __CLASS__, 'thumb_below_title' ) );
 		add_action( 'manta_hook_bottom_of_entry'      , array( __CLASS__, 'postwrapper_close' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_author' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_navigation' ) );
@@ -210,6 +212,49 @@ class Manta_Display {
 	}
 
 	/**
+	 * Conditionally display hero thumbnail images.
+	 *
+	 * @since 1.1
+	 */
+	public static function thumbnails() {
+		if ( 'large_above' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+
+		if ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+
+		self::post_thumbnails();
+	}
+
+	/**
+	 * Conditionally display thumbnails above post title.
+	 *
+	 * @since 1.1
+	 */
+	public static function thumb_above_title() {
+		if ( 'large_above' !== get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+
+		self::post_thumbnails();
+	}
+
+	/**
+	 * Conditionally display thumbnails below post title.
+	 *
+	 * @since 1.1
+	 */
+	public static function thumb_below_title() {
+		if ( 'large_below' !== get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
+			return;
+		}
+
+		self::post_thumbnails();
+	}
+
+	/**
 	 * Conditionally include post thumbnail display template.
 	 *
 	 * @since  1.0.0
@@ -332,7 +377,7 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function post_author() {
-		if ( is_singular() && '' !== get_the_author_meta( 'description' ) ) {
+		if ( is_single() && '' !== get_the_author_meta( 'description' ) ) {
 			get_template_part( 'template-parts/entry/author' );
 		}
 	}
@@ -449,7 +494,8 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function footer_widgets() {
-		if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) ) {
+		if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' )
+			|| is_active_sidebar( 'footer-4' ) || is_active_sidebar( 'footer-5' ) ) {
 			get_template_part( 'template-parts/footer/widgets' );
 		}
 	}

@@ -1,0 +1,18 @@
+/**
+ * 9.3 Site Content
+ */
+
+.site-content {
+	@extend %structure;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 40px;
+}
+
+@mixin content--md() {
+	.site-content {
+		padding: 40px 0 0;
+	}
+}
+
+@import "content/content-wrap";
