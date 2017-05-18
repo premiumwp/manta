@@ -47,40 +47,4 @@ class Manta_Active_Callback {
 	public static function is_different_layout( $control ) {
 		return '' !== $control->manager->get_setting( 'manta_enforce_global' )->value();
 	}
-
-	/**
-	 * Check if site width is to be changed.
-	 *
-	 * @since 1.1
-	 *
-	 * @param object $control whole wp_customize_control object.
-	 * @return bool
-	 */
-	public static function is_change_site_width( $control ) {
-		return '' !== $control->manager->get_setting( 'manta_change_site_width' )->value();
-	}
-
-	/**
-	 * Check if primary sidebar width is to be changed.
-	 *
-	 * @since 1.1
-	 *
-	 * @param object $control whole wp_customize_control object.
-	 * @return bool
-	 */
-	public static function is_change_primary_sidebar_width( $control ) {
-		return '' !== $control->manager->get_setting( 'manta_change_primary_sidebar_width' )->value();
-	}
-
-	/**
-	 * Check if secondary sidebar width is to be changed.
-	 *
-	 * @since 1.1
-	 *
-	 * @param object $control whole wp_customize_control object.
-	 * @return bool
-	 */
-	public static function is_change_secondary_sidebar_width( $control ) {
-		return '' !== $control->manager->get_setting( 'manta_change_secondary_sidebar_width' )->value();
-	}
 }
