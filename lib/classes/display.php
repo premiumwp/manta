@@ -377,7 +377,7 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function post_author() {
-		if ( is_singular() && '' !== get_the_author_meta( 'description' ) ) {
+		if ( is_single() && '' !== get_the_author_meta( 'description' ) ) {
 			get_template_part( 'template-parts/entry/author' );
 		}
 	}
