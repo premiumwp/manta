@@ -14,9 +14,9 @@
 	padding: 0 1em mem();
 }
 
-#footer-menu .menu-item-has-children:hover,
+#footer-menu .menu-item-has-children a:hover,
 #footer-menu .menu-item-has-children a:focus,
-#footer-menu .page_item_has_children:hover,
+#footer-menu .page_item_has_children a:hover,
 #footer-menu .page_item_has_children a:focus {
 	background-color: transparent;
 }

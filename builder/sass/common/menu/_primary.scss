@@ -36,7 +36,7 @@
 	}
 
 	.right #primary-menu .sub-menu .sub-menu {
-		top: -1px;
+		top: 0;
 		right: 224px;
 		left: auto;
 	}
@@ -52,8 +52,8 @@
 	}
 					
 	.fixed-nav .site-navigation-fixed .nav-menu .menu-item a {
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: mrem(0.5);
+		padding-bottom: mrem(0.5);
 		-webkit-transition: all 0.3s ease-in-out;
 				transition: all 0.3s ease-in-out;
 	}
@@ -63,6 +63,6 @@
 	}
 
 	.fixed-nav .nav-placeholder {
-		min-height: ( 2.5 + $magic__number + 0.0555555556 ) * 1rem;
+		min-height: ( 2.5 + $magic__number ) * 1rem;
 	}
 }
