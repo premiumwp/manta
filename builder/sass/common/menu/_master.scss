@@ -58,7 +58,6 @@
 
 	.nav-menu a {
 		padding: 1.25rem;
-		transition: all 0.15s ease-in-out 0.15s;
 	}
 	
 	.menu-item-has-children:hover a,
@@ -66,8 +65,6 @@
 	.menu-item-has-children > a:focus,
 	.page_item_has_children > a:focus {
 		background-color: $light__bg-color;
-		-webkit-transition-delay: 0s;
-		        transition-delay: 0s;
 	}
 
 	.nav-menu .menu-item-has-children > a,
@@ -84,10 +81,7 @@
 		margin-left: 0;
 		background-color: $light__bg-color;
 		text-align: left;
-		-webkit-transition: all 0.2s ease-in-out 0.2s;
-				transition: all 0.2s ease-in-out 0.2s;
 		opacity: 0;
-		-webkit-backface-visibility: hidden;
 	}
 
 	.nav-menu .sub-menu a {
@@ -107,9 +101,6 @@
 	.nav-menu .menu-item.focus > .sub-menu {
 		visibility: visible;
 		opacity: 1;
-		-webkit-transition-delay: 0s;
-				transition-delay: 0s;
-		-webkit-backface-visibility: hidden;
 	}
 }
 
