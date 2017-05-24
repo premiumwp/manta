@@ -58,8 +58,8 @@ class Manta_Display {
 		add_action( 'manta_hook_bottom_of_entry'      , array( __CLASS__, 'postwrapper_close' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_author' ) );
 		add_action( 'manta_hook_after_entry'          , array( __CLASS__, 'post_navigation' ) );
-		add_action( 'get_sidebar'                     , array( __CLASS__, 'sidebar1' ) );
 		add_action( 'get_sidebar'                     , array( __CLASS__, 'sidebar2' ) );
+		add_action( 'get_sidebar'                     , array( __CLASS__, 'sidebar1' ) );
 
 		// Items to be displayed in post comments section.
 		add_action( 'manta_hook_on_top_of_comments'   , array( __CLASS__, 'comment_title' ) );

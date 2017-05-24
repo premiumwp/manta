@@ -8,7 +8,7 @@
 
 ?>
 
-<?php if ( is_single() ) :
+<?php if ( is_singular() ) :
 	the_title( sprintf( '<h1%1$s>', manta_get_attr( 'entry-title' ) ), '</h1>' ); ?>
 <?php else :
 	the_title( sprintf( '<h2%1$s><a href="%2$s" rel="bookmark">', manta_get_attr( 'entry-title' ), esc_url( get_permalink() ) ), '</a></h2>' ); ?>

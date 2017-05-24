@@ -8,90 +8,69 @@
 		justify-content: space-between;
 	}
 
+	.no-sidebar .content-sidebar-wrap {
+		justify-content: center;
+	}
+
 	.content-area {
-		width: 620px;
+		flex: 1;
+		min-width: 0; // Prevent chrome overflow.
 	}
 
 	.only-content .content-area {
 		max-width: 800px;
-		margin: 0 auto;
-	}
-
-	.only-content-full .content-area {
-		width: 100%;
-		max-width: 100%;
-		margin: 0 auto;
 	}
 
 	.primary-sidebar {
 		width: 300px;
 	}
-	
-	.content-sidebar .content-area,
-	.sidebar-content .primary-sidebar,
-	.sidebar-content-sidebar .secondary-sidebar,
-	.sidebar-sidebar-content .secondary-sidebar,
-	.content-sidebar-sidebar .content-area {
-		order: 1;
-	}
 
-	.content-sidebar .primary-sidebar,
-	.sidebar-content .content-area,
-	.sidebar-content-sidebar .content-area,
-	.sidebar-sidebar-content .primary-sidebar,
-	.content-sidebar-sidebar .secondary-sidebar {
-		order: 2;
-	}
-
-	.content-sidebar-sidebar .primary-sidebar,
-	.sidebar-content-sidebar .primary-sidebar,
-	.sidebar-sidebar-content .content-area {
-		order: 3;
-	}
-
-	.both-sidebar .content-area {
-		width: 380px;
-	}
-
-	.both-sidebar .secondary-sidebar {
+	.secondary-sidebar {
 		width: 200px;
+	}
+
+	.content-sidebar .content-area,
+	.content-sidebar-sidebar .content-area,
+	.sidebar-content-sidebar .content-area,
+	.content-sidebar-sidebar .secondary-sidebar,
+	.sidebar-sidebar-content .secondary-sidebar {
+		margin-right: 40px;
+	}
+
+	.sidebar-content .content-area,
+	.sidebar-sidebar-content .content-area,
+	.sidebar-content-sidebar .content-area {
+		margin-left: 40px;
+	}
+
+	.sidebar-content .primary-sidebar,
+	.sidebar-sidebar-content .primary-sidebar {
+		order: -1;
+	}
+
+	.sidebar-sidebar-content .secondary-sidebar,
+	.sidebar-content-sidebar .secondary-sidebar {
+		order: -2;
 	}
 }
 
 @mixin cs--xl() {
-	.content-area {
-		width: 720px;
-	}
-	
 	.primary-sidebar {
 		width: 380px;
 	}
 
-	.both-sidebar .content-area {
-		width: 520px;
+	.secondary-sidebar {
+		width: 240px;
 	}
-	
+
 	.both-sidebar .primary-sidebar {
 		width: 300px
-	}
-	
-	.both-sidebar .secondary-sidebar {
-		width: 240px;
 	}
 }
 
 @mixin cs--xx() {
-	.content-area {
-		width: 860px;
-	}
-
-	.primary-sidebar,
 	.both-sidebar .primary-sidebar {
 		width: 380px;
-	}
-
-	.both-sidebar .content-area {
-		width: 580px;
 	}
 }
 

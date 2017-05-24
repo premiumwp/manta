@@ -259,17 +259,89 @@ td {
 	.both-sidebar .author-title {
 		text-align: center;
 	}
-	
+
 	#colophon.left .footer-items .wrap {
 		float: right;
 	}
-	
+
 	#colophon.right .footer-items .wrap {
 		float: left;
 	}
-	
+
 	#colophon.aligned > .wrap {
 		text-align: right;
+	}
+
+	.content-sidebar .content-area,
+	.content-sidebar-sidebar .content-area,
+	.sidebar-content-sidebar .content-area,
+	.content-sidebar-sidebar .secondary-sidebar,
+	.sidebar-sidebar-content .secondary-sidebar {
+		margin-right: 0;
+		margin-left: 40px;
+	}
+
+	.sidebar-content .content-area,
+	.sidebar-sidebar-content .content-area,
+	.sidebar-content-sidebar .content-area {
+		margin-left: 0;
+		margin-right: 40px;
+	}
+
+	.boxed .content-area,
+	.boxed .secondary-sidebar {
+		margin: 0;
+	}
+
+	.boxed.content-sidebar .post-wrapper,
+	.boxed.content-sidebar .site-main .thumb-small,
+	.boxed.content-sidebar-sidebar .post-wrapper,
+	.boxed.content-sidebar-sidebar .site-main .thumb-small {
+		padding-right: 40px;
+		padding-left: 0;
+	}
+
+	.boxed.sidebar-content .post-wrapper,
+	.boxed.sidebar-content .site-main .thumb-small,
+	.boxed.sidebar-sidebar-content .post-wrapper,
+	.boxed.sidebar-sidebar-content .site-main .thumb-small {
+		padding-right: 0;
+		padding-left: 40px;
+	}
+
+	.boxed.sidebar-content .navigation,
+	.boxed.sidebar-sidebar-content .navigation,
+	.boxed.sidebar-content-sidebar .navigation {
+		margin-right: -20px;
+		margin-left: 0;
+		padding: 0 0 0 20px;
+	}
+
+	.boxed.sidebar-content .pagination,
+	.boxed.sidebar-sidebar-content .pagination,
+	.boxed.sidebar-content-sidebar .pagination {
+		margin-right: 0;
+		margin-left: auto;
+		padding: 0 0 0 40px;
+	}
+
+	.boxed.sidebar-content .comments-area,
+	.boxed.sidebar-sidebar-content .comments-area,
+	.boxed.sidebar-content-sidebar .comments-area,
+	.boxed.sidebar-content .author-info,
+	.boxed.sidebar-sidebar-content .author-info,
+	.boxed.sidebar-content-sidebar .author-info,
+	.boxed.sidebar-content .page-header,
+	.boxed.sidebar-sidebar-content .page-header,
+	.boxed.sidebar-content-sidebar .page-header {
+		margin-left: 0;
+		margin-right: -40px;
+	}
+
+	.boxed.content-sidebar-sidebar #secondary .widget,
+	.boxed.sidebar-sidebar-content #secondary .widget {
+		padding-left: 40px;
+		padding-right: 0;
 	}
 }
 
