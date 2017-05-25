@@ -34,9 +34,6 @@
 		// define variables
 		var navOffset, scrollPos = 0;
 		
-		// add utility wrapper elements for positioning
-		$("#main-navigation").wrap('<div class="nav-placeholder"></div>');
-		
 		// function to run on page load and window resize
 		function stickyUtility() {
 			
