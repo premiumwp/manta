@@ -76,13 +76,12 @@
 		position: absolute;
 		z-index: 9999;
 		top: calc( 100% - 0.5px );
+		left: -999em;
 		display: block;
-		visibility: hidden;
 		margin-left: 0;
 		background-color: $light__bg-color;
 		text-align: left;
 		opacity: 0;
-		transition: all 0s ease-in-out 0.2s;
 	}
 
 	.nav-menu .sub-menu a {
@@ -95,19 +94,23 @@
 
 	.nav-menu .sub-menu .sub-menu {
 		top: 0;
-		left: 224px;
 	}
 	
 	.nav-menu .menu-item:hover > .sub-menu {
-		visibility: visible;
 		opacity: 1;
+		left: auto;
+		transition: opacity 0s ease-in-out 0.2s;
 		-webkit-backface-visibility: hidden;
 	}
 
 	.nav-menu .menu-item.focus > .sub-menu {
-		visibility: visible;
 		opacity: 1;
-		transition-delay: 0s;
+		left: auto;
+	}
+
+	.nav-menu .sub-menu .menu-item:hover > .sub-menu,
+	.nav-menu .sub-menu .menu-item.focus > .sub-menu {
+		left: 224px;
 	}
 }
 
