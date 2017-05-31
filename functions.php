@@ -170,6 +170,7 @@ function manta_setup() {
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-css.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-php.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/refresh/selective-refresh.php' ) );
 
 	// Load theme features files.
 	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );

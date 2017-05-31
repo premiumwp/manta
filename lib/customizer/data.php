@@ -172,7 +172,7 @@ class Manta_Customizer_Data {
 					'transport'     => 'postMessage',
 					'control_class' => 'Manta_Font_Dropdown_Control',
 					'control_path'  => 'manta-font-dropdown-control',
-					'choices'       => self::get_all_fonts_list(),
+					'choices'       => self::get_all_web_fonts_list(),
 				),
 				array(
 					'label'         => esc_html__( 'Heading font family', 'manta' ),
@@ -181,29 +181,43 @@ class Manta_Customizer_Data {
 					'transport'     => 'postMessage',
 					'control_class' => 'Manta_Font_Dropdown_Control',
 					'control_path'  => 'manta-font-dropdown-control',
-					'choices'       => self::get_all_fonts_list(),
+					'choices'       => self::get_all_web_fonts_list(),
 				),
 				array(
-					'label'         => esc_html__( 'Mobile/ tablet base font size (in px)', 'manta' ),
+					'label'         => esc_html__( 'Mobile base font size', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_small_base_font_size',
 					'transport'     => 'postMessage',
-					'type'          => 'number',
+					'control_class' => 'Manta_Slider_Control',
+					'control_path'  => 'manta-slider-control',
+					'js_template'   => true,
+					'input_attrs'   => array( 'min' => 8, 'max' => 40, 'step' => 1 ),
+					'unit'          => 'px',
+					'default_value' => manta_get_theme_defaults('manta_small_base_font_size'),
 				),
 				array(
-					'label'         => esc_html__( 'Desktop base font size (in px)', 'manta' ),
+					'label'         => esc_html__( 'Desktop base font size', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_large_base_font_size',
 					'transport'     => 'postMessage',
-					'type'          => 'number',
+					'control_class' => 'Manta_Slider_Control',
+					'control_path'  => 'manta-slider-control',
+					'js_template'   => true,
+					'input_attrs'   => array( 'min' => 8, 'max' => 40, 'step' => 1 ),
+					'unit'          => 'px',
+					'default_value' => manta_get_theme_defaults('manta_large_base_font_size'),
 				),
 				array(
 					'label'         => esc_html__( 'Base line height', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_base_line_height',
 					'transport'     => 'postMessage',
-					'type'          => 'number',
-					'input_attrs'   => array( 'step' => 0.01 ),
+					'control_class' => 'Manta_Slider_Control',
+					'control_path'  => 'manta-slider-control',
+					'js_template'   => true,
+					'input_attrs'   => array( 'min' => 1, 'max' => 3, 'step' => 0.01 ),
+					'unit'          => 'px',
+					'default_value' => manta_get_theme_defaults('manta_base_line_height'),
 				),
 				array(
 					'label'         => esc_html__( 'Overall site layout', 'manta' ),
@@ -272,14 +286,22 @@ class Manta_Customizer_Data {
 						'small_right' => esc_html__( 'Small thumbnail right aligned', 'manta' ),
 						'none'        => esc_html__( 'Do not display thumbnails', 'manta' ),
 					),
+					'transport'      => 'postMessage',
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
-					'label'         => esc_html__( 'Excerpt or Full Content', 'manta' ),
-					'section'       => 'manta_content_section',
-					'settings'      => 'manta_excerpt_option',
-					'type'          => 'select',
-					'choices'       => array(
+					'label'          => esc_html__( 'Excerpt or Full Content', 'manta' ),
+					'section'        => 'manta_content_section',
+					'settings'       => 'manta_excerpt_option',
+					'type'           => 'select',
+					'transport'      => 'postMessage',
+					'select_refresh' => array(
+						'selector'            => '.site-main',
+						'container_inclusive' => false,
+						'render_callback'     => 'manta_customize_partial_main_content',
+						'fallback_refresh'    => false,
+					),
+					'choices'        => array(
 						'excerpt' => esc_html__( 'Excerpt', 'manta' ),
 						'content' => esc_html__( 'Full content', 'manta' ),
 					),
@@ -289,6 +311,13 @@ class Manta_Customizer_Data {
 					'section'       => 'manta_content_section',
 					'settings'      => 'manta_excerpt_length',
 					'type'          => 'number',
+					'transport'      => 'postMessage',
+					'select_refresh' => array(
+						'selector'            => '.site-main',
+						'container_inclusive' => false,
+						'render_callback'     => 'manta_customize_partial_main_content',
+						'fallback_refresh'    => false,
+					),
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
@@ -304,6 +333,13 @@ class Manta_Customizer_Data {
 					'section'       => 'manta_content_section',
 					'settings'      => 'manta_thumbnails_on_single',
 					'type'          => 'checkbox',
+					'transport'      => 'postMessage',
+					'select_refresh' => array(
+						'selector'            => '.site-main',
+						'container_inclusive' => false,
+						'render_callback'     => 'manta_customize_partial_main_content',
+						'fallback_refresh'    => false,
+					),
 				),
 				array(
 					'label'         => esc_html__( 'Copyright Text', 'manta' ),
@@ -378,43 +414,6 @@ class Manta_Customizer_Data {
 	}
 
 	/**
-	 * Get list of web safe fonts.
-	 *
-	 * @return  array Returns list of web safe fonts.
-	 * @since   1.1
-	 */
-	public static function get_web_safe_fonts_list() {
-		$web_safe_fonts = array(
-			'Times serif'     => esc_html__( 'Times serif', 'manta' ),
-			'Lucida serif'    => esc_html__( 'Lucida serif', 'manta' ),
-			'Garamond serif'  => esc_html__( 'Garamond serif', 'manta' ),
-			'Helvetica sans'  => esc_html__( 'Helvetica sans', 'manta' ),
-			'Lucida sans'     => esc_html__( 'Lucida sans', 'manta' ),
-			'Segoe UI sans'      => esc_html__( 'Segoe UI sans', 'manta' ),
-		);
-		return $web_safe_fonts;
-	}
-
-	/**
-	 * Get web safe stack.
-	 *
-	 * @param   string $name Font stack identifier.
-	 * @return  array Returns list of web safe font stack.
-	 * @since   1.1
-	 */
-	public static function get_web_safe_fonts_stack( $name ) {
-		$web_safe_fonts = array(
-			'Times serif'    => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", Times, "Times New Roman", serif',
-			'Lucida serif'   => '"Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", Georgia, serif',
-			'Garamond serif' => 'Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif',
-			'Helvetica sans' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-			'Lucida sans'    => '"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif',
-			'Segoe UI sans'  => '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif',
-		);
-		return $web_safe_fonts[ $name ];
-	}
-
-	/**
 	 * Get list of all available web fonts.
 	 *
 	 * @return  array Returns list of all web fonts.
@@ -425,18 +424,5 @@ class Manta_Customizer_Data {
 		$google_serif_fonts = self::get_google_serif_fonts_list();
 
 		return array_merge( $google_sans_fonts, $google_serif_fonts );
-	}
-
-	/**
-	 * Get list of all available fonts.
-	 *
-	 * @return  array Returns list of all fonts.
-	 * @since   1.1
-	 */
-	public static function get_all_fonts_list() {
-		$web_safe_fonts     = self::get_web_safe_fonts_list();
-		$google_fonts       = self::get_all_web_fonts_list();
-
-		return array_merge( $web_safe_fonts, $google_fonts );
 	}
 }

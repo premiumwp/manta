@@ -7,18 +7,6 @@
  */
 
 ( function( $ ) {
-	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
-		} );
-	} );
-	
 	wp.customize( 'manta_display_site_title', function( value ) {
 		value.bind( function( to ) {
 			if ( 1 != to ) {
@@ -103,12 +91,13 @@
 	// Mobile/ tablet base font size.
 	wp.customize( 'manta_small_base_font_size', function( value ) {
 		value.bind( function( to ) {
-			if ( to ) {
-				if ( $( document ).width() < 640 ) {
-					$( 'html' ).css( {
-						'font-size': to + 'px'
-					} )
-				}
+			if ( $( 'style#small_base_font_size' ).length ) {
+				$( 'style#small_base_font_size' ).html( '@media only screen and (max-width: 640px){html{font-size:' + to + 'px }}' );
+			} else {
+				$( 'head' ).append( '<style id="small_base_font_size">@media only screen and (max-width: 640px){html{font-size:' + to + 'px }}</style>' );
+				setTimeout(function() {
+					$( 'style#small_base_font_size' ).not( ':last' ).remove();
+				}, 100);
 			}
 		} );
 	} );
@@ -116,12 +105,13 @@
 	// Desktop base font size.
 	wp.customize( 'manta_large_base_font_size', function( value ) {
 		value.bind( function( to ) {
-			if ( to ) {
-				if ( $( document ).width() >= 640 ) {
-					$( 'html' ).css( {
-						'font-size': to + 'px'
-					} )
-				}
+			if ( $( 'style#large_base_font_size' ).length ) {
+				$( 'style#large_base_font_size' ).html( '@media only screen and (min-width: 640px){html{font-size:' + to + 'px }}' );
+			} else {
+				$( 'head' ).append( '<style id="large_base_font_size">@media only screen and (min-width: 640px){html{font-size:' + to + 'px }}</style>' );
+				setTimeout(function() {
+					$( 'style#large_base_font_size' ).not( ':last' ).remove();
+				}, 100);
 			}
 		} );
 	} );
@@ -337,6 +327,58 @@
 				}, 100);
 			}
 		} );
+	} );
+	
+	// Thumbnails display
+	wp.customize( 'manta_thumbnails_display', function( value ) {
+		value.bind( function( to ) {
+			var thumbSrc;
+			if ( ! $( '#main .post-thumbnail' ).length ) {
+				wp.customize.preview.send( 'refresh' );
+			} else {
+				$( '.hentry' ).removeClass( 'thumb-large thumb-above-title thumb-below-title thumb-small left right' );
+				if ( 'large' === to || 'small' === to || 'small_right' === to ) {
+					$( '#main .post-thumbnail' ).each(function() {
+						$(this).show();
+						$(this).prependTo( $(this).closest( '.hentry' ) );
+						thumbSrc = $(this).find( '.thumbnails' ).attr('src');
+						if ( 'small' === to || 'small_right' === to ) {
+							$(this).css( {
+								'background-image': 'url(' + thumbSrc + ')'
+							} )
+						}
+					});
+					if ( 'large' === to ) {
+						$( '.hentry' ).addClass( 'thumb-large' );
+					} else if ( 'small' === to ) {
+						$( '.hentry' ).addClass( 'thumb-small left' );
+					} else if ( 'small_right' ) {
+						$( '.hentry' ).addClass( 'thumb-small right' );
+					}
+					
+				} else if ( 'large_above' === to ) {
+					$( '#main .post-thumbnail' ).each(function() {
+						$(this).show();
+						$(this).prependTo( $(this).closest( '.hentry' ).find( '.post-wrapper' ) );
+					});
+					$( '.hentry' ).addClass( 'thumb-above-title' );
+				} else if ( 'large_below' === to ) {
+					$( '#main .post-thumbnail' ).each(function() {
+						$(this).show();
+						$(this).insertAfter( $(this).closest( '.hentry' ).find( '.entry-header' ) );
+					});
+					$( '.hentry' ).addClass( 'thumb-below-title' );
+				} else if ( 'none' === to ) {
+					$( '#main .post-thumbnail' ).each(function() {
+						$(this).hide();
+					});
+				}
+			}
+		} );
+	} );
+	
+	wp.customize.previewer.bind( 'refresh', function() {
+		wp.customize.previewer.refresh();
 	} );
 
 } )( jQuery );

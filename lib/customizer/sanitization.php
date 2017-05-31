@@ -57,6 +57,10 @@ abstract class Manta_Sanitization {
 				$sanitized_value = $this->sanitize_number( $option, $setting );
 				break;
 
+			case 'range-slider':
+				$sanitized_value = $this->sanitize_number( $option, $setting );
+				break;
+
 			case 'text':
 				$sanitized_value = $this->sanitize_text( $option );
 				break;
@@ -151,8 +155,13 @@ abstract class Manta_Sanitization {
 	 * @return integer
 	 */
 	private function sanitize_number( $option, $setting ) {
+		if ( '' === $option && '' === $setting->default ) {
+			return $setting->default;
+		}
+
 		$attr = $setting->manager->get_control( $setting->id )->input_attrs;
 		$option = abs( $option );
+
 		if ( isset( $attr['max'] ) ) {
 			$option = $option > $attr['max'] ? $attr['max'] : $option;
 		}

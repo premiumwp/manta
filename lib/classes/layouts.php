@@ -35,11 +35,11 @@ class Manta_Layouts {
 	 * @since 1.0.0
 	 */
 	public static function init() {
-		add_filter( 'manta_theme_controls' , array( Manta_Layouts::get_instance(), 'customizer_layout_options' ) );
-		add_filter( 'manta_theme_defaults' , array( Manta_Layouts::get_instance(), 'layout_defaults' ) );
-		add_action( 'add_meta_boxes'       , array( Manta_Layouts::get_instance(), 'add_layout_metabox' ) );
-		add_action( 'save_post'            , array( Manta_Layouts::get_instance(), 'save_layout_metabox' ) );
-		add_filter( 'body_class'           , array( Manta_Layouts::get_instance(), 'layout_css_classes' ), 9 );
+		add_filter( 'manta_theme_controls'                , array( Manta_Layouts::get_instance(), 'customizer_layout_options' ) );
+		add_filter( 'manta_theme_defaults'                , array( Manta_Layouts::get_instance(), 'layout_defaults' ) );
+		add_action( 'add_meta_boxes'                      , array( Manta_Layouts::get_instance(), 'add_layout_metabox' ) );
+		add_action( 'save_post'                           , array( Manta_Layouts::get_instance(), 'save_layout_metabox' ) );
+		add_filter( 'manta_get_attr_content-sidebar-wrap' , array( Manta_Layouts::get_instance(), 'manta_layout_css_classes' ), 9 );
 	}
 
 	/**
@@ -52,36 +52,64 @@ class Manta_Layouts {
 	 */
 	public function customizer_layout_options( $controls ) {
 		$controls[] = array(
-			'label'       => esc_html__( 'Global Content Layout', 'manta' ),
-			'section'     => 'manta_layout_section',
-			'settings'    => 'manta_global_layout',
-			'type'        => 'select',
-			'choices'     => $this->layout_choices(),
+			'label'          => esc_html__( 'Global Content Layout', 'manta' ),
+			'section'        => 'manta_layout_section',
+			'settings'       => 'manta_global_layout',
+			'type'           => 'select',
+			'select_refresh' => array(
+				'selector'            => '.content-sidebar-wrap',
+				'container_inclusive' => true,
+				'render_callback'     => 'manta_customize_partial_cs_wrap',
+				'fallback_refresh'    => false,
+			),
+			'transport'      => 'postMessage',
+			'choices'        => $this->layout_choices(),
 		);
 
 		$controls[] = array(
-			'label'       => esc_html__( 'Posts Content Layout', 'manta' ),
-			'section'     => 'manta_layout_section',
-			'settings'    => 'manta_post_layout',
-			'type'        => 'select',
-			'choices'     => $this->layout_choices(),
+			'label'          => esc_html__( 'Posts Content Layout', 'manta' ),
+			'section'        => 'manta_layout_section',
+			'settings'       => 'manta_post_layout',
+			'type'           => 'select',
+			'select_refresh' => array(
+				'selector'            => '.content-sidebar-wrap',
+				'container_inclusive' => true,
+				'render_callback'     => 'manta_customize_partial_cs_wrap',
+				'fallback_refresh'    => false,
+			),
+			'transport'      => 'postMessage',
+			'choices'        => $this->layout_choices(),
 			'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
 		);
 
 		$controls[] = array(
-			'label'       => esc_html__( 'Pages Content Layout', 'manta' ),
-			'section'     => 'manta_layout_section',
-			'settings'    => 'manta_page_layout',
-			'type'        => 'select',
-			'choices'     => $this->layout_choices(),
+			'label'          => esc_html__( 'Pages Content Layout', 'manta' ),
+			'section'        => 'manta_layout_section',
+			'settings'       => 'manta_page_layout',
+			'type'           => 'select',
+			'select_refresh' => array(
+				'selector'            => '.content-sidebar-wrap',
+				'container_inclusive' => true,
+				'render_callback'     => 'manta_customize_partial_cs_wrap',
+				'fallback_refresh'    => false,
+			),
+			'transport'      => 'postMessage',
+			'choices'        => $this->layout_choices(),
 			'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
 		);
 
 		$controls[] = array(
-			'label'       => esc_html__( 'Different layout for posts/pages', 'manta' ),
-			'section'     => 'manta_layout_section',
-			'settings'    => 'manta_enforce_global',
-			'type'        => 'checkbox',
+			'label'          => esc_html__( 'Different layout for posts/pages', 'manta' ),
+			'section'        => 'manta_layout_section',
+			'settings'       => 'manta_enforce_global',
+			'type'           => 'checkbox',
+			'select_refresh' => array(
+				'selector'            => '.content-sidebar-wrap',
+				'container_inclusive' => true,
+				'render_callback'     => 'manta_customize_partial_cs_wrap',
+				'fallback_refresh'    => false,
+			),
+			'transport'      => 'postMessage',
 		);
 
 		return $controls;
@@ -234,22 +262,22 @@ class Manta_Layouts {
 			}
 		}
 	}
-
+	
 	/**
-	 * Adds custom layout classes to the array of body class.
+	 * Adds custom layout classes to the array of content sidebar wrapper class.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1
 	 *
-	 * @param array $classes Classes for the body element.
+	 * @param array $attr attribute values array.
 	 * @return array
 	 */
-	public function layout_css_classes( $classes ) {
+	public function manta_layout_css_classes( $attr = array() ) {
 		$global_layout = $this->get_layout( 'global' );
 		$force_global = ( '' === get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) ? true : false;
 
 		if ( is_home() || is_archive() || is_search() || $force_global ) {
-			$classes[] = esc_attr( $global_layout );
-			return $classes;
+			$attr['class'] .= ' ' . esc_attr( $global_layout );
+			return $attr;
 		}
 
 		if ( is_singular() ) {
@@ -260,7 +288,7 @@ class Manta_Layouts {
 			} elseif ( is_singular( 'page' ) ) {
 				$type = 'page';
 			} else {
-				return $classes;
+				return $attr;
 			}
 
 			$default_layout = $this->get_layout( $type );
@@ -272,21 +300,21 @@ class Manta_Layouts {
 			}
 
 			if ( '' === $specific_layout ) {
-				$classes[] = esc_attr( $default_layout );
-				return $classes;
+				$attr['class'] .= ' ' . esc_attr( $default_layout );
+				return $attr;
 			}
 
 			$layouts = $this->layout_choices();
 			if ( array_key_exists( $specific_layout, $layouts ) ) {
-				$classes[] = esc_attr( $specific_layout );
+				$attr['class'] .= ' ' . esc_attr( $specific_layout );
 			} else {
-				$classes[] = esc_attr( $default_layout );
+				$attr['class'] .= ' ' . esc_attr( $default_layout );
 			}
 
-			return $classes;
+			return $attr;
 		}
 
-		return $classes;
+		return $attr;
 	}
 
 	/**

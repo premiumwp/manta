@@ -52,15 +52,6 @@ class Manta_Customizer_Front_Base {
 	public $google_serif;
 
 	/**
-	 * Hold names of all web safe fonts listed in theme customizer.
-	 *
-	 * @since  1.1
-	 * @access public
-	 * @var    array
-	 */
-	public $web_safe;
-
-	/**
 	 * Constructor method.
 	 *
 	 * @since 1.1
@@ -70,7 +61,6 @@ class Manta_Customizer_Front_Base {
 		$this->defaults     = manta_get_theme_defaults( 'all' );
 		$this->google_sans  = Manta_Customizer_Data::get_google_sans_fonts_list();
 		$this->google_serif = Manta_Customizer_Data::get_google_serif_fonts_list();
-		$this->web_safe     = Manta_Customizer_Data::get_web_safe_fonts_list();
 	}
 
 	/**
@@ -111,19 +101,6 @@ class Manta_Customizer_Front_Base {
 	 */
 	public function is_google_serif_font( $font ) {
 		return in_array( $font, $this->google_serif, true );
-	}
-
-	/**
-	 * Check if given font is a web safe font stack.
-	 *
-	 * @since 1.1
-	 * @access public
-	 *
-	 * @param string $font Font stack.
-	 * @return bool
-	 */
-	public function is_web_safe_font( $font ) {
-		return array_key_exists( $font, $this->web_safe );
 	}
 
 	/**

@@ -1741,7 +1741,7 @@ a.more-link:focus {
     display: flex;
     justify-content: space-between; }
 
-  .no-sidebar .content-sidebar-wrap {
+  .content-sidebar-wrap.no-sidebar {
     justify-content: center; }
 
   .content-area {

@@ -1,0 +1,58 @@
+/*
+Theme Name: Manta
+Version: 1.0.0
+Description: Customizer control css.
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+.slider-input {
+	width: 60px !important;
+	font-size: 12px;
+	padding: 2px;
+	text-align: center;
+	height: 24px !important;
+}
+
+.customize-control-range-slider .value {
+	display: inline-block;
+	float: right;
+	width: 40%;
+	text-align: right;
+}
+
+.customize-control-range-slider .customize-control-title {
+	display:inline-block;
+}
+
+.manta-slider-default-value {
+	cursor: pointer;
+	float: right;
+	line-height: 1;
+}
+
+.manta-slider-default-value .dashicons {
+	width: 1em;
+	height: 1em;
+	font-size: 1em;
+	line-height: 1em;
+	color: #b2b6ba;
+}
+
+.customize-control-range-slider .slider.show-reset {
+	width: 90%;
+	float: left;
+}
+
+.customize-control-range-slider .px {
+	background: #FAFAFA;
+	line-height: 18px;
+	display: inline-block;
+	padding: 2px 5px;
+	font-style: normal;
+	font-weight: bold;
+	border-right: 1px solid #DDD;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	font-size: 12px;
+}
