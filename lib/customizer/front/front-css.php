@@ -38,6 +38,7 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 		$this->title_tagline();
 		$this->color_css();
 		$this->typography_css();
+		$this->dimension_css();
 
 		return $this->css;
 	}
@@ -121,6 +122,57 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 
 		if ( $line_height && 1.75 !== $line_height ) {
 			$this->css .= sprintf( 'body{line-height: %s}', $line_height );
+		}
+	}
+
+	/**
+	 * Site dimension customized CSS.
+	 *
+	 * @since 1.0.0
+	 */
+	public function dimension_css() {
+
+		$min_width       = 1024;
+		$site_width      = $this->get_mod( 'manta_overall_site_width', 'integer' );
+		$secondary_width = $this->get_mod( 'manta_primary_sidebar_width', 'integer' );
+		$tertiary_width  = $this->get_mod( 'manta_secondary_sidebar_width', 'integer' );
+
+		if ( is_active_sidebar( 'sidebar-1' ) ) {
+			if ( $secondary_width ) {
+				$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#secondary{width: %2$spx}}', $min_width, $secondary_width );
+			}
+		}
+
+		if ( $tertiary_width ) {
+			if ( is_active_sidebar( 'sidebar-1' ) && is_active_sidebar( 'sidebar-2' ) ) {
+				$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#tertiary{width: %2$spx}}', $min_width, $tertiary_width );
+			}
+		}
+
+		if ( $site_width ) {
+
+			// Applicable screen size for full width layout to keep at least 20px space on either side.
+			$screen_width = $site_width + 40;
+
+			// Maintain 40px padding on both sides for boxed layout.
+			$inner_width = $site_width - 80;
+
+			// Calculate height of two featured posts to match with its width (refer featured posts css).
+			$two_featured_height = ( $site_width - ( $site_width * 4 / 100 ) ) * 0.49;
+
+			// Calculate height of three featured posts to match with its width (refer featured posts css).
+			$three_featured_height = ( $site_width - ( $site_width * 3.75 / 100 ) ) * 0.325;
+
+			// Calculate height of two featured posts to match with its width (refer featured posts css).
+			$two_featured_boxed = ( $site_width ) * 0.5;
+
+			// Calculate height of three featured posts to match with its width (refer featured posts css).
+			$three_featured_boxed = ( $site_width ) * 0.33334;
+
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %2$spx}}', $screen_width, $site_width );
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.two-featured .featured-posts{height:%2$spx;max-height:%2$spx}.three-featured .featured-posts{height:%3$spx;max-height:%3$spx}}', $screen_width, $two_featured_height, $three_featured_height );
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .two-featured .featured-posts{height:%2$spx;max-height:%2$spx}.boxed .three-featured .featured-posts{height:%3$spx;max-height:%3$spx}}', $site_width, $two_featured_boxed, $three_featured_boxed );
 		}
 	}
 }

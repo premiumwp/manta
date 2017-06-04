@@ -12,7 +12,7 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 <div<?php manta_attr( 'footer-items' ); ?>>
 
 	<div<?php manta_attr( 'wrap' ); ?>>
-		
+
 		<?php // Display Copyright text. ?>
 		<div<?php manta_attr( 'copyright-text' ); ?>>
 			<?php if ( $manta_copyright_info ) : ?>

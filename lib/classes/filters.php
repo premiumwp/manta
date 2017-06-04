@@ -95,9 +95,13 @@ class Manta_Filters {
 		} elseif ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
 			$classes[] = 'thumb-below-title';
 		} elseif ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-			$classes[] = 'thumb-small left';
+			if ( is_home() || is_search() || is_archive() ) {
+				$classes[] = 'thumb-small left';
+			}
 		} elseif ( 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-			$classes[] = 'thumb-small right';
+			if ( is_home() || is_search() || is_archive() ) {
+				$classes[] = 'thumb-small right';
+			}
 		} else {
 			$classes[] = 'no-thumb';
 		}
@@ -106,7 +110,7 @@ class Manta_Filters {
 	}
 
 	/**
-	 * Adds custom classes to site header.
+	 * Adds custom classes to Content sidebar wrap.
 	 *
 	 * @since 1.1
 	 *

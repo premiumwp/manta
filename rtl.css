@@ -180,7 +180,7 @@ td {
 		padding-right: 0;
 		padding-left: 40px;
 	}
-	
+
 	.left #header-menu {
 		float: left;
 		clear: left;
@@ -188,12 +188,18 @@ td {
 		right: auto;
 	}
 
-	.left #header-menu .sub-menu {
+	.left #header-menu .menu-item:hover > .sub-menu,
+	.left #header-menu .menu-item.focus > .sub-menu,
+	.left #primary-menu .menu-item:hover > .sub-menu,
+	.left #primary-menu .menu-item.focus > .sub-menu {
 		left: 0;
 		right: auto;
 	}
 
-	.left #header-menu .sub-menu .sub-menu {
+	.left #header-menu .sub-menu .menu-item:hover > .sub-menu,
+	.left #header-menu .sub-menu .menu-item.focus > .sub-menu,
+	.left #primary-menu .sub-menu .menu-item:hover > .sub-menu,
+	.left #primary-menu .sub-menu .menu-item.focus > .sub-menu {
 		right: auto;
 		left: 224px;
 	}
@@ -204,13 +210,19 @@ td {
 		right: -1.25em;
 		left: auto;
 	}
-	
-	.right #header-menu .sub-menu {
+
+	.right #header-menu .menu-item:hover > .sub-menu,
+	.right #header-menu .menu-item.focus > .sub-menu,
+	.right #primary-menu .menu-item:hover > .sub-menu,
+	.right #primary-menu .menu-item.focus > .sub-menu {
 		left: auto;
 		right: 0;
 	}
 
-	.right #header-menu .sub-menu .sub-menu {
+	.right #header-menu .sub-menu .menu-item:hover > .sub-menu,
+	.right #header-menu .sub-menu .menu-item.focus > .sub-menu,
+	.right #primary-menu .sub-menu .menu-item:hover > .sub-menu,
+	.right #primary-menu .sub-menu .menu-item.focus > .sub-menu {
 		right: 224px;
 		left: auto;
 	}
@@ -244,6 +256,11 @@ td {
 	.left #primary-menu .sub-menu .icon {
 		-webkit-transform: rotate(-90deg);
 				transform: rotate(-90deg);
+	}
+	
+	.left .site-branding {
+		padding-right: 0;
+		padding-left: 40px;
 	}
 	
 	.right .site-branding {
@@ -293,53 +310,53 @@ td {
 		margin: 0;
 	}
 
-	.boxed.content-sidebar .post-wrapper,
-	.boxed.content-sidebar .site-main .thumb-small,
-	.boxed.content-sidebar-sidebar .post-wrapper,
-	.boxed.content-sidebar-sidebar .site-main .thumb-small {
+	.boxed .content-sidebar .post-wrapper,
+	.boxed .content-sidebar .site-main .thumb-small,
+	.boxed .content-sidebar-sidebar .post-wrapper,
+	.boxed .content-sidebar-wrap.content-sidebar-sidebar .site-main .thumb-small {
 		padding-right: 40px;
 		padding-left: 0;
 	}
 
-	.boxed.sidebar-content .post-wrapper,
-	.boxed.sidebar-content .site-main .thumb-small,
-	.boxed.sidebar-sidebar-content .post-wrapper,
-	.boxed.sidebar-sidebar-content .site-main .thumb-small {
+	.boxed .sidebar-content .post-wrapper,
+	.boxed .sidebar-content .site-main .thumb-small,
+	.boxed .sidebar-sidebar-content .post-wrapper,
+	.boxed .content-sidebar-wrap.sidebar-sidebar-content .site-main .thumb-small {
 		padding-right: 0;
 		padding-left: 40px;
 	}
 
-	.boxed.sidebar-content .navigation,
-	.boxed.sidebar-sidebar-content .navigation,
-	.boxed.sidebar-content-sidebar .navigation {
+	.boxed .sidebar-content .navigation,
+	.boxed .sidebar-sidebar-content .navigation,
+	.boxed .sidebar-content-sidebar .navigation {
 		margin-right: -20px;
 		margin-left: 0;
 		padding: 0 0 0 20px;
 	}
 
-	.boxed.sidebar-content .pagination,
-	.boxed.sidebar-sidebar-content .pagination,
-	.boxed.sidebar-content-sidebar .pagination {
+	.boxed .sidebar-content .pagination,
+	.boxed .sidebar-sidebar-content .pagination,
+	.boxed .sidebar-content-sidebar .pagination {
 		margin-right: 0;
 		margin-left: auto;
 		padding: 0 0 0 40px;
 	}
 
-	.boxed.sidebar-content .comments-area,
-	.boxed.sidebar-sidebar-content .comments-area,
-	.boxed.sidebar-content-sidebar .comments-area,
-	.boxed.sidebar-content .author-info,
-	.boxed.sidebar-sidebar-content .author-info,
-	.boxed.sidebar-content-sidebar .author-info,
-	.boxed.sidebar-content .page-header,
-	.boxed.sidebar-sidebar-content .page-header,
-	.boxed.sidebar-content-sidebar .page-header {
+	.boxed .sidebar-content .comments-area,
+	.boxed .sidebar-sidebar-content .comments-area,
+	.boxed .sidebar-content-sidebar .comments-area,
+	.boxed .sidebar-content .author-info,
+	.boxed .sidebar-sidebar-content .author-info,
+	.boxed .sidebar-content-sidebar .author-info,
+	.boxed .sidebar-content .page-header,
+	.boxed .sidebar-sidebar-content .page-header,
+	.boxed .sidebar-content-sidebar .page-header {
 		margin-left: 0;
 		margin-right: -40px;
 	}
 
-	.boxed.content-sidebar-sidebar #secondary .widget,
-	.boxed.sidebar-sidebar-content #secondary .widget {
+	.boxed .content-sidebar-sidebar #secondary .widget,
+	.boxed .sidebar-sidebar-content #secondary .widget {
 		padding-left: 40px;
 		padding-right: 0;
 	}

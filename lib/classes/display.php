@@ -278,8 +278,7 @@ class Manta_Display {
 				// Include thumbnail display template for full post content.
 				get_template_part( 'template-parts/entry/thumbnail' );
 			}
-			// Condition where post excerpt is being displayed.
-		} else {
+		} else { // Condition where post excerpt is being displayed.
 
 			// Include thumbnail display template for post excerpts.
 			get_template_part( 'template-parts/entry/thumbnail' );

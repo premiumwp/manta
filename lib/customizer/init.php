@@ -141,11 +141,11 @@ class Manta_Customizer extends Manta_Sanitization {
 
 				$wp_customize->add_control( $customizer_control['settings'], $customizer_control );
 			}
-			
+
 			if ( isset( $customizer_control['select_refresh'] ) && isset( $wp_customize->selective_refresh ) ) {
 				$wp_customize->selective_refresh->add_partial( $customizer_control['settings'], $customizer_control['select_refresh'] );
 			}
-		}
+		} // End foreach().
 	}
 
 	/**
@@ -179,7 +179,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	/**
 	 * Enqueue customizer control JS file.
 	 *
-	 * @since 1.2
+	 * @since 1.1
 	 */
 	public function customize_control_js() {
 		wp_enqueue_script(
@@ -190,11 +190,11 @@ class Manta_Customizer extends Manta_Sanitization {
 			true
 		);
 	}
-	
+
 	/**
 	 * Enqueue customizer control CSS file.
 	 *
-	 * @since 1.2
+	 * @since 1.1
 	 */
 	public function customize_control_css() {
 		wp_enqueue_style(

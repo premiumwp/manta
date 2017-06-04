@@ -60,6 +60,7 @@ function manta_setup() {
 	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 880, 540, true );
+	add_image_size( 'manta-small-thumb', 640, 392, true );
 
 	// Allows the use of valid HTML5 markup.
 	add_theme_support( 'html5', array(

@@ -20,7 +20,7 @@ class Manta_Slider_Control extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $type = 'range-slider';
-	
+
 	/**
 	 * Default
 	 *
@@ -40,7 +40,7 @@ class Manta_Slider_Control extends WP_Customize_Control {
 	/**
 	 * Convert option data in JSON.
 	 *
-	 * @since 1.2
+	 * @since 1.1
 	 */
 	public function to_json() {
 		parent::to_json();
@@ -52,13 +52,13 @@ class Manta_Slider_Control extends WP_Customize_Control {
 		$this->json['link']        = $this->get_link();
 		$this->json['value']       = $this->value();
 		$this->json['default']     = $this->default_value;
-		$this->json['reset_title'] = esc_attr_x('Reset', 'Reset the slider customizer control value.', 'manta');
+		$this->json['reset_title'] = esc_attr_x( 'Reset', 'Reset the slider customizer control value.', 'manta' );
 	}
 
 	/**
 	 * Content template to render slider control.
 	 *
-	 * @since 1.2
+	 * @since 1.1
 	 */
 	public function content_template() {
 		?>
@@ -82,7 +82,7 @@ class Manta_Slider_Control extends WP_Customize_Control {
 	/**
 	 * Enqueue range slider scripts and styles.
 	 *
-	 * @since 1.2
+	 * @since 1.1
 	 */
 	public function enqueue() {
 		wp_enqueue_script(
