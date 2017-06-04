@@ -23,14 +23,6 @@ h6:first-child {
 	margin-bottom: 0.25rem;
 }
 
-h1 a:hover,
-h1 a:focus,
-h2 a:focus,
-h2 a:hover {
-	color: $body__text-color;
-	box-shadow: none;
-}
-
 h1 {
 	font-size: 3rem;
 }

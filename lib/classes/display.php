@@ -278,8 +278,7 @@ class Manta_Display {
 				// Include thumbnail display template for full post content.
 				get_template_part( 'template-parts/entry/thumbnail' );
 			}
-			// Condition where post excerpt is being displayed.
-		} else {
+		} else { // Condition where post excerpt is being displayed.
 
 			// Include thumbnail display template for post excerpts.
 			get_template_part( 'template-parts/entry/thumbnail' );
@@ -425,8 +424,9 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function sidebar1() {
-		$classes = Manta_Layouts::get_instance()->layout_css_classes( array() );
+		$layout_classes = Manta_Layouts::get_instance()->manta_layout_css_classes( array( 'class' => 'content-sidebar-wrap' ) );
 		$no_col  = array( 'only-content', 'only-content-full', 'two-col-grid', 'three-col-grid' );
+		$classes = explode( ' ', $layout_classes['class'] );
 
 		// Conditionally display primary sidebar.
 		if ( count( array_intersect( $classes, $no_col ) ) === 0 ) {
@@ -440,8 +440,9 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function sidebar2() {
-		$classes = Manta_Layouts::get_instance()->layout_css_classes( array() );
+		$layout_classes = Manta_Layouts::get_instance()->manta_layout_css_classes( array( 'class' => 'content-sidebar-wrap' ) );
 		$three_col = array( 'content-sidebar-sidebar', 'sidebar-sidebar-content', 'sidebar-content-sidebar' );
+		$classes = explode( ' ', $layout_classes['class'] );
 
 		// Return if secondary sidebar is not to be displayed.
 		if ( count( array_intersect( $classes, $three_col ) ) === 0 ) {

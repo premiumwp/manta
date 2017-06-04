@@ -79,7 +79,7 @@ class Manta_Featured_Post {
 	 * @return object Customizer instance.
 	 */
 	public static function get_instance() {
-		null === self::$instance and self::$instance = new self;
+		null === self::$instance && self::$instance = new self;
 		return self::$instance;
 	}
 

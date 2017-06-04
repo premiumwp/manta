@@ -62,14 +62,6 @@ class Manta_Font_Dropdown_Control extends WP_Customize_Control {
 				    printf( '</optgroup>' );
 				}
 				?>
-				<optgroup label="Web Safe Font Stack" class="local_label">
-					<?php
-					$web_safe_fonts = Manta_Customizer_Data::get_web_safe_fonts_list();
-					foreach ( $web_safe_fonts as $font_key => $font_name ) {
-						printf( '<option value="%s" %s>%s</option>', esc_attr( $font_name ), selected( $this->value(), $font_name, false ), esc_html( $font_name ) );
-					}
-					?>
-				</optgroup>
 			</select>
 		</label>
 		<?php

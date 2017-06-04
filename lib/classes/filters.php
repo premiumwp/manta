@@ -26,15 +26,16 @@ class Manta_Filters {
 	 * @since 1.0.0
 	 */
 	public static function initiate() {
-		add_filter( 'body_class'                         , array( __CLASS__, 'add_body_classes' ) );
-		add_filter( 'post_class'                         , array( __CLASS__, 'add_post_classes' ) );
-		add_filter( 'manta_get_attr_site-header'         , array( __CLASS__, 'add_site_header_classes' ) );
-		add_filter( 'manta_get_attr_header-items'        , array( __CLASS__, 'add_header_item_classes' ) );
-		add_filter( 'manta_get_attr_main-navigation'     , array( __CLASS__, 'add_main_navigation_classes' ) );
-		add_filter( 'manta_get_attr_site-footer'         , array( __CLASS__, 'add_site_footer_classes' ) );
-		add_filter( 'excerpt_length'                     , array( __CLASS__, 'change_excerpt_length' ) );
-		add_filter( 'excerpt_more'                       , array( __CLASS__, 'modify_excerpt_teaser' ) );
-		add_filter( 'wp_get_attachment_image_attributes' , array( __CLASS__, 'custom_logo_attr' ), 10, 2 );
+		add_filter( 'body_class'                          , array( __CLASS__, 'add_body_classes' ) );
+		add_filter( 'post_class'                          , array( __CLASS__, 'add_post_classes' ) );
+		add_filter( 'manta_get_attr_content-sidebar-wrap' , array( __CLASS__, 'add_csw_classes' ) );
+		add_filter( 'manta_get_attr_site-header'          , array( __CLASS__, 'add_site_header_classes' ) );
+		add_filter( 'manta_get_attr_header-items'         , array( __CLASS__, 'add_header_item_classes' ) );
+		add_filter( 'manta_get_attr_main-navigation'      , array( __CLASS__, 'add_main_navigation_classes' ) );
+		add_filter( 'manta_get_attr_site-footer'          , array( __CLASS__, 'add_site_footer_classes' ) );
+		add_filter( 'excerpt_length'                      , array( __CLASS__, 'change_excerpt_length' ) );
+		add_filter( 'excerpt_more'                        , array( __CLASS__, 'modify_excerpt_teaser' ) );
+		add_filter( 'wp_get_attachment_image_attributes'  , array( __CLASS__, 'custom_logo_attr' ), 10, 2 );
 	}
 
 	/**
@@ -62,17 +63,6 @@ class Manta_Filters {
 			$classes[] = 'boxed';
 		} else {
 			$classes[] = 'full-width';
-		}
-
-		// Adds a class for displayed sidebars.
-		$no_col = array( 'only-content', 'only-content-full' );
-		$three_col = array( 'content-sidebar-sidebar', 'sidebar-sidebar-content', 'sidebar-content-sidebar' );
-		if ( count( array_intersect( $classes, $three_col ) ) !== 0 ) {
-			$classes[] = 'both-sidebar';
-		} elseif ( count( array_intersect( $classes, $no_col ) ) === 0 ) {
-			$classes[] = 'one-sidebar';
-		} else {
-			$classes[] = 'no-sidebar';
 		}
 
 		return $classes;
@@ -105,14 +95,46 @@ class Manta_Filters {
 		} elseif ( 'large_below' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
 			$classes[] = 'thumb-below-title';
 		} elseif ( 'small' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-			$classes[] = 'thumb-small left';
+			if ( is_home() || is_search() || is_archive() ) {
+				$classes[] = 'thumb-small left';
+			}
 		} elseif ( 'small_right' === get_theme_mod( 'manta_thumbnails_display', manta_get_theme_defaults( 'manta_thumbnails_display' ) ) ) {
-			$classes[] = 'thumb-small right';
+			if ( is_home() || is_search() || is_archive() ) {
+				$classes[] = 'thumb-small right';
+			}
 		} else {
 			$classes[] = 'no-thumb';
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Adds custom classes to Content sidebar wrap.
+	 *
+	 * @since 1.1
+	 *
+	 * @param array $attr attribute values array.
+	 * @return array
+	 */
+	public static function add_csw_classes( $attr ) {
+
+		$classes = explode( ' ', $attr['class'] );
+
+		// Adds a class for displayed sidebars.
+		$no_col = array( 'only-content', 'only-content-full' );
+		$three_col = array( 'content-sidebar-sidebar', 'sidebar-sidebar-content', 'sidebar-content-sidebar' );
+		if ( count( array_intersect( $classes, $three_col ) ) !== 0 ) {
+			$classes[] = 'both-sidebar';
+		} elseif ( count( array_intersect( $classes, $no_col ) ) === 0 ) {
+			$classes[] = 'one-sidebar';
+		} else {
+			$classes[] = 'no-sidebar';
+		}
+
+		$attr['class'] = implode( ' ', $classes );
+
+		return $attr;
 	}
 
 	/**

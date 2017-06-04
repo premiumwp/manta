@@ -60,6 +60,7 @@ function manta_setup() {
 	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 880, 540, true );
+	add_image_size( 'manta-small-thumb', 640, 392, true );
 
 	// Allows the use of valid HTML5 markup.
 	add_theme_support( 'html5', array(
@@ -170,6 +171,7 @@ function manta_setup() {
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-css.php' ) );
 	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-php.php' ) );
+	require_once( get_parent_theme_file_path( '/lib/customizer/refresh/selective-refresh.php' ) );
 
 	// Load theme features files.
 	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );

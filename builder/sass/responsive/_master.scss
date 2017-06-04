@@ -11,9 +11,17 @@
 	@include te--sm();
 }
 
+/**
+ * 11.2 - 640px <= Screen < 1024px also 1200px <= Screen
+ */
+@media only screen and (max-width: 1023px) and (min-width: 641px), (min-width: 1200px) {
+	// Entry
+	@include entry--spl();
+}
+
 // medium screen size (md)
 /**
- * 11.2 - Screen >= 860px
+ * 11.3 - Screen >= 860px
  */
 @media only screen and (min-width: 860px) {
 	// Image Gallery
@@ -31,6 +39,9 @@
 	// Content
 	@include content--md();
 	
+	// Entry
+	@include entry--md();
+	
 	// Post Author
 	@include author--md();
 	
@@ -43,7 +54,7 @@
 
 // large scree size(lg)
 /**
- * 11.3 - Screen >= 1024px
+ * 11.4 - Screen >= 1024px
  */
 @media only screen and (min-width: 1024px) {
 	// Image Gallery
@@ -94,7 +105,7 @@
 
 // Extra large screen size (xl)
 /**
- * 11.4 - Screen >= 1200px
+ * 11.5 - Screen >= 1200px
  */
 @media only screen and (min-width: 1200px) {
 	// Structure Items
@@ -118,7 +129,7 @@
 
 // Very large screen size (xx)
 /**
- * 11.5 - Screen >= 1340px
+ * 11.6 - Screen >= 1340px
  */
 @media only screen and (min-width: 1340px) {
 	// Structure Items

@@ -86,6 +86,19 @@ class Manta_Customizer extends Manta_Sanitization {
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 		$wp_customize->get_section( 'colors' )->panel               = 'manta_theme_panel';
 
+		if ( isset( $wp_customize->selective_refresh ) ) {
+			$wp_customize->selective_refresh->add_partial( 'blogname', array(
+				'selector' => '.site-title a',
+				'container_inclusive' => false,
+				'render_callback' => 'manta_customize_partial_blogname',
+			) );
+			$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+				'selector' => '.site-description',
+				'container_inclusive' => false,
+				'render_callback' => 'manta_customize_partial_blogdescription',
+			) );
+		}
+
 		foreach ( $this->customizer_panels as $id => $args ) {
 			$wp_customize->add_panel( $id, $args );
 		}
@@ -128,7 +141,11 @@ class Manta_Customizer extends Manta_Sanitization {
 
 				$wp_customize->add_control( $customizer_control['settings'], $customizer_control );
 			}
-		}
+
+			if ( isset( $customizer_control['select_refresh'] ) && isset( $wp_customize->selective_refresh ) ) {
+				$wp_customize->selective_refresh->add_partial( $customizer_control['settings'], $customizer_control['select_refresh'] );
+			}
+		} // End foreach().
 	}
 
 	/**
@@ -160,6 +177,33 @@ class Manta_Customizer extends Manta_Sanitization {
 	}
 
 	/**
+	 * Enqueue customizer control JS file.
+	 *
+	 * @since 1.1
+	 */
+	public function customize_control_js() {
+		wp_enqueue_script(
+			'manta_customizer_control',
+			get_template_directory_uri() . '/assets/js/customize-control.js',
+			array( 'customize-controls', 'jquery', 'jquery-ui-core', 'jquery-ui-slider' ),
+			'1.0.0',
+			true
+		);
+	}
+
+	/**
+	 * Enqueue customizer control CSS file.
+	 *
+	 * @since 1.1
+	 */
+	public function customize_control_css() {
+		wp_enqueue_style(
+			'manta_customizer_control_style',
+			get_template_directory_uri() . '/assets/css/customize-control.css'
+		);
+	}
+
+	/**
 	 * Returns the instance.
 	 *
 	 * @since  1.0.0
@@ -174,3 +218,5 @@ class Manta_Customizer extends Manta_Sanitization {
 
 add_action( 'customize_register'                 , array( Manta_Customizer::getInstance(), 'customize_register' ) );
 add_action( 'customize_preview_init'             , array( Manta_Customizer::getInstance(), 'customize_preview_js' ) );
+add_action( 'customize_controls_enqueue_scripts' , array( Manta_Customizer::getInstance(), 'customize_control_js' ) );
+add_action( 'customize_controls_enqueue_scripts' , array( Manta_Customizer::getInstance(), 'customize_control_css' ) );

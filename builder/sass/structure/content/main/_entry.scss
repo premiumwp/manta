@@ -22,8 +22,13 @@
 	margin-bottom: mrem();
 }
 
+.entry-title a {
+	color: $body__text-color;
+}
+
 .entry-title a:hover,
 .entry-title a:focus {
+	color: $body__text-color;
 	box-shadow: inset 0 0 0 currentColor, 0 3px 0 currentColor;
 }
 
@@ -81,73 +86,16 @@ a.more-link:focus {
 	border-top: 1px solid $border__color;
 }
 
+.page .entry-footer {
+	padding-top: 0;
+	border-top-width: 0;
+}
+
 .entry-footer > span {
 	display: block;
 }
 
-@mixin entry--lg() {
-	.both-sidebar h1.entry-title {
-		font-size: 2.5rem;
-	}
-
-	.entry-meta > span {
-		margin-right: 10px;
-		padding-right: 10px;
-	}
-	
-	body:not(.both-sidebar) .site-main .thumb-small {
-		padding: 40px;
-		margin-bottom: 40px;
-		background-color: $content__bg-color;
-	}
-	
-	body:not(.both-sidebar) .site-main .thumb-small .post-wrapper {
-		position: relative;
-		top: -7px;
-		overflow: hidden;
-		padding: 0;
-		margin-bottom: 0;
-	}
-	
-	.site-main .thumb-small .post-thumbnail {
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
-		width: 150px;
-		height: 150px;
-	}
-	
-	body:not(.both-sidebar) .site-main .thumb-small .post-thumbnail {
-		display: inline-block;
-		float: left;
-		margin-right: mrem();
-	}
-	
-	body:not(.both-sidebar) .site-main .thumb-small.right .post-thumbnail {
-		float: right;
-		margin-left: mrem();
-		margin-right: 0;
-	}
-				
-	.site-main .thumb-small .post-thumbnail:hover,
-	.site-main .thumb-small .post-thumbnail:focus {
-		opacity: 0.7;
-	}
-				
-	body:not(.both-sidebar) .site-main .thumb-small .thumbnails {
-		min-width: 100%;
-		min-height: 100%;
-		opacity: 0;
-		margin-bottom: 0;
-	}
-				
-	body:not(.both-sidebar) .site-main .thumb-small .thumbnails:hover,
-	body:not(.both-sidebar) .site-main .thumb-small .thumbnails:focus {
-		opacity: 0;
-	}
-}
-
-@mixin entry--xl() {
+@mixin entry--spl() {
 	.site-main .thumb-small {
 		padding: 40px;
 		margin-bottom: 40px;
@@ -163,6 +111,9 @@ a.more-link:focus {
 	}
 
 	.site-main .thumb-small .post-thumbnail {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
 		display: inline-block;
 		float: left;
 		margin-right: mrem();
@@ -174,9 +125,9 @@ a.more-link:focus {
 		margin-right: 0;
 	}
 
-	body:not(.both-sidebar) .site-main .thumb-small .post-thumbnail {
-		width: 250px;
-		height: 200px;
+	.site-main .thumb-small .post-thumbnail {
+		width: 150px;
+		height: 150px;
 	}
 	
 	.site-main .thumb-small .thumbnails {
@@ -189,5 +140,86 @@ a.more-link:focus {
 	.site-main .thumb-small .thumbnails:hover,
 	.site-main .thumb-small .thumbnails:focus {
 		opacity: 0;
+	}
+}
+
+@mixin entry--md() {
+	.site-main .thumb-small .post-thumbnail {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		width: 250px;
+		height: 200px;
+	}
+}
+
+@mixin entry--lg() {
+	.both-sidebar h1.entry-title {
+		font-size: 2.5rem;
+	}
+
+	.entry-meta > span {
+		margin-right: 10px;
+		padding-right: 10px;
+	}
+	
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small {
+		padding: 40px;
+		margin-bottom: 40px;
+		background-color: $content__bg-color;
+	}
+	
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small .post-wrapper {
+		position: relative;
+		top: -7px;
+		overflow: hidden;
+		padding: 0;
+		margin-bottom: 0;
+	}
+	
+	.site-main .thumb-small .post-thumbnail {
+		width: 150px;
+		height: 150px;
+	}
+	
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small .post-thumbnail {
+		display: inline-block;
+		float: left;
+		margin-right: mrem();
+	}
+	
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small.right .post-thumbnail {
+		float: right;
+		margin-left: mrem();
+		margin-right: 0;
+	}
+				
+	.site-main .thumb-small .post-thumbnail:hover,
+	.site-main .thumb-small .post-thumbnail:focus {
+		opacity: 0.7;
+	}
+				
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small .thumbnails {
+		min-width: 100%;
+		min-height: 100%;
+		opacity: 0;
+		margin-bottom: 0;
+	}
+				
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small .thumbnails:hover,
+	.content-sidebar-wrap:not(.both-sidebar) .site-main .thumb-small .thumbnails:focus {
+		opacity: 0;
+	}
+}
+
+@mixin entry--xl() {
+	.site-main .thumb-small .post-thumbnail {
+		width: 250px;
+		height: 200px;
+	}
+
+	.both-sidebar .site-main .thumb-small .post-thumbnail {
+		width: 150px;
+		height: 150px;
 	}
 }
