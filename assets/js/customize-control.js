@@ -1,47 +1,35 @@
 /**
  * customizer-control.js
  */
-
-(function( $, api ) {
-	api.bind( 'ready', function() {
-
+( function ( $, api ) {
+	api.bind( 'ready', function () {
 		var customize = this;
-		var toggler = function( setting, controls, trueValue ) {
-			customize( setting, function( value ) {
-				$.each( controls, function( index, id ) {
-					customize.control( id, function( control ) {
-						var toggle = function( to ) {
+		var toggler = function ( setting, controls, trueValue ) {
+			customize( setting, function ( value ) {
+				$.each( controls, function ( index, id ) {
+					customize.control( id, function ( control ) {
+						var toggle = function ( to ) {
 							if ( trueValue ) {
 								control.toggle( trueValue === to );
-							} else {
+							}
+							else {
 								control.toggle( to );
 							}
 						};
-
 						toggle( value.get() );
-
 						value.bind( toggle );
 					} );
 				} );
 			} );
 		};
-
-		toggler( 'manta_excerpt_option',
-			[ 
+		toggler( 'manta_excerpt_option', [
 				'manta_excerpt_length',
 				'manta_excerpt_teaser',
 				'manta_thumbnails_display',
-			],
-			'excerpt'
-		);
-		
-		toggler( 'manta_enforce_global',
-			[ 
+			], 'excerpt' );
+		toggler( 'manta_enforce_global', [
 				'manta_post_layout',
 				'manta_page_layout',
-			],
-			''
-		);
+			], '' );
 	} );
-
-})( jQuery, wp.customize );
+} )( jQuery, wp.customize );

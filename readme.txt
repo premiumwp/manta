@@ -81,8 +81,8 @@ https://unsplash.com/photos/jUPOXXRNdcA
 by Brooke Lark (https://unsplash.com/@brookelark)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
-https://pixabay.com/en/bunting-wood-evening-fire-outdoor-1807471/
-by sasint (https://pixabay.com/en/users/sasint-3639875/)
+https://unsplash.com/photos/FZTDjJsjG8s
+by Lance Asper (https://unsplash.com/@lance_asper)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
