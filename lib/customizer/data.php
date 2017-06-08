@@ -76,9 +76,9 @@ class Manta_Customizer_Data {
 					'description_hidden' => true,
 				),
 				'manta_dimension_section'  => array(
-					'title'              => esc_html__( 'Dimensions', 'manta-plus' ),
+					'title'              => esc_html__( 'Dimensions', 'manta' ),
 					'panel'              => 'manta_theme_panel',
-					'description'        => esc_html__( 'Options to change various site deimensions', 'manta-plus' ),
+					'description'        => esc_html__( 'Options to change various site deimensions', 'manta' ),
 					'description_hidden' => true,
 				),
 				'manta_content_section' => array(
@@ -165,7 +165,7 @@ class Manta_Customizer_Data {
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Post Title Hover color', 'manta' ),
+					'label'         => esc_html__( 'Post Title Hover Color', 'manta' ),
 					'section'       => 'colors',
 					'settings'      => 'manta_post_title_hover_color',
 					'transport'     => 'postMessage',
