@@ -22,9 +22,9 @@ function manta_get_theme_defaults( $option ) {
 	 * @since 1.0.0
 	 */
 	$manta_defaults = apply_filters( 'manta_theme_defaults', array(
-		'manta_title_link_color'       => '#333',
-		'manta_title_link_hover_color' => '#333',
-		'manta_heading_text_color'     => '#333',
+		'manta_post_title_color'       => '#333',
+		'manta_post_title_hover_color' => '#333',
+		'manta_site_title_color'       => '#333',
 		'manta_content_text_color'     => '#333',
 		'manta_link_color'             => '#0067ac',
 		'manta_link_hover_color'       => '#0067ac',

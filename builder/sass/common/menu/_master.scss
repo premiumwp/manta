@@ -65,10 +65,10 @@
 		margin-right: 0;
 	}
 
-	.menu-item-has-children:hover a,
-	.page_item_has_children:hover a,
-	.menu-item-has-children > a:focus,
-	.page_item_has_children > a:focus {
+	.nav-menu .menu-item-has-children:hover a,
+	.nav-menu .page_item_has_children:hover a,
+	.nav-menu .menu-item-has-children > a:focus,
+	.nav-menu .page_item_has_children > a:focus {
 		background-color: $light__bg-color;
 	}
 

@@ -66,10 +66,10 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 	 */
 	public function color_css() {
 		$colors = array(
-			'manta_heading_text_color'     => 'h1,h2,h3,h4,h5,h6,.widget_calendar caption{color:%s}',
+			'manta_site_title_color'       => '.site-title a{color:%s}',
 			'manta_link_color'             => 'a{color: %1$s}',
-			'manta_title_link_color'       => '.site-title a,.entry-title a{color:%s}',
-			'manta_title_link_hover_color' => '.site-title a:hover,.site-title a:focus,.entry-title a:hover,.entry-title a:focus{color:%s}',
+			'manta_post_title_color'       => '.entry-title,.entry-title a{color:%s}',
+			'manta_post_title_hover_color' => '.entry-title a:hover,.entry-title a:focus{color:%s}',
 			'manta_content_text_color'     => 'body,.nav-menu a,.nav-links a{color:%s}',
 			'manta_link_hover_color'       => 'a:hover,a:focus,.nav-menu a:hover,.nav-menu a:focus,.nav-links a:hover,.nav-links a:focus,.menu-toggle:hover,.menu-toggle:focus,.sub-menu-toggle:hover,.sub-menu-toggle:focus{color: %1$s}input:focus,textarea:focus{border-color: %1$s}input[type="button"]:hover,input[type="button"]:focus,input[type="reset"]:hover,input[type="reset"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{background-color: %1$s}',
 		);

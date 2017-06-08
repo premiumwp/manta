@@ -76,7 +76,7 @@ class Manta_Customizer_Data {
 					'description_hidden' => true,
 				),
 				'manta_dimension_section'  => array(
-					'title'              => esc_html__( 'Dimension', 'manta-plus' ),
+					'title'              => esc_html__( 'Dimensions', 'manta-plus' ),
 					'panel'              => 'manta_theme_panel',
 					'description'        => esc_html__( 'Options to change various site deimensions', 'manta-plus' ),
 					'description_hidden' => true,
@@ -115,7 +115,7 @@ class Manta_Customizer_Data {
 		$manta_controls = apply_filters(
 			'manta_theme_controls', array(
 				array(
-					'label'         => esc_html__( 'Display Site title', 'manta' ),
+					'label'         => esc_html__( 'Display Site Title', 'manta' ),
 					'section'       => 'title_tagline',
 					'settings'      => 'manta_display_site_title',
 					'transport'     => 'postMessage',
@@ -130,49 +130,49 @@ class Manta_Customizer_Data {
 					'priority'      => 20,
 				),
 				array(
-					'label'         => esc_html__( 'Heading text color', 'manta' ),
+					'label'         => esc_html__( 'Site Title Color', 'manta' ),
 					'section'       => 'colors',
-					'settings'      => 'manta_heading_text_color',
+					'settings'      => 'manta_site_title_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Body text color', 'manta' ),
+					'label'         => esc_html__( 'Body Text Color', 'manta' ),
 					'section'       => 'colors',
 					'settings'      => 'manta_content_text_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Link color', 'manta' ),
+					'label'         => esc_html__( 'Link Color', 'manta' ),
 					'section'       => 'colors',
 					'settings'      => 'manta_link_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Link hover color', 'manta' ),
+					'label'         => esc_html__( 'Link Hover Color', 'manta' ),
 					'section'       => 'colors',
 					'settings'      => 'manta_link_hover_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Title link color', 'manta' ),
+					'label'         => esc_html__( 'Post Title Color', 'manta' ),
 					'section'       => 'colors',
-					'settings'      => 'manta_title_link_color',
+					'settings'      => 'manta_post_title_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Title link hover color', 'manta' ),
+					'label'         => esc_html__( 'Post Title Hover color', 'manta' ),
 					'section'       => 'colors',
-					'settings'      => 'manta_title_link_hover_color',
+					'settings'      => 'manta_post_title_hover_color',
 					'transport'     => 'postMessage',
 					'control_class' => 'WP_Customize_Color_Control',
 				),
 				array(
-					'label'         => esc_html__( 'Body font family', 'manta' ),
+					'label'         => esc_html__( 'Body Font Family', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_body_font_family',
 					'transport'     => 'postMessage',
@@ -181,7 +181,7 @@ class Manta_Customizer_Data {
 					'choices'       => self::get_all_web_fonts_list(),
 				),
 				array(
-					'label'         => esc_html__( 'Heading font family', 'manta' ),
+					'label'         => esc_html__( 'Heading Font Family', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_heading_font_family',
 					'transport'     => 'postMessage',
@@ -190,7 +190,7 @@ class Manta_Customizer_Data {
 					'choices'       => self::get_all_web_fonts_list(),
 				),
 				array(
-					'label'         => esc_html__( 'Mobile base font size', 'manta' ),
+					'label'         => esc_html__( 'Mobile Base Font Size', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_small_base_font_size',
 					'transport'     => 'postMessage',
@@ -202,7 +202,7 @@ class Manta_Customizer_Data {
 					'default_value' => manta_get_theme_defaults('manta_small_base_font_size'),
 				),
 				array(
-					'label'         => esc_html__( 'Desktop base font size', 'manta' ),
+					'label'         => esc_html__( 'Desktop Base Font Size', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_large_base_font_size',
 					'transport'     => 'postMessage',
@@ -214,7 +214,7 @@ class Manta_Customizer_Data {
 					'default_value' => manta_get_theme_defaults('manta_large_base_font_size'),
 				),
 				array(
-					'label'         => esc_html__( 'Base line height', 'manta' ),
+					'label'         => esc_html__( 'Base Line Height', 'manta' ),
 					'section'       => 'manta_typography_section',
 					'settings'      => 'manta_base_line_height',
 					'transport'     => 'postMessage',
@@ -226,7 +226,7 @@ class Manta_Customizer_Data {
 					'default_value' => manta_get_theme_defaults('manta_base_line_height'),
 				),
 				array(
-					'label'         => esc_html__( 'Overall site layout', 'manta' ),
+					'label'         => esc_html__( 'Overall Site Layout', 'manta' ),
 					'section'       => 'manta_layout_section',
 					'settings'      => 'manta_site_layout',
 					'type'          => 'select',
@@ -237,7 +237,7 @@ class Manta_Customizer_Data {
 					),
 				),
 				array(
-					'label'         => esc_html__( 'Header items alignment', 'manta' ),
+					'label'         => esc_html__( 'Header Items Alignment', 'manta' ),
 					'section'       => 'manta_layout_section',
 					'settings'      => 'manta_header_alignment',
 					'type'          => 'select',
@@ -249,7 +249,7 @@ class Manta_Customizer_Data {
 					),
 				),
 				array(
-					'label'         => esc_html__( 'Main menu alignment', 'manta' ),
+					'label'         => esc_html__( 'Main Menu Alignment', 'manta' ),
 					'section'       => 'manta_layout_section',
 					'settings'      => 'manta_main_menu_alignment',
 					'type'          => 'select',
@@ -261,7 +261,7 @@ class Manta_Customizer_Data {
 					),
 				),
 				array(
-					'label'         => esc_html__( 'Footer items alignment', 'manta' ),
+					'label'         => esc_html__( 'Footer Items Alignment', 'manta' ),
 					'section'       => 'manta_layout_section',
 					'settings'      => 'manta_footer_alignment',
 					'type'          => 'select',
@@ -302,7 +302,7 @@ class Manta_Customizer_Data {
 					'active_callback' => array( 'Manta_Active_Callback', 'is_display_excerpt' ),
 				),
 				array(
-					'label'         => esc_html__( 'Overall site width', 'manta' ),
+					'label'         => esc_html__( 'Overall Site Width', 'manta' ),
 					'section'       => 'manta_dimension_section',
 					'settings'      => 'manta_overall_site_width',
 					'description'   => esc_html__( 'Change overall site width for laptops and desktops. Minimum allowed site width is 960px. Enter a number i.e., 1280', 'manta' ),
@@ -315,7 +315,7 @@ class Manta_Customizer_Data {
 					'default_value' => '',
 				),
 				array(
-					'label'         => esc_html__( 'Primary sidebar width', 'manta' ),
+					'label'         => esc_html__( 'Primary Sidebar Width', 'manta' ),
 					'section'       => 'manta_dimension_section',
 					'settings'      => 'manta_primary_sidebar_width',
 					'description'   => esc_html__( 'Change primary sidebar width for laptops and desktops. Minimum allowed sidebar width is 300px. Enter a number i.e., 340 ', 'manta' ),
@@ -323,12 +323,12 @@ class Manta_Customizer_Data {
 					'control_class' => 'Manta_Slider_Control',
 					'control_path'  => 'manta-slider-control',
 					'js_template'   => true,
-					'input_attrs'   => array( 'step' => 2, 'min' => 300, 'max' => 1000 ),
+					'input_attrs'   => array( 'step' => 2, 'min' => 180, 'max' => 1000 ),
 					'unit'          => 'px',
 					'default_value' => '',
 				),
 				array(
-					'label'         => esc_html__( 'Secondary sidebar width', 'manta' ),
+					'label'         => esc_html__( 'Secondary Sidebar Width', 'manta' ),
 					'section'       => 'manta_dimension_section',
 					'settings'      => 'manta_secondary_sidebar_width',
 					'description'   => esc_html__( 'Change secondary sidebar width for laptops and desktops. Minimum allowed site width is 180px. Enter a number i.e., 1280', 'manta' ),
@@ -341,7 +341,7 @@ class Manta_Customizer_Data {
 					'default_value' => '',
 				),
 				array(
-					'label'          => esc_html__( 'Excerpt or Full Content', 'manta' ),
+					'label'          => esc_html__( 'Excerpt Or Full Content', 'manta' ),
 					'section'        => 'manta_content_section',
 					'settings'       => 'manta_excerpt_option',
 					'type'           => 'select',

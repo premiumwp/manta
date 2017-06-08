@@ -173,11 +173,11 @@
 			addInlineCss( 'manta_link_hover_color', css );
 		} );
 	} );
-	// Heading text color
-	wp.customize( 'manta_heading_text_color', function ( value ) {
+	// Site Title color
+	wp.customize( 'manta_site_title_color', function ( value ) {
 		value.bind( function ( to ) {
-			var css = 'h1,h2,h3,h4,h5,h6,.widget_calendar caption{color:' + to + '}';
-			addInlineCss( 'manta_heading_text_color', css );
+			var css = '.site-title a{color:' + to + '}';
+			addInlineCss( 'manta_site_title_color', css );
 		} );
 	} );
 	// Body text color
@@ -187,18 +187,18 @@
 			addInlineCss( 'manta_content_text_color', css );
 		} );
 	} );
-	// Title link color
-	wp.customize( 'manta_title_link_color', function ( value ) {
+	// Post Title color
+	wp.customize( 'manta_post_title_color', function ( value ) {
 		value.bind( function ( to ) {
-			var css = '.site-title a,.entry-title a{color:' + to + '}';
-			addInlineCss( 'manta_title_link_color', css );
+			var css = '.entry-title,.entry-title a{color:' + to + '}';
+			addInlineCss( 'manta_post_title_color', css );
 		} );
 	} );
-	// Title link hover color
-	wp.customize( 'manta_title_link_hover_color', function ( value ) {
+	// Post Title hover color
+	wp.customize( 'manta_post_title_hover_color', function ( value ) {
 		value.bind( function ( to ) {
-			var css = '.site-title a:hover,.site-title a:focus,.entry-title a:hover,.entry-title a:focus{color:' + to + '}';
-			addInlineCss( 'manta_title_link_hover_color', css );
+			var css = '.entry-title a:hover,.entry-title a:focus{color:' + to + '}';
+			addInlineCss( 'manta_post_title_hover_color', css );
 		} );
 	} );
 	// Body font family
