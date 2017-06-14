@@ -119,7 +119,8 @@ class Manta_Customizer extends Manta_Sanitization {
 
 				// Include required custom control class.
 				if ( isset( $customizer_control['control_path'] ) ) {
-					$path = get_parent_theme_file_path( sprintf( '/lib/customizer/controls/%s.php', $customizer_control['control_path'] ) );
+					$manta_dir = trailingslashit( get_template_directory() );
+					$path = "{$manta_dir}lib/customizer/controls/{$customizer_control['control_path']}.php";
 					$path = apply_filters( 'manta_custom_control_class_path', $path, $class );
 					if ( ! class_exists( $class ) && file_exists( $path ) ) {
 						require_once( $path );

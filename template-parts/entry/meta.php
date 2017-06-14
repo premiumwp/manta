@@ -10,14 +10,6 @@
 
 <div<?php manta_attr( 'entry-meta' ) ?>>
 
-	<span<?php manta_attr( 'byline' ) ?>>
-		<span<?php manta_attr( 'author' ) ?>>
-			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"<?php manta_attr( 'url' ) ?>>
-				<span<?php manta_attr( 'name' ) ?>> <?php the_author(); ?></span>
-			</a>
-		</span>
-	</span>
-
 	<span<?php manta_attr( 'posted-on' ) ?>>
 		<a href="<?php the_permalink(); ?>" rel="bookmark">
 			<?php if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) :?>
@@ -33,6 +25,15 @@
 				</time>
 			<?php endif;?>
 		</a>
+	</span>
+
+	<span<?php manta_attr( 'byline' ) ?>>
+		<?php esc_html_e( 'By', 'manta' ); ?>
+		<span<?php manta_attr( 'author' ) ?>>
+			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"<?php manta_attr( 'url' ) ?>>
+				<span<?php manta_attr( 'name' ) ?>> <?php the_author(); ?></span>
+			</a>
+		</span>
 	</span>
 	
 	<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>

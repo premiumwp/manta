@@ -4,7 +4,7 @@ Theme URI: https://www.premiumwp.com/themes/manta/
 Author: PremiumWP
 Author URI: https://www.premiumwp.com/
 Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
-Version: 1.1
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: manta
@@ -15,6 +15,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 Manta is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+# Warning
+
+DO NOT make edits directly to this file. You will lose all modifications when the theme is next updated if you do so.
+Please use a child theme. Alternatively for minor CSS customization consider using the Additional CSS section in
+Appearance > Customize > Additional CSS, as this is saved in your database and will remain after theme update.
+
 */
 
 /**

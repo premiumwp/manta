@@ -14,12 +14,13 @@
  * Add SVG definitions to the footer.
  */
 function manta_include_svg_icons() {
+	$manta_dir = trailingslashit( get_template_directory() );
 	// Define SVG sprite file.
-	$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons-bare.svg' );
+	$svg_icons = "{$manta_dir}assets/images/svg-icons-bare.svg";
 
 	// Load extra svg images for social menu.
 	if ( has_nav_menu( 'social' ) ) {
-		$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons.svg' );
+		$svg_icons = "{$manta_dir}assets/images/svg-icons.svg";
 	}
 
 	// If it exists, include it.
