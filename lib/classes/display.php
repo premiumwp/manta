@@ -165,7 +165,7 @@ class Manta_Display {
 	 */
 	public static function custom_header() {
 		if ( get_header_image() && is_front_page() ) {
-			the_custom_header_markup();
+			manta_custom_header_markup();
 		}
 	}
 

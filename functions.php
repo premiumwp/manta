@@ -159,6 +159,7 @@ function manta_setup() {
 	require_once( "{$manta_dir}lib/functions/markup.php" );
 	require_once( "{$manta_dir}lib/functions/defaults.php" );
 	require_once( "{$manta_dir}lib/functions/inline-css.php" );
+	require_once( "{$manta_dir}lib/functions/backcompat.php" );
 
 	// Load theme specific classes files.
 	require_once( "{$manta_dir}lib/classes/plugin-support.php" );

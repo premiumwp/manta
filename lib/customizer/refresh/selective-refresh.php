@@ -80,6 +80,26 @@ function manta_customize_partial_blogdescription() {
 }
 
 /**
+ * Render the copyright text for the selective refresh partial.
+ *
+ * @since 1.1.1
+ *
+ * @return void
+ */
+function manta_customize_partial_copyright() {
+	?>
+	<div<?php manta_attr( 'copyright-text' ); ?>>
+		<?php $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaults( 'manta_copyright' ) ); ?>
+		<?php if ( $manta_copyright_info ) : ?>
+			<p><?php echo implode( '<br/>', array_map( 'esc_textarea', explode( "\n", $manta_copyright_info ) ) ); ?></p>
+		<?php else : ?>
+			<p><?php bloginfo(); ?> &copy; <?php echo date_i18n( __( 'Y', 'manta' ) ); ?> . <?php esc_html_e( 'All Rights Reserved', 'manta' ); ?></p>
+		<?php endif; ?>
+	</div><!-- .copyright-text -->
+	<?php
+}
+
+/**
  * Hide Customizer Shortcut Controls for main content
  *
  * @since 1.1

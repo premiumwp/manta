@@ -1045,6 +1045,12 @@ p.site-title {
 .site-description {
   margin-bottom: 0; }
 
+.wp-custom-header {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0; }
+
 .wp-custom-header img {
   display: block;
   margin: 0 auto; }
@@ -1158,7 +1164,10 @@ a.featured-post-link:focus {
   box-shadow: none; }
 
 a.more-link {
-  box-shadow: none; }
+  box-shadow: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase; }
 
 a.more-link:hover,
 a.more-link:focus {
