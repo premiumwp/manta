@@ -3,7 +3,7 @@ Theme Name: Manta
 Theme URI: https://www.premiumwp.com/themes/manta/
 Author: PremiumWP
 Author URI: https://www.premiumwp.com/
-Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
+Description: Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata. With various header, footer and sidebar layout options, site dimension controls, numerous options for displaying featured images, typography options and more, Manta can serve as a solid base to build incredible websites.
 Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -64,11 +64,10 @@ Appearance > Customize > Additional CSS, as this is saved in your database and w
  *   10.3 Gravity Forms
  * 11.0 Media queries
  *   11.1 Screen >= 640px
- *   11.2 640px <= Screen < 1024px also 1200px <= Screen
- *   11.3 Screen >= 860px
- *   11.4 Screen >= 1024px
- *   11.5 Screen >= 1200px
- *   11.6 Screen >= 1340px
+ *   11.2 Screen >= 860px
+ *   11.3 Screen >= 1024px
+ *   11.4 Screen >= 1200px
+ *   11.5 Screen >= 1340px
  */
 
 
@@ -1296,7 +1295,6 @@ p.site-title {
 
 .wp-custom-header {
 	width: 100%;
-	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -2549,5 +2547,16 @@ a.more-link:focus {
 	.boxed .footer-widget > .wrap,
 	.boxed #colophon > .wrap {
 		max-width: 1120px;
+	}
+}
+
+
+/**
+ * 11.7 - Screen >= 1680px
+ */
+
+@media only screen and (min-width: 1680px) {
+	.wp-custom-header {
+		max-width: 1280px;
 	}
 }

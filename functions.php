@@ -129,8 +129,8 @@ function manta_setup() {
 	$manta_custom_header_args = apply_filters(
 		'manta_custom_header_args', array(
 			'default-image'          => '',
-			'width'                  => 1280,
-			'height'                 => 340,
+			'width'                  => 1680,
+			'height'                 => 440,
 			'flex-width'             => false,
 			'flex-height'            => true,
 			'header-text'            => false,

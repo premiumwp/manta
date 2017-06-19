@@ -144,3 +144,12 @@
 	// Boxed Layout
 	@include boxed--xx();
 }
+
+//Very very large size (xxx)
+/**
+ * 11.7 - Screen >= 1680px
+ */
+@media only screen and (min-width: 1680px) {
+	// Header Image
+	@include h--xxxlg();
+}
