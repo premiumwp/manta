@@ -257,9 +257,7 @@ class Manta_Layouts {
 		// Checks for input and saves.
 		if ( isset( $_POST['manta-layout-meta'] ) ) {
 			$layout_meta = array_key_exists( $_POST['manta-layout-meta'], $this->layout_choices() ) ? $_POST['manta-layout-meta'] : '';
-			if ( $layout_meta ) {
-				update_post_meta( $post_id, 'manta-layout-meta', $layout_meta );
-			}
+			update_post_meta( $post_id, 'manta-layout-meta', $layout_meta );
 		}
 	}
 	
