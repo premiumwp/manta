@@ -169,7 +169,7 @@ class Manta_Layouts {
 		$default['manta_global_layout']  = $default_layout;
 		$default['manta_post_layout']    = $default_layout;
 		$default['manta_page_layout']    = $default_layout;
-		$default['manta_enforce_global'] = '';
+		$default['manta_enforce_global'] = 1;
 
 		return $default;
 	}
@@ -180,13 +180,17 @@ class Manta_Layouts {
 	 * @since  1.0.0
 	 */
 	public function add_layout_metabox() {
+		if ( '' === get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) {
+			return;
+		}
+
 		add_meta_box(
 			'manta_layout_meta',
 			esc_html__( 'Post Layout', 'manta' ),
 			array( $this, 'render_layout_metabox' ),
 			array( 'post', 'page' ),
 			'side',
-			'default'
+			'high'
 		);
 	}
 
@@ -232,6 +236,10 @@ class Manta_Layouts {
 	 * @param int $post_id Post ID.
 	 */
 	public function save_layout_metabox( $post_id ) {
+
+		if ( '' === get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) {
+			return;
+		}
 
 		// Checks save status.
 		$is_autosave = wp_is_post_autosave( $post_id );

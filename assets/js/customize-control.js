@@ -9,7 +9,7 @@
 				$.each( controls, function ( index, id ) {
 					customize.control( id, function ( control ) {
 						var toggle = function ( to ) {
-							if ( trueValue ) {
+							if ( trueValue && 1 !== trueValue ) {
 								control.toggle( trueValue === to );
 							}
 							else {
@@ -30,6 +30,6 @@
 		toggler( 'manta_enforce_global', [
 				'manta_post_layout',
 				'manta_page_layout',
-			], '' );
+			], 1 );
 	} );
 } )( jQuery, wp.customize );
