@@ -399,6 +399,12 @@ class Manta_Customizer_Data {
 					'description'   => esc_html__( 'Change default copyright text', 'manta' ),
 					'transport'     => 'postMessage',
 					'type'          => 'textarea',
+					'select_refresh' => array(
+						'selector'            => '.copyright-text',
+						'container_inclusive' => true,
+						'render_callback'     => 'manta_customize_partial_copyright',
+						'fallback_refresh'    => false,
+					),
 				),
 			)
 		);

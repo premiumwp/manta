@@ -13,9 +13,9 @@
  */
 
 /**
- * Manta only works in WordPress 4.7 or later.
+ * Manta only works in WordPress 4.5 or later.
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
 	require get_template_directory() . '/lib/classes/back-compat.php';
 	return;
 }
@@ -129,8 +129,8 @@ function manta_setup() {
 	$manta_custom_header_args = apply_filters(
 		'manta_custom_header_args', array(
 			'default-image'          => '',
-			'width'                  => 1280,
-			'height'                 => 340,
+			'width'                  => 1680,
+			'height'                 => 440,
 			'flex-width'             => false,
 			'flex-height'            => true,
 			'header-text'            => false,
@@ -152,34 +152,37 @@ function manta_setup() {
 		// Custom addon support for manta theme.
 		add_theme_support( "manta_{$support}" );
 	}
+	
+	$manta_dir = trailingslashit( get_template_directory() );
 
 	// Load theme specific functions files.
-	require_once( get_parent_theme_file_path( '/lib/functions/markup.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/functions/defaults.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/functions/inline-css.php' ) );
+	require_once( "{$manta_dir}lib/functions/markup.php" );
+	require_once( "{$manta_dir}lib/functions/defaults.php" );
+	require_once( "{$manta_dir}lib/functions/inline-css.php" );
+	require_once( "{$manta_dir}lib/functions/backcompat.php" );
 
 	// Load theme specific classes files.
-	require_once( get_parent_theme_file_path( '/lib/classes/plugin-support.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/classes/display.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/classes/filters.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/classes/layouts.php' ) );
+	require_once( "{$manta_dir}lib/classes/plugin-support.php" );
+	require_once( "{$manta_dir}lib/classes/display.php" );
+	require_once( "{$manta_dir}lib/classes/filters.php" );
+	require_once( "{$manta_dir}lib/classes/layouts.php" );
 
 	// Load theme customizer files.
-	require_once( get_parent_theme_file_path( '/lib/customizer/active-callback.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/data.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/sanitization.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/front/front.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-css.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/front/front-php.php' ) );
-	require_once( get_parent_theme_file_path( '/lib/customizer/refresh/selective-refresh.php' ) );
+	require_once( "{$manta_dir}lib/customizer/active-callback.php" );
+	require_once( "{$manta_dir}lib/customizer/data.php" );
+	require_once( "{$manta_dir}lib/customizer/sanitization.php" );
+	require_once( "{$manta_dir}lib/customizer/front/front.php" );
+	require_once( "{$manta_dir}lib/customizer/front/front-css.php" );
+	require_once( "{$manta_dir}lib/customizer/front/front-php.php" );
+	require_once( "{$manta_dir}lib/customizer/refresh/selective-refresh.php" );
 
 	// Load theme features files.
-	require_if_theme_supports( 'manta_schema'   , get_parent_theme_file_path( '/lib/addon/schema/schema.php' ) );
-	require_if_theme_supports( 'manta_featured' , get_parent_theme_file_path( '/lib/addon/featured/featured-post.php' ) );
-	require_if_theme_supports( 'manta_fonticons', get_parent_theme_file_path( '/lib/addon/fonticons/svg-icons.php' ) );
+	require_if_theme_supports( 'manta_schema'   , "{$manta_dir}lib/addon/schema/schema.php" );
+	require_if_theme_supports( 'manta_featured' , "{$manta_dir}lib/addon/featured/featured-post.php" );
+	require_if_theme_supports( 'manta_fonticons', "{$manta_dir}lib/addon/fonticons/svg-icons.php" );
 
 	// Load theme customizer initiation file at last.
-	require_once( get_parent_theme_file_path( '/lib/customizer/init.php' ) );
+	require_once( "{$manta_dir}lib/customizer/init.php" );
 }
 add_action( 'after_setup_theme' , 'manta_setup', 5 );
 
@@ -337,7 +340,7 @@ function manta_scripts() {
 	wp_enqueue_style( 'manta-fonts', esc_url( manta_font_url() ), array(), null );
 
 	// Skip link focus fix script.
-	wp_enqueue_script( 'manta-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0.0', true );
+	wp_enqueue_script( 'manta-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '1.0.0', true );
 
 	// Theme navigation.
 	if ( has_nav_menu( 'primary' ) || has_nav_menu( 'header' ) ) {
@@ -349,7 +352,7 @@ function manta_scripts() {
 				'fallback' => true,
 			) ),
 		);
-		wp_enqueue_script( 'manta-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'manta-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'manta-navigation', 'mantaScreenReaderText', $manta_l10n );
 	}
 

@@ -64,12 +64,6 @@
 			$( '.more-link' ).text( to );
 		} );
 	} );
-	// Copyright text.
-	wp.customize( 'manta_copyright', function ( value ) {
-		value.bind( function ( to ) {
-			$( '.copyright-text p' ).text( to );
-		} );
-	} );
 	// Display footer credit information.
 	wp.customize( 'manta_site_credit', function ( value ) {
 		value.bind( function ( to ) {
@@ -190,7 +184,7 @@
 	// Post Title color
 	wp.customize( 'manta_post_title_color', function ( value ) {
 		value.bind( function ( to ) {
-			var css = '.entry-title,.entry-title a{color:' + to + '}';
+			var css = '#main .entry-title,.entry-title a{color:' + to + '}';
 			addInlineCss( 'manta_post_title_color', css );
 		} );
 	} );
@@ -256,7 +250,8 @@
 			var inner = +to - 80;
 			var threeHeight = ( +to - ( +to * 0.0375 ) ) * 0.3334;
 			var threeHeightBoxed = +to * 0.33334;
-			var css = '@media only screen and (min-width:' + outer + 'px){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width:' + to + 'px}.three-featured .featured-posts{height:' + threeHeight + 'px;max-height:' + threeHeight + 'px}}';
+			var css = '@media only screen and (min-width:' + outer + 'px){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap,.wp-custom-header{max-width:' + to + 'px}.three-featured .featured-posts{height:' + threeHeight + 'px;max-height:' + threeHeight + 'px}}';
+			css += '@media only screen and (min-width:1680px){.wp-custom-header{max-width:' + to + 'px}';
 			css += '@media only screen and (min-width:' + to + 'px){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width:' + to + 'px}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width:' + inner + 'px}.boxed .three-featured .featured-posts{height:' + threeHeightBoxed + 'px;max-height:' + threeHeightBoxed + 'px}}';
 			addInlineCss( 'manta_overall_site_width', css );
 		} );

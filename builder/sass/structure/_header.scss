@@ -38,6 +38,12 @@ p.site-title {
 	margin-bottom: 0;
 }
 
+.wp-custom-header {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
 .wp-custom-header img {
 	display: block;
 	margin: 0 auto;
@@ -96,5 +102,11 @@ p.site-title {
 	.right .custom-logo-link {
 		margin-left: 0.875rem;
 		order: 2;
+	}
+}
+
+@mixin h--xxxlg() {
+	.wp-custom-header {
+		max-width: 1280px;
 	}
 }

@@ -68,7 +68,7 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 		$colors = array(
 			'manta_site_title_color'       => '.site-title a{color:%s}',
 			'manta_link_color'             => 'a{color: %1$s}',
-			'manta_post_title_color'       => '.entry-title,.entry-title a{color:%s}',
+			'manta_post_title_color'       => '#main .entry-title,.entry-title a{color:%s}',
 			'manta_post_title_hover_color' => '.entry-title a:hover,.entry-title a:focus{color:%s}',
 			'manta_content_text_color'     => 'body,.nav-menu a,.nav-links a{color:%s}',
 			'manta_link_hover_color'       => 'a:hover,a:focus,.nav-menu a:hover,.nav-menu a:focus,.nav-links a:hover,.nav-links a:focus,.menu-toggle:hover,.menu-toggle:focus,.sub-menu-toggle:hover,.sub-menu-toggle:focus{color: %1$s}input:focus,textarea:focus{border-color: %1$s}input[type="button"]:hover,input[type="button"]:focus,input[type="reset"]:hover,input[type="reset"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{background-color: %1$s}',
@@ -167,6 +167,7 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.three-featured .featured-posts{height:%2$spx;max-height:%2$spx}}', $screen_width, $three_featured_height );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .three-featured .featured-posts{height:%2$spx;max-height:%2$spx}}', $site_width, $three_featured_boxed );
+			$this->css .= sprintf( '@media only screen and (min-width: 1680px){.wp-custom-header{max-width: %1$spx}}', $site_width );
 		}
 	}
 }

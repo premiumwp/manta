@@ -14,12 +14,13 @@
  * Add SVG definitions to the footer.
  */
 function manta_include_svg_icons() {
+	$manta_dir = trailingslashit( get_template_directory() );
 	// Define SVG sprite file.
-	$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons-bare.svg' );
+	$svg_icons = "{$manta_dir}assets/images/svg-icons-bare.svg";
 
 	// Load extra svg images for social menu.
 	if ( has_nav_menu( 'social' ) ) {
-		$svg_icons = get_parent_theme_file_path( '/assets/images/svg-icons.svg' );
+		$svg_icons = "{$manta_dir}assets/images/svg-icons.svg";
 	}
 
 	// If it exists, include it.
@@ -92,7 +93,7 @@ function manta_get_svg( $svg, $args = array() ) {
 	}
 
 	// Begin SVG markup.
-	$svg = '<svg class="icon icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg class="icon icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img" focusable="false">';
 
 	// Display the title.
 	if ( $args['title'] ) {
@@ -105,13 +106,33 @@ function manta_get_svg( $svg, $args = array() ) {
 	}
 
 	/*
+	 * There is a bug in versions prior WordPress 4.7, where inline SVG icons are not visible in Customizer
+	 * preview window. External svg link has been used as work around to fix this bug. This should be removed
+	 * once we stop supporting those versions. However, this work around won't work on IE 11.
+	 *
+	 * See https://core.trac.wordpress.org/ticket/35824 .
+	 */
+
+	$manta_dir = get_template_directory_uri();
+	$svg_icons = '';
+	if( is_customize_preview() && version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
+		// Define SVG sprite file.
+		$svg_icons = "{$manta_dir}/assets/images/svg-icons-bare.svg";
+
+		// Load extra svg images for social menu.
+		if ( has_nav_menu( 'social' ) ) {
+			$svg_icons = "{$manta_dir}/assets/images/svg-icons.svg";
+		}
+	}
+
+	/*
 	 * Display the icon.
 	 *
 	 * The whitespace around `<use>` is intentional - it is a work around to a keyboard navigation bug in Safari 10.
 	 *
 	 * See https://core.trac.wordpress.org/ticket/38387.
 	 */
-	$svg .= ' <use href="#icon-' . esc_html( $args['icon'] ) . '" xlink:href="#icon-' . esc_html( $args['icon'] ) . '"></use> ';
+	$svg .= ' <use href="'. $svg_icons .'#icon-' . esc_html( $args['icon'] ) . '" xlink:href="'. $svg_icons .'#icon-' . esc_html( $args['icon'] ) . '"></use> ';
 
 	// Add some markup to use as a fallback for browsers that do not support SVGs.
 	if ( $args['fallback'] ) {
