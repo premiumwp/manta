@@ -351,6 +351,11 @@ function manta_scripts() {
 				'icon' => 'angle-down',
 				'fallback' => true,
 			) ),
+			'search_toggle' => esc_html__( 'Expand Search Form', 'manta' ),
+			'search_icon'     => manta_get_icon( array(
+				'icon' => 'search',
+				'fallback' => true,
+			) ),
 		);
 		wp_enqueue_script( 'manta-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'manta-navigation', 'mantaScreenReaderText', $manta_l10n );

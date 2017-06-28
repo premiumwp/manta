@@ -151,4 +151,31 @@
 			$( this ).parents( '.menu-item, .page_item' ).toggleClass( 'focus' );
 		} );
 	} )();
+	
+	jQuery( window ).resize(
+		function() {
+			var $menuToggle = $( "#main-navigation" ).find( '.menu-toggle' );
+			if ( 'none' === $menuToggle.css( 'display' ) ) {
+				jQuery( '#main-navigation .search-form .label-search' ).hide();
+			} else {
+				jQuery( '#main-navigation .search-form .label-search' ).show();
+			}
+		}
+	);
+	
+	jQuery( '#main-navigation .search-form' ).prepend( '<button class="search-toggle" area-expanded="false" type="button">' + mantaScreenReaderText.search_icon + '<span class="screen-reader-text">' + mantaScreenReaderText.search_toggle + '</span></button>' );
+
+	jQuery( '#main-navigation .search-toggle' ).click(
+		function( event ) {
+			event.stopPropagation();
+		}
+	);
+	
+	jQuery( '#main-navigation .label-search' ).hide();
+
+	jQuery( '#main-navigation .search-toggle' ).click(
+		function() {
+			jQuery( '#main-navigation .label-search' ).animate( {width: 'toggle'} );
+		}
+	);
 } )( jQuery );

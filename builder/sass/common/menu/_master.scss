@@ -2,6 +2,7 @@
  * 8.0 - Navigation
  */
 
+#main-navigation .wrap,
 .nav-menu,
 .nav-menu .sub-menu {
 	display: none;
@@ -12,6 +13,8 @@
 
 .no-js .nav-menu,
 .no-js .sub-menu,
+.no-js #main-navigation .wrap,
+#main-navigation.toggled-on .wrap,
 .toggled-on .nav-menu,
 .sub-menu.toggled-on {
 	display: block;
@@ -46,6 +49,10 @@
 }
 
 @mixin nav--lg() {
+	#main-navigation .wrap {
+		display: block;
+	}
+
 	.nav-menu,
 	.nav-menu .menu-item {
 		display: inline-block;
@@ -116,6 +123,7 @@
 
 @import "buttons";
 @import "primary";
+@import "nav-search";
 @import "header";
 @import "footer";
 @import "pagination";

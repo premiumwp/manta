@@ -24,6 +24,7 @@
 				'menu_id'         => 'primary-menu',
 				'menu_class'      => 'nav-menu',
 				'container_class' => 'wrap',
+				'items_wrap'      => get_search_form( false ) . '<ul id="%s" class="%s">%s</ul>',
 			)
 		);
 		?>
