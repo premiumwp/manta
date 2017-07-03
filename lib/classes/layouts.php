@@ -52,7 +52,7 @@ class Manta_Layouts {
 	 */
 	public function customizer_layout_options( $controls ) {
 		$controls[] = array(
-			'label'          => esc_html__( 'Global Content Layout', 'manta' ),
+			'label'          => esc_html__( 'Default Content Layout', 'manta' ),
 			'section'        => 'manta_layout_section',
 			'settings'       => 'manta_global_layout',
 			'type'           => 'select',
@@ -99,7 +99,7 @@ class Manta_Layouts {
 		);
 
 		$controls[] = array(
-			'label'          => esc_html__( 'Different layout for posts/pages', 'manta' ),
+			'label'          => esc_html__( 'Enable custom layout options for posts/pages', 'manta' ),
 			'section'        => 'manta_layout_section',
 			'settings'       => 'manta_enforce_global',
 			'type'           => 'checkbox',
