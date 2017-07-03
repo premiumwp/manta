@@ -38,12 +38,14 @@ function manta_get_theme_defaults( $option ) {
 		'manta_site_layout'            => 'full_width',
 		'manta_header_alignment'       => 'left',
 		'manta_main_menu_alignment'    => 'left',
+		'manta_nav_search'             => 1,
 		'manta_footer_alignment'       => 'center',
 		'manta_sticky_main_menu'       => 1,
 		'manta_excerpt_option'         => 'excerpt',
 		'manta_excerpt_length'         => 40,
 		'manta_excerpt_teaser'         => esc_html__( 'Read More', 'manta' ),
 		'manta_thumbnails_display'     => 'large',
+		'manta_copyright'              => '[site_title] [copy_symbol] [current_year] | ' . esc_html__( 'All Rights Reserved', 'manta' ),
 	) );
 
 	if ( 'all' === $option ) {

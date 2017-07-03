@@ -53,6 +53,7 @@
 		display: block;
 	}
 
+	.toggled-on .nav-menu,
 	.nav-menu,
 	.nav-menu .menu-item {
 		display: inline-block;
@@ -64,7 +65,7 @@
 	}
 
 	.nav-menu a {
-		padding: 1.25rem;
+		padding: 0.875rem 1.25rem;
 	}
 	
 	.nav-menu .menu-item-has-children > a,
@@ -102,14 +103,8 @@
 	.nav-menu .sub-menu .sub-menu {
 		top: 0;
 	}
-	
-	.nav-menu .menu-item:hover > .sub-menu {
-		opacity: 1;
-		left: auto;
-		transition: opacity 0s ease-in-out 0.2s;
-		-webkit-backface-visibility: hidden;
-	}
 
+	.nav-menu .menu-item:hover > .sub-menu,
 	.nav-menu .menu-item.focus > .sub-menu {
 		opacity: 1;
 		left: auto;

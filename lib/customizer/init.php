@@ -169,7 +169,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	public function customize_preview_js() {
 		wp_enqueue_script(
 			'manta_customizer',
-			get_template_directory_uri() . '/assets/js/customize-preview.js',
+			get_template_directory_uri() . '/assets/admin/js/customize-preview.js',
 			array( 'customize-preview' ),
 			'1.0.0',
 			true
@@ -184,7 +184,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	public function customize_control_js() {
 		wp_enqueue_script(
 			'manta_customizer_control',
-			get_template_directory_uri() . '/assets/js/customize-control.js',
+			get_template_directory_uri() . '/assets/admin/js/customize-control.js',
 			array( 'customize-controls', 'jquery', 'jquery-ui-core', 'jquery-ui-slider' ),
 			'1.0.0',
 			true
@@ -199,7 +199,7 @@ class Manta_Customizer extends Manta_Sanitization {
 	public function customize_control_css() {
 		wp_enqueue_style(
 			'manta_customizer_control_style',
-			get_template_directory_uri() . '/assets/css/customize-control.css'
+			get_template_directory_uri() . '/assets/admin/css/customize-control.css'
 		);
 	}
 

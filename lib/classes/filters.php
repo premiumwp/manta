@@ -34,6 +34,7 @@ class Manta_Filters {
 		add_filter( 'manta_get_attr_main-navigation'      , array( __CLASS__, 'add_main_navigation_classes' ) );
 		add_filter( 'manta_get_attr_site-footer'          , array( __CLASS__, 'add_site_footer_classes' ) );
 		add_filter( 'excerpt_length'                      , array( __CLASS__, 'change_excerpt_length' ) );
+		add_filter( 'wp_nav_menu_args'                    , array( __CLASS__, 'primary_nav_search' ) );
 		add_filter( 'excerpt_more'                        , array( __CLASS__, 'modify_excerpt_teaser' ) );
 		add_filter( 'wp_get_attachment_image_attributes'  , array( __CLASS__, 'custom_logo_attr' ), 10, 2 );
 	}
@@ -229,6 +230,32 @@ class Manta_Filters {
 	public static function change_excerpt_length( $length ) {
 		$length = absint( get_theme_mod( 'manta_excerpt_length', manta_get_theme_defaults( 'manta_excerpt_length' ) ) );
 		return $length;
+	}
+	
+	/**
+	 * Add search form in primary menu.
+	 *
+	 * Conditionally add search form and search toggle in primary navigation menu.
+	 *
+	 * @since 1.2
+	 *
+	 * @param array $args Array of nav menu arguments.
+	 * @return array
+	 */
+	public static function primary_nav_search( $args ) {
+		if ( 'primary' !== $args['theme_location'] ) {
+			return $args;
+		}
+		
+		if ( '' === get_theme_mod('manta_nav_search', manta_get_theme_defaults( 'manta_nav_search' ) ) ) {
+			return $args;
+		}
+		
+		$search_toggle = sprintf( '<button aria-expanded="false"%1$s>%2$s%3$s</button>', manta_get_attr( 'search-toggle' ), manta_get_icon( array( 'icon' => 'search' ) ), manta_get_icon( array( 'icon' => 'close' ) ) );
+		$search_item   = sprintf( '<span%1$s>%2$s</span>', manta_get_attr( 'search-item' ), $search_toggle );
+
+		$args['items_wrap'] = get_search_form( false ) . '<ul id="%s" class="%s">%s</ul>' . $search_item;
+		return $args;
 	}
 
 	/**

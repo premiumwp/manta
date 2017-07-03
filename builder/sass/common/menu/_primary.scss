@@ -2,14 +2,26 @@
  * 8.2 - Primary menu
  */
 
+#main-navigation .wrap {
+	padding: 0 40px;
+	@extend %structure;
+}
+
+#main-navigation > .wrap {
+	padding-bottom: 0.875em;
+}
+
 @mixin primary-nav--lg() {
 	#main-navigation {
 		border-top: 1px solid $border__color;
 		text-align: center;
 	}
 	
-	.wp-custom-header + #main-navigation,
-	.wp-custom-header + .nav-placeholder #main-navigation {
+	#main-navigation > .wrap {
+		padding-bottom: 0;
+	}
+	
+	.wp-custom-header + #main-navigation {
 		border-top-width: 0;
 	}
 
@@ -41,7 +53,7 @@
 		right: 224px;
 		left: auto;
 	}
-	
+
 	.fixed-nav .site-navigation-fixed {
 		position: fixed;
 		top: 0;
@@ -51,20 +63,8 @@
 		z-index: 999;
 		border-bottom: 1px solid #e6e6e6;
 	}
-					
-	.fixed-nav .site-navigation-fixed .nav-menu .menu-item a {
-		padding-top: mrem(0.5);
-		padding-bottom: mrem(0.5);
-		-webkit-transition: all 0.3s ease-in-out;
-				transition: all 0.3s ease-in-out;
-	}
 
 	.admin-bar .fixed-nav .site-navigation-fixed {
 		top: 32px;
-	}
-
-	.fixed-nav .nav-placeholder {
-		min-height: ( 2.5 + $magic__number ) * 1rem;
-		max-height: ( 2.5 + $magic__number ) * 1rem;
 	}
 }

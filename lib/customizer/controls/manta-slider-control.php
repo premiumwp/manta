@@ -87,19 +87,19 @@ class Manta_Slider_Control extends WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_script(
 			'manta-slider-js',
-			get_template_directory_uri() . '/assets/js/customize-slider-control.js',
+			get_template_directory_uri() . '/assets/admin/js/customize-slider-control.js',
 			array( 'jquery-ui-core', 'jquery-ui-slider', 'customize-controls' ),
 			'1.0.0',
 			true
 		);
 		wp_enqueue_style(
 			'manta-ui-slider',
-			get_template_directory_uri() . '/assets/css/jquery-ui.structure.css'
+			get_template_directory_uri() . '/assets/admin/css/jquery-ui.structure.css'
 		);
 
 		wp_enqueue_style(
 			'manta-flat-slider',
-			get_template_directory_uri() . '/assets/css/range-slider.css'
+			get_template_directory_uri() . '/assets/admin/css/range-slider.css'
 		);
 	}
 }
