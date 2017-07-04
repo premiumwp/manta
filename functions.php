@@ -82,7 +82,7 @@ function manta_setup() {
 	) );
 
 	// Add custom styles for visual editor to resemble the theme style.
-	add_editor_style( array( 'assets/css/editor-style.css', manta_font_url() ) );
+	add_editor_style( array( 'assets/admin/css/editor-style.css', manta_font_url() ) );
 
 	// This theme uses wp_nav_menu() in four locations.
 	register_nav_menus( array(
@@ -160,6 +160,7 @@ function manta_setup() {
 	require_once( "{$manta_dir}lib/functions/defaults.php" );
 	require_once( "{$manta_dir}lib/functions/inline-css.php" );
 	require_once( "{$manta_dir}lib/functions/backcompat.php" );
+	require_once( "{$manta_dir}lib/functions/template-tags.php" );
 
 	// Load theme specific classes files.
 	require_once( "{$manta_dir}lib/classes/plugin-support.php" );
@@ -340,7 +341,7 @@ function manta_scripts() {
 	wp_enqueue_style( 'manta-fonts', esc_url( manta_font_url() ), array(), null );
 
 	// Skip link focus fix script.
-	wp_enqueue_script( 'manta-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'manta-skip-link-focus-fix', get_template_directory_uri() . '/assets/front/js/skip-link-focus-fix.js', array(), '1.0.0', true );
 
 	// Theme navigation.
 	if ( has_nav_menu( 'primary' ) || has_nav_menu( 'header' ) ) {
@@ -352,7 +353,7 @@ function manta_scripts() {
 				'fallback' => true,
 			) ),
 		);
-		wp_enqueue_script( 'manta-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'manta-navigation', get_template_directory_uri() . '/assets/front/js/navigation.js', array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'manta-navigation', 'mantaScreenReaderText', $manta_l10n );
 	}
 

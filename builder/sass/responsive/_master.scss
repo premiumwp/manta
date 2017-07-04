@@ -72,6 +72,9 @@
 	// Navigation menu
 	@include nav--lg();
 	
+	// Navigation Search
+	@include nav-search--lg();
+	
 	// Header menu
 	@include header-nav--lg();
 

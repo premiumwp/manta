@@ -16,11 +16,11 @@
 function manta_include_svg_icons() {
 	$manta_dir = trailingslashit( get_template_directory() );
 	// Define SVG sprite file.
-	$svg_icons = "{$manta_dir}assets/images/svg-icons-bare.svg";
+	$svg_icons = "{$manta_dir}assets/front/images/svg-icons-bare.svg";
 
 	// Load extra svg images for social menu.
 	if ( has_nav_menu( 'social' ) ) {
-		$svg_icons = "{$manta_dir}assets/images/svg-icons.svg";
+		$svg_icons = "{$manta_dir}assets/front/images/svg-icons.svg";
 	}
 
 	// If it exists, include it.
@@ -290,8 +290,8 @@ function manta_icons_css( $output ) {
 
 		.sticky .icon-thumb-tack {
 			position: absolute;
-			top: 1.5em;
-			right: 1.5em;
+			top: 1em;
+			right: 1em;
 			display: block;
 			width: 20px;
 			height: 20px;

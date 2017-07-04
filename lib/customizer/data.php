@@ -261,6 +261,12 @@ class Manta_Customizer_Data {
 					),
 				),
 				array(
+					'label'         => esc_html__( 'Display search bar in main menu', 'manta' ),
+					'section'       => 'manta_layout_section',
+					'settings'      => 'manta_nav_search',
+					'type'          => 'checkbox',
+				),
+				array(
 					'label'         => esc_html__( 'Footer Items Alignment', 'manta' ),
 					'section'       => 'manta_layout_section',
 					'settings'      => 'manta_footer_alignment',
@@ -396,7 +402,7 @@ class Manta_Customizer_Data {
 					'label'         => esc_html__( 'Copyright Text', 'manta' ),
 					'section'       => 'manta_copyright_section',
 					'settings'      => 'manta_copyright',
-					'description'   => esc_html__( 'Change default copyright text', 'manta' ),
+					'description'   => self::get_copyright_description(),
 					'transport'     => 'postMessage',
 					'type'          => 'textarea',
 					'select_refresh' => array(
@@ -409,6 +415,23 @@ class Manta_Customizer_Data {
 			)
 		);
 		return $manta_controls;
+	}
+	
+	/**
+	 * Copyright text description.
+	 *
+	 * @since  1.2
+	 * @return string Returns copyright text description.
+	 */
+	public static function get_copyright_description() {
+		$title = '<span style="display:block;margin-bottom:5px;margin-top:5px"><code>[site_title]</code>' . esc_html__( ' to print site title.', 'manta' ) . '</span>';
+		$year  = '<span style="display:block;margin-bottom:5px;"><code>[current_year]</code>' . esc_html__( ' to print current Year.', 'manta' ) . '</span>';
+		$copy  = '<span style="display:block;margin-bottom:5px;"><code>[copy_symbol]</code>' . esc_html__( ' to print copyright symbol.', 'manta' ) . '</span>';
+		
+		$copy_decription = esc_html__( 'Type to change default copyright text', 'manta' ) . '<br/>' . esc_html__( 'Use', 'manta' );
+		$copy_decription = $copy_decription . $title . $year . $copy;
+
+		return $copy_decription;
 	}
 
 	/**

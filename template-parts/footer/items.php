@@ -15,11 +15,7 @@ $manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaul
 
 		<?php // Display Copyright text. ?>
 		<div<?php manta_attr( 'copyright-text' ); ?>>
-			<?php if ( $manta_copyright_info ) : ?>
-				<p><?php echo implode( '<br/>', array_map( 'esc_textarea', explode( "\n", $manta_copyright_info ) ) ); ?></p>
-			<?php else : ?>
-				<p><?php bloginfo(); ?> &copy; <?php echo date_i18n( __( 'Y', 'manta' ) ); ?> . <?php esc_html_e( 'All Rights Reserved', 'manta' ); ?></p>
-			<?php endif; ?>
+			<?php echo manta_render_copyright_info(); ?>
 		</div><!-- .copyright-text -->
 
 		<?php // Display site credit text. ?>

@@ -2,8 +2,8 @@
 
 Created by: PremiumWP
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.7.5
-Version: 1.1
+Tested up to: WordPress 4.8
+Version: 1.2
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, flexible-header, accessibility-ready, custom-background, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 == Description ==
-Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata.
+Manta is a minimal, lightweight and mobile first WordPress theme that is flexible and easy to use. It is built with accessibility, search-engine optimization (SEO), security, pagespeed and simplicity in mind. Manta is written with clean code, the most current HTML5 conventions and Schema.org microdata. With various header, footer and sidebar layout options, site dimension controls, numerous options for displaying featured images, typography options and more, Manta can serve as a solid base to build incredible websites.
 
 == Installation ==
 
@@ -22,8 +22,9 @@ Manta is a minimal, lightweight and mobile first WordPress theme that is flexibl
 
 == Usage Instructions ==
 
-1. To display a featured post(s) on the homepage select the check box "Stick this post the front page" in the Publish panel (under Visability). You can display up to three featured posts on the homepage.
+1. To display a featured post(s) on the homepage you need to make them 'sticky'. To make a post sticky select the check box "Stick this post the front page" in the Publish panel (under Visability). You can display up to three featured posts on the homepage.
 2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see all the available layout options in the customizer and individual page layout option.    
+3. The complete usage instructions and documentation for Manta is here: https://www.premiumwp.com/themes/manta/ 
 
 == Copyright ==
 
@@ -81,8 +82,8 @@ https://unsplash.com/photos/jUPOXXRNdcA
 by Brooke Lark (https://unsplash.com/@brookelark)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
-https://unsplash.com/photos/FZTDjJsjG8s
-by Lance Asper (https://unsplash.com/@lance_asper)
+https://unsplash.com/photos/Y_YSuBfQCmI
+by Ishan @seefromthesky (https://unsplash.com/@seefromthesky)
 License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
@@ -123,3 +124,21 @@ License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 10. Styling Issue: Paragraph rich text buttons font color remain black on hover (while background color changes, which affects visibility ).
 11. Modify: Increase number of footer widgets from 3 to 5.
 12. Modify: Background color for featured posts without featured image.
+
+= 1.1.1 - June 20 2017 =
+
+1. Styling improvements for Featured Posts.
+2. Styling changes of post meta items and read more link.
+3. Header image size adjustment to accommodate larger screen sizes.
+4. Changed Copyright customizer option from JS refresh to select refresh.
+5. Error Fix: IE bug in which on using keyboard navigation, tab key focuses on inline SVG.
+6. Error Fix: Inline SVG icons display error on customizer preview screen fixed for versions prior to WordPress 4.7.
+
+= 1.2 - Jul 03 2017 =
+1. Error Fix: Page/Post edit screen layout options not working  properly.
+2. Improved copyright customizer option.
+3. Search button in Primary navigation bar.
+4. Featured posts should not reappear in main query.
+5. Sticky icons on sticky posts  which are not featured posts.
+6. Separate admin and front css/js assets.
+

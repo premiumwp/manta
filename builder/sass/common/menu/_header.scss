@@ -2,6 +2,11 @@
  * 8.3 - Header menu
  */
 
+#header-nav {
+	padding: 0 40px;
+	@extend %structure;
+}
+
 @mixin header-nav--lg() {
 	#header-menu {
 		text-align: center;
