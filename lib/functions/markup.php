@@ -20,11 +20,18 @@
  * @param mixed    $callback_args Callback function args.
  * @param string   $open          Markup wrapper opening div.
  * @param string   $close         Markup wrapper closing div.
- * @return string HTML markup
+ * @return void
  */
 function manta_markup( $context = '', $callback = '', $callback_args = '', $open = '<div%s>', $close = '</div>' ) {
 
 	if ( ! $context ) {
+		return;
+	}
+
+	// Short circuit filter.
+	$check = apply_filters( "manta_markup_{$context}", false, $context );
+	if ( false !== $check ) {
+		echo $check;
 		return;
 	}
 

@@ -248,10 +248,10 @@
 			}
 			var outer = +to + 40;
 			var inner = +to - 80;
-			var threeHeight = ( +to - ( +to * 0.0375 ) ) * 0.3334;
-			var threeHeightBoxed = +to * 0.33334;
-			var css = '@media only screen and (min-width:' + outer + 'px){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap,.wp-custom-header{max-width:' + to + 'px}.three-featured .featured-posts{height:' + threeHeight + 'px;max-height:' + threeHeight + 'px}}';
-			css += '@media only screen and (min-width:1680px){.wp-custom-header{max-width:' + to + 'px}';
+			var threeHeight = ( +to - 81 ) * 0.3334;
+			var threeHeightBoxed = ( inner - 81 ) * 0.3334;
+			var css = '@media only screen and (min-width:' + outer + 'px){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap,.widget-wrapper{max-width:' + to + 'px}.three-featured .featured-posts{height:' + threeHeight + 'px;max-height:' + threeHeight + 'px}}';
+			css += '@media only screen and (min-width:1680px){.wp-custom-header{max-width:' + to + 'px}}';
 			css += '@media only screen and (min-width:' + to + 'px){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width:' + to + 'px}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width:' + inner + 'px}.boxed .three-featured .featured-posts{height:' + threeHeightBoxed + 'px;max-height:' + threeHeightBoxed + 'px}}';
 			addInlineCss( 'manta_overall_site_width', css );
 		} );

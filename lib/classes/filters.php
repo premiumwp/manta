@@ -231,7 +231,7 @@ class Manta_Filters {
 		$length = absint( get_theme_mod( 'manta_excerpt_length', manta_get_theme_defaults( 'manta_excerpt_length' ) ) );
 		return $length;
 	}
-	
+
 	/**
 	 * Add search form in primary menu.
 	 *
@@ -246,15 +246,15 @@ class Manta_Filters {
 		if ( 'primary' !== $args['theme_location'] ) {
 			return $args;
 		}
-		
+
 		if ( '' === get_theme_mod('manta_nav_search', manta_get_theme_defaults( 'manta_nav_search' ) ) ) {
 			return $args;
 		}
-		
+
 		$search_toggle = sprintf( '<button aria-expanded="false"%1$s>%2$s%3$s</button>', manta_get_attr( 'search-toggle' ), manta_get_icon( array( 'icon' => 'search' ) ), manta_get_icon( array( 'icon' => 'close' ) ) );
 		$search_item   = sprintf( '<span%1$s>%2$s</span>', manta_get_attr( 'search-item' ), $search_toggle );
 
-		$args['items_wrap'] = get_search_form( false ) . '<ul id="%s" class="%s">%s</ul>' . $search_item;
+		$args['items_wrap'] = get_search_form( false ) . $args['items_wrap'] . $search_item;
 		return $args;
 	}
 

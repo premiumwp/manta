@@ -16,7 +16,7 @@
 get_header(); ?>
 
 	<div<?php manta_attr( 'content-sidebar-wrap' ); ?>>
-	
+
 		<div id="primary"<?php manta_attr( 'content-area' ); ?>>
 
 			<?php
@@ -61,7 +61,7 @@ get_header(); ?>
 		</div><!-- #primary -->
 
 		<?php get_sidebar(); ?>
-		
+
 	</div><!-- .content-sidebar-wrap -->
 
 <?php

@@ -44,7 +44,7 @@ do_action( 'manta_hook_before_entry' );
 	/** This action is documented in template-parts/content.php */
 	do_action( 'manta_hook_bottom_of_entry' ); ?>
 
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
 /** This action is documented in template-parts/content.php */

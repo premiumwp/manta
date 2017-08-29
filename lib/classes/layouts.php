@@ -98,6 +98,24 @@ class Manta_Layouts {
 			'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
 		);
 
+		if ( current_theme_supports( 'manta_jetpack-portfolio' ) ) {
+			$controls[] = array(
+				'label'          => esc_html__( 'Jetpack Project Content Layout', 'manta' ),
+				'section'        => 'manta_layout_section',
+				'settings'       => 'manta_project_layout',
+				'type'           => 'select',
+				'select_refresh' => array(
+					'selector'            => '.content-sidebar-wrap',
+					'container_inclusive' => true,
+					'render_callback'     => 'manta_customize_partial_cs_wrap',
+					'fallback_refresh'    => false,
+				),
+				'transport'      => 'postMessage',
+				'choices'        => $this->layout_choices(),
+				'active_callback' => array( 'Manta_Active_Callback', 'is_different_layout' ),
+			);
+		}
+
 		$controls[] = array(
 			'label'          => esc_html__( 'Enable custom layout options for posts/pages', 'manta' ),
 			'section'        => 'manta_layout_section',
@@ -169,6 +187,9 @@ class Manta_Layouts {
 		$default['manta_global_layout']  = $default_layout;
 		$default['manta_post_layout']    = $default_layout;
 		$default['manta_page_layout']    = $default_layout;
+		if ( current_theme_supports( 'manta_jetpack-portfolio' ) ) {
+			$default['manta_project_layout'] = $default_layout;
+		}
 		$default['manta_enforce_global'] = 1;
 
 		return $default;
@@ -188,9 +209,9 @@ class Manta_Layouts {
 			'manta_layout_meta',
 			esc_html__( 'Post Layout', 'manta' ),
 			array( $this, 'render_layout_metabox' ),
-			array( 'post', 'page' ),
+			array( 'post', 'page', 'jetpack-portfolio' ),
 			'side',
-			'high'
+			'default'
 		);
 	}
 
@@ -215,7 +236,7 @@ class Manta_Layouts {
 			<div class="manta-layouts">
 				<label for="meta-global-layout" style="display:block;margin-bottom:10px;">
 					<input type="radio" name="manta-layout-meta" id="layout-global" value="" <?php echo $checked; // WPCS : XSS OK. ?>/>
-					<?php esc_html_e( 'Global Layout', 'manta' ); ?>
+					<?php esc_html_e( 'Default Layout', 'manta' ); ?>
 				</label>
 				<?php foreach ( $layouts as $layout => $layout_name ) { ?>
 					<label for="meta-<?php echo esc_attr( $layout ); ?>" style="display:block;margin-bottom:10px;">
@@ -268,7 +289,7 @@ class Manta_Layouts {
 			update_post_meta( $post_id, 'manta-layout-meta', $layout_meta );
 		}
 	}
-	
+
 	/**
 	 * Adds custom layout classes to the array of content sidebar wrapper class.
 	 *
@@ -281,6 +302,13 @@ class Manta_Layouts {
 		$global_layout = $this->get_layout( 'global' );
 		$force_global = ( '' === get_theme_mod( 'manta_enforce_global', manta_get_theme_defaults( 'manta_enforce_global' ) ) ) ? true : false;
 
+		// Short circuit filter.
+		$check = apply_filters( 'manta_layout_css_classes', null, $attr );
+		if ( null !== $check ) {
+			$attr['class'] .= ' ' . esc_attr( $check );
+			return $attr;
+		}
+
 		if ( is_home() || is_archive() || is_search() || $force_global ) {
 			$attr['class'] .= ' ' . esc_attr( $global_layout );
 			return $attr;
@@ -291,6 +319,8 @@ class Manta_Layouts {
 
 			if ( is_singular( 'post' ) ) {
 				$type = 'post';
+			} elseif ( is_singular( 'jetpack-portfolio' ) ) {
+				$type = 'project';
 			} elseif ( is_singular( 'page' ) ) {
 				$type = 'page';
 			} else {
@@ -305,7 +335,7 @@ class Manta_Layouts {
 				$specific_layout = '';
 			}
 
-			if ( '' === $specific_layout ) {
+			if ( ! $specific_layout ) {
 				$attr['class'] .= ' ' . esc_attr( $default_layout );
 				return $attr;
 			}

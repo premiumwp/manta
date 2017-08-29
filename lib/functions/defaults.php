@@ -41,11 +41,19 @@ function manta_get_theme_defaults( $option ) {
 		'manta_nav_search'             => 1,
 		'manta_footer_alignment'       => 'center',
 		'manta_sticky_main_menu'       => 1,
+		'manta_custom_header_position' => 'above-main-nav',
 		'manta_excerpt_option'         => 'excerpt',
 		'manta_excerpt_length'         => 40,
 		'manta_excerpt_teaser'         => esc_html__( 'Read More', 'manta' ),
-		'manta_thumbnails_display'     => 'large',
+		'manta_thumbnails_display'     => 'large_above',
 		'manta_copyright'              => '[site_title] [copy_symbol] [current_year] | ' . esc_html__( 'All Rights Reserved', 'manta' ),
+		'manta_show_date'              => 1,
+		'manta_show_author'            => 1,
+		'manta_show_comment_link'      => 1,
+		'manta_show_cat'               => 1,
+		'manta_show_tags'              => 1,
+		'manta_show_author_box'        => 1,
+		'manta_show_prevnext'          => 1,
 	) );
 
 	if ( 'all' === $option ) {

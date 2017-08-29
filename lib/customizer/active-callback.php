@@ -47,4 +47,16 @@ class Manta_Active_Callback {
 	public static function is_different_layout( $control ) {
 		return '' !== $control->manager->get_setting( 'manta_enforce_global' )->value();
 	}
+
+	/**
+	 * Check if header image placement options to be displayed.
+	 *
+	 * @since 1.2.3
+	 *
+	 * @param object $control whole wp_customize_control object.
+	 * @return bool
+	 */
+	public static function is_place_header_image( $control ) {
+		return ( has_nav_menu('primary') && has_header_image() );
+	}
 }

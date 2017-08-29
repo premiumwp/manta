@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-if ( is_singular() ) {
+if ( is_singular() && ! is_page_template( 'page-template/page-portfolio.php' ) ) {
 	?>
 	<div <?php manta_attr( 'single-thumb' ); ?>>
 

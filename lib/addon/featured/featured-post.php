@@ -49,13 +49,16 @@ class Manta_Featured_Post {
 
 		// Get all sticky posts.
 		$sticky = get_option( 'sticky_posts' );
+		$number_posts = 3;
 
 		if ( $sticky ) {
 			// Sort the stickies with the newest ones at the top.
 			rsort( $sticky );
 
-			// Get the 3 newest stickies.
-			$this->sticky_posts = array_slice( $sticky, 0, 3 );
+			$maxposts = apply_filters( 'manta_max_featured_posts', $number_posts );
+
+			// Get the newest stickies.
+			$this->sticky_posts = array_slice( $sticky, 0, $maxposts );
 		}
 	}
 
@@ -65,9 +68,27 @@ class Manta_Featured_Post {
 	 * @since 1.0.0
 	 */
 	public static function init() {
+		add_action( 'wp_enqueue_scripts'                , array( Manta_Featured_Post::get_instance(), 'featured_scripts' ) );
 		add_action( 'manta_hook_on_top_of_site_content' , array( Manta_Featured_Post::get_instance(), 'render_featured_post' ) );
 		add_action( 'pre_get_posts'                     , array( Manta_Featured_Post::get_instance(), 'modify_main_query' ) );
 		add_filter( 'manta_get_attr_featured-content'   , array( Manta_Featured_Post::get_instance(), 'style_class' ) );
+	}
+
+	/**
+	 * Enqueue masonry scripts and styles.
+	 *
+	 * @since 1.0.0
+	 */
+	public function featured_scripts() {
+
+		if ( !is_home() || is_paged() ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'manta_featured_style',
+			get_template_directory_uri() . '/lib/addon/featured/assets/manta-featured.css'
+		);
 	}
 
 	/**
@@ -105,11 +126,12 @@ class Manta_Featured_Post {
 			<aside id="featured-content" role="complementary"<?php manta_attr( 'featured-content' ); ?>>
 				<h2 class="screen-reader-text"><?php echo esc_html__( 'Featured Content', 'manta' ); ?></h2>
 				<?php
+				$i = 0;
 				while ( $featured_posts->have_posts() ) : $featured_posts->the_post();
 
-					if ( 1 === $featured_posts->post_count ) {
+					if ( 1 === $featured_posts->post_count || ( 4 === $featured_posts->post_count && $i = 0 ) ) {
 						$thumbnail_url = get_the_post_thumbnail_url( $featured_posts->post->ID, 'large' );
-					} elseif ( $featured_posts->post_count > 1 ) {
+					} else {
 						$thumbnail_url = get_the_post_thumbnail_url( $featured_posts->post->ID, 'post-thumbnail' );
 					}
 
@@ -129,6 +151,7 @@ class Manta_Featured_Post {
 
 					</div><!-- #featured-posts -->
 				<?php
+				$i = $i + 1;
 				endwhile;
 
 				// Restore original Post Data.
@@ -149,7 +172,7 @@ class Manta_Featured_Post {
 	 */
 	public function modify_main_query( $query ) {
 
-		if ( $query->is_home() && $query->is_main_query() && ! $query->is_paged ) {
+		if ( $query->is_home() && $query->is_main_query() ) {
 			$query->query_vars['post__not_in'] = $this->sticky_posts;
 		}
 	}
@@ -168,6 +191,10 @@ class Manta_Featured_Post {
 			$attr['class'] .= ' multiple-featured-posts two-featured';
 		} elseif ( 3 === $this->featured_post_count ) {
 			$attr['class'] .= ' multiple-featured-posts three-featured';
+		} elseif ( 4 === $this->featured_post_count ) {
+			$attr['class'] .= ' multiple-featured-posts four-featured';
+		} elseif ( 5 === $this->featured_post_count ) {
+			$attr['class'] .= ' multiple-featured-posts five-featured';
 		}
 
 		return $attr;

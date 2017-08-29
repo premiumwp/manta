@@ -158,12 +158,12 @@ class Manta_Customizer_Front_Css extends Manta_Customizer_Front_Base {
 			$inner_width = $site_width - 80;
 
 			// Calculate height of three featured posts to match with its width (refer featured posts css).
-			$three_featured_height = ( $site_width - ( $site_width * 3.75 / 100 ) ) * 0.325;
+			$three_featured_height = ( $site_width - 81 ) * 0.33334;
 
 			// Calculate height of three featured posts to match with its width (refer featured posts css).
-			$three_featured_boxed = ( $site_width ) * 0.33334;
+			$three_featured_boxed = ( $inner_width - 81 ) * 0.33334;
 
-			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap{max-width: %2$spx}}', $screen_width, $site_width );
+			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){#main-navigation .wrap,#header-nav,.header-items,#colophon > .wrap,.site-content,.footer-widgets .wrap,.widget-wrapper{max-width: %2$spx}}', $screen_width, $site_width );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .site-header,.boxed .site-footer,.boxed .footer-widgets,.boxed .site-content{max-width: %1$spx}.boxed .wrap,.boxed #main-navigation .wrap,.boxed .header-items,.boxed .footer-widget > .wrap,.boxed #colophon > .wrap{max-width: %2$spx}}', $site_width, $inner_width );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.three-featured .featured-posts{height:%2$spx;max-height:%2$spx}}', $screen_width, $three_featured_height );
 			$this->css .= sprintf( '@media only screen and (min-width: %1$spx){.boxed .three-featured .featured-posts{height:%2$spx;max-height:%2$spx}}', $site_width, $three_featured_boxed );

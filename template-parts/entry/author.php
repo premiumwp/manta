@@ -10,6 +10,10 @@
  * @since 1.0.0
  */
 
+if ( 1 !== get_theme_mod( 'manta_show_author_box', manta_get_theme_defaults( 'manta_show_author_box' ) ) ) {
+	return;
+}
+ 
 ?>
 
 <div<?php manta_attr( 'author-info' ); ?>>

@@ -73,7 +73,7 @@ do_action( 'manta_hook_before_entry' ); ?>
 	 */
 	do_action( 'manta_hook_bottom_of_entry' ); ?>
 
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
 /**

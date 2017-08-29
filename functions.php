@@ -21,26 +21,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
 }
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * @since 1.0.0
- *
- * @global int $content_width
- */
-function manta_content_width() {
-
-	$content_width = 880;
-
-	/**
-	 * Filter maximum allowed width for any content in the theme.
-	 *
-	 * @since 1.0.0
-	 */
-	$GLOBALS['content_width'] = apply_filters( 'manta_content_width', $content_width );
-}
-add_action( 'after_setup_theme' , 'manta_content_width', 0 );
-
-/**
  * Register theme features.
  *
  * Set up theme defaults and registers support for various WordPress features.
@@ -61,6 +41,9 @@ function manta_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 880, 540, true );
 	add_image_size( 'manta-small-thumb', 640, 392, true );
+
+	// Set the default content width.
+	$GLOBALS['content_width'] = 880;
 
 	// Allows the use of valid HTML5 markup.
 	add_theme_support( 'html5', array(
@@ -152,7 +135,7 @@ function manta_setup() {
 		// Custom addon support for manta theme.
 		add_theme_support( "manta_{$support}" );
 	}
-	
+
 	$manta_dir = trailingslashit( get_template_directory() );
 
 	// Load theme specific functions files.
@@ -167,6 +150,7 @@ function manta_setup() {
 	require_once( "{$manta_dir}lib/classes/display.php" );
 	require_once( "{$manta_dir}lib/classes/filters.php" );
 	require_once( "{$manta_dir}lib/classes/layouts.php" );
+	require_once( "{$manta_dir}lib/classes/recent-posts.php" );
 
 	// Load theme customizer files.
 	require_once( "{$manta_dir}lib/customizer/active-callback.php" );
@@ -178,14 +162,36 @@ function manta_setup() {
 	require_once( "{$manta_dir}lib/customizer/refresh/selective-refresh.php" );
 
 	// Load theme features files.
-	require_if_theme_supports( 'manta_schema'   , "{$manta_dir}lib/addon/schema/schema.php" );
-	require_if_theme_supports( 'manta_featured' , "{$manta_dir}lib/addon/featured/featured-post.php" );
-	require_if_theme_supports( 'manta_fonticons', "{$manta_dir}lib/addon/fonticons/svg-icons.php" );
+	require_if_theme_supports( 'manta_schema'           , "{$manta_dir}lib/addon/schema/schema.php" );
+	require_if_theme_supports( 'manta_featured'         , "{$manta_dir}lib/addon/featured/featured-post.php" );
+	require_if_theme_supports( 'manta_fonticons'        , "{$manta_dir}lib/addon/fonticons/svg-icons.php" );
 
 	// Load theme customizer initiation file at last.
 	require_once( "{$manta_dir}lib/customizer/init.php" );
 }
 add_action( 'after_setup_theme' , 'manta_setup', 5 );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * @since 1.0.0
+ *
+ * @global int $content_width
+ */
+function manta_content_width() {
+
+	$content_width = $GLOBALS['content_width'];
+
+	/**
+	 * Filter content width of the theme.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param $content_width integer
+	 */
+	$GLOBALS['content_width'] = apply_filters( 'manta_content_width', $content_width );
+}
+add_action( 'template_redirect' , 'manta_content_width', 0 );
 
 /**
  * Register widget area.
@@ -248,16 +254,17 @@ function manta_widgets_init() {
 			),
 		)
 	);
+
+	$defaults = array(
+		'description'   => esc_html__( 'Add widgets here.', 'manta' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3' . manta_get_attr( 'widget-title' ) . '><span>',
+		'after_title'   => '</span></h3>',
+	);
+
 	foreach ( $widgets as $widget ) {
-		register_sidebar( array(
-			'name'          => $widget['name'],
-			'id'            => $widget['id'],
-			'description'   => $widget['description'],
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h3' . manta_get_attr( 'widget-title' ) . '><span>',
-			'after_title'   => '</span></h3>',
-		) );
+		register_sidebar( wp_parse_args( $widget, $defaults ) );
 	}
 }
 add_action( 'widgets_init', 'manta_widgets_init' );

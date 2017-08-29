@@ -12,25 +12,17 @@
 
 	<footer<?php manta_attr( 'entry-footer' ); ?>>
 
-		<?php $categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'manta' ) ); ?>
-		<?php if ( $categories_list ) : ?>
-			<span<?php manta_attr( 'cat-links' ) ?>>
-				<?php
-				printf( esc_html__( 'Filed Under: ', 'manta' ) );
-				echo $categories_list;
-				?>
-			</span>
-		<?php endif; ?>
+		<?php
+		if ( 1 === get_theme_mod( 'manta_show_cat', manta_get_theme_defaults( 'manta_show_cat' ) ) ):
+			get_template_part( 'template-parts/meta/categories' );
+		endif;
+		?>
 
-		<?php $tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'manta' ) ); ?>
-		<?php if ( $tags_list ) : ?>
-			<span<?php manta_attr( 'tags-links' ) ?>>
-				<?php
-				printf( esc_html__( 'Tagged With: ', 'manta' ) );
-				echo $tags_list;
-				?>
-			</span>
-		<?php endif;?>
+		<?php
+		if ( 1 === get_theme_mod( 'manta_show_tags', manta_get_theme_defaults( 'manta_show_tags' ) ) ):
+			get_template_part( 'template-parts/meta/tags' );
+		endif;
+		?>
 
 	</footer><!-- .entry-footer -->
 
@@ -39,27 +31,8 @@
 	<footer<?php manta_attr( 'entry-footer' ); ?>>
 
 		<?php
-		edit_post_link(
-			sprintf(
-				/* translators: %s: Name of current post */
-				__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'manta' ),
-				get_the_title()
-			),
-			'<span' . manta_get_attr( 'edit-link' ) . '>',
-			'</span>'
-		);
-
-		if ( is_attachment() && wp_attachment_is_image() ) {
-			// Retrieve attachment metadata.
-			$manta_metadata = wp_get_attachment_metadata();
-
-			printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-				esc_html_x( 'Full size', 'Used before full size attachment link.', 'manta' ),
-				esc_url( wp_get_attachment_url() ),
-				$manta_metadata['width'],
-				$manta_metadata['height']
-			);
-		}
+		get_template_part( 'template-parts/meta/edit-link' );
+		get_template_part( 'template-parts/meta/attachment' );
 		?>
 
 	</footer><!-- .entry-footer -->

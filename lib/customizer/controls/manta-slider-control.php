@@ -67,7 +67,7 @@ class Manta_Slider_Control extends WP_Customize_Control {
 				<span class="customize-control-title">{{ data.label }}</span>
 				<span class="value">
 					<input name="{{ data.id }}" type="number" {{{ data.link }}} value="{{{ data.value }}}" class="slider-input" min="{{data.min}}" max="{{data.max}}" step="{{data.step}}" />
-					<span class="px">px</span>
+					<span class="px">{{ data.unit }}</span>
 				</span>
 			</p>
 		</label>

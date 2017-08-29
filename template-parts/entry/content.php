@@ -11,7 +11,7 @@
  * option is not selected from customizer options and post format is not
  * aside, quote or status. Else display full content.
  */
-if ( ( is_home() || is_archive() ) && 'content' !== get_theme_mod( 'manta_excerpt_option', manta_get_theme_defaults( 'manta_excerpt_option' ) )
+if ( ( is_home() || is_archive() || is_search() ) && 'content' !== get_theme_mod( 'manta_excerpt_option', manta_get_theme_defaults( 'manta_excerpt_option' ) )
 	&& ! has_post_format( array( 'aside', 'quote', 'status', 'video', 'audio', 'gallery', 'image' ) )
 	&& ! post_password_required() ) {
 	the_excerpt();

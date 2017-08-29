@@ -6,7 +6,6 @@
  * @since 1.0.0
  */
 
-$manta_copyright_info = get_theme_mod( 'manta_copyright', manta_get_theme_defaults( 'manta_copyright' ) );
 ?>
 
 <div<?php manta_attr( 'footer-items' ); ?>>

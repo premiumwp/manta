@@ -30,6 +30,7 @@
 		toggler( 'manta_enforce_global', [
 				'manta_post_layout',
 				'manta_page_layout',
+				'manta_project_layout',
 			], 1 );
 	} );
 } )( jQuery, wp.customize );

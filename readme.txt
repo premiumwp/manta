@@ -2,8 +2,8 @@
 
 Created by: PremiumWP
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.8
-Version: 1.2
+Tested up to: WordPress 4.8.1
+Version: 1.2.3
 PHP required : PHP 5.3+
 IE Browser Support: IE11+
 License: GPLv2 or later
@@ -23,8 +23,8 @@ Manta is a minimal, lightweight and mobile first WordPress theme that is flexibl
 == Usage Instructions ==
 
 1. To display a featured post(s) on the homepage you need to make them 'sticky'. To make a post sticky select the check box "Stick this post the front page" in the Publish panel (under Visability). You can display up to three featured posts on the homepage.
-2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see all the available layout options in the customizer and individual page layout option.    
-3. The complete usage instructions and documentation for Manta is here: https://www.premiumwp.com/themes/manta/ 
+2. Layouts can be assigned globally in the Customizer, and/or on a per post/page basis in the editor on the specific post or page. Note: you need to add widgets to primary and/or secondary sidebar in order to see all the available layout options in the customizer and individual page layout option.
+3. The complete usage instructions and documentation for Manta is here: https://www.premiumwp.com/themes/manta/
 
 == Copyright ==
 
@@ -135,6 +135,7 @@ License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 6. Error Fix: Inline SVG icons display error on customizer preview screen fixed for versions prior to WordPress 4.7.
 
 = 1.2 - Jul 03 2017 =
+
 1. Error Fix: Page/Post edit screen layout options not working  properly.
 2. Improved copyright customizer option.
 3. Search button in Primary navigation bar.
@@ -142,3 +143,33 @@ License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 5. Sticky icons on sticky posts  which are not featured posts.
 6. Separate admin and front css/js assets.
 
+= 1.2.1 - Jul 19 2017 =
+
+1. Error Fix: Header sub menu items height styling issue.
+2. Error Fix: 404 page styling issue.
+3. Error Fix: Minor styling issue in featured posts.
+4. Add: Custom recent posts widgets with post thumbnails.
+5. Add: Support to Jetpack subscription widget and related posts.
+
+= 1.2.2 - Aug 15 2017 =
+
+1. Error Fix: Primary menu jumping on scroll when not sticky.
+2. Error Fix: Overall site width customizer option not working in live preview.
+2. Error Fix: Various minor styling issues.
+3. Add: Option to put custom header image above or below navigation menu.
+4. Add: Thumbnails display on search results page.
+
+= 1.2.3 - Aug 24 2017 =
+
+1. Error Fix: Header sub-menu items not visible on parent menu-item focus, if there is a primary menu.
+2. Add: short circuit filter to manta_markup function.
+3. Customizer option for moving header-image above or below primary menu is moved to header-image section.
+4. Optimzation of navigation.js for better performance.
+5. Search page template is merged with main content template in main loop.
+6. Remove checking for single post or page before displaying comments. It is already checked by core functions.
+7. All post and page meta markup has been moved to separate files in template-parts/meta.
+8. Display Post ID after closing 'article' tag of post/page main content.
+9. Change in register widget area script in functions.php
+10. Global content-width modification has been hooked to 'template_redirect' instead of 'after_setup_theme'.
+11. Change comment title script.
+12. Minor changes in drop-down menu style.

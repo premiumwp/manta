@@ -87,10 +87,10 @@ class Manta_Customizer_Data {
 					'description'        => esc_html__( 'Options to change content display', 'manta' ),
 					'description_hidden' => true,
 				),
-				'manta_copyright_section' => array(
-					'title'              => esc_html__( 'Copyright', 'manta' ),
+				'manta_footer_section' => array(
+					'title'              => esc_html__( 'Footer', 'manta' ),
 					'panel'              => 'manta_theme_panel',
-					'description'        => esc_html__( 'Options to change copyright content', 'manta' ),
+					'description'        => esc_html__( 'Options to change site footer content', 'manta' ),
 					'description_hidden' => true,
 				),
 			)
@@ -222,7 +222,7 @@ class Manta_Customizer_Data {
 					'control_path'  => 'manta-slider-control',
 					'js_template'   => true,
 					'input_attrs'   => array( 'min' => 1, 'max' => 3, 'step' => 0.01 ),
-					'unit'          => 'px',
+					'unit'          => 'na',
 					'default_value' => manta_get_theme_defaults('manta_base_line_height'),
 				),
 				array(
@@ -284,6 +284,18 @@ class Manta_Customizer_Data {
 					'settings'      => 'manta_sticky_main_menu',
 					'transport'     => 'postMessage',
 					'type'          => 'checkbox',
+				),
+				array(
+					'label'         => esc_html__( 'Display Header Image', 'manta' ),
+					'section'       => 'header_image',
+					'settings'      => 'manta_custom_header_position',
+					'type'          => 'select',
+					'priority'      => 5,
+					'choices'       => array(
+						'above-main-nav' => esc_html__( 'Above primary navigation menu', 'manta' ),
+						'below-main-nav' => esc_html__( 'Below primary navigation menu', 'manta' ),
+					),
+					'active_callback' => array( 'Manta_Active_Callback', 'is_place_header_image' ),
 				),
 				array(
 					'label'         => esc_html__( 'Thumbnail Display Options', 'manta' ),
@@ -400,7 +412,7 @@ class Manta_Customizer_Data {
 				),
 				array(
 					'label'         => esc_html__( 'Copyright Text', 'manta' ),
-					'section'       => 'manta_copyright_section',
+					'section'       => 'manta_footer_section',
 					'settings'      => 'manta_copyright',
 					'description'   => self::get_copyright_description(),
 					'transport'     => 'postMessage',
@@ -416,7 +428,7 @@ class Manta_Customizer_Data {
 		);
 		return $manta_controls;
 	}
-	
+
 	/**
 	 * Copyright text description.
 	 *
@@ -427,7 +439,7 @@ class Manta_Customizer_Data {
 		$title = '<span style="display:block;margin-bottom:5px;margin-top:5px"><code>[site_title]</code>' . esc_html__( ' to print site title.', 'manta' ) . '</span>';
 		$year  = '<span style="display:block;margin-bottom:5px;"><code>[current_year]</code>' . esc_html__( ' to print current Year.', 'manta' ) . '</span>';
 		$copy  = '<span style="display:block;margin-bottom:5px;"><code>[copy_symbol]</code>' . esc_html__( ' to print copyright symbol.', 'manta' ) . '</span>';
-		
+
 		$copy_decription = esc_html__( 'Type to change default copyright text', 'manta' ) . '<br/>' . esc_html__( 'Use', 'manta' );
 		$copy_decription = $copy_decription . $title . $year . $copy;
 

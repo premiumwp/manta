@@ -21,12 +21,6 @@ while ( have_posts() ) : the_post();
 		 * Include the Post-Format-specific template for the content.
 		 */
 		get_template_part( 'template-parts/content/page' );
-	} elseif ( is_search() ) {
-
-		/**
-		 * Include the Post-Format-specific template for the content.
-		 */
-		get_template_part( 'template-parts/content/search' );
 	} else {
 
 		/**
@@ -35,7 +29,7 @@ while ( have_posts() ) : the_post();
 		get_template_part( 'template-parts/content/content' );
 	}
 
-	if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() ) ) {
+	if ( comments_open() || get_comments_number() ) {
 		// If comments are open or we have at least one comment, load up the comment template.
 		comments_template();
 	}

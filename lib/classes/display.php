@@ -37,8 +37,9 @@ class Manta_Display {
 		add_action( 'manta_hook_for_site_branding'    , array( __CLASS__, 'header_logo' ) );
 		add_action( 'manta_hook_for_site_branding'    , array( __CLASS__, 'header_text' ) );
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'header_items' ) );
-		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'custom_header' ) );
+		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'custom_header_above_nav' ) );
 		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'menu_primary' ) );
+		add_action( 'manta_hook_for_site_header'      , array( __CLASS__, 'custom_header_below_nav' ) );
 
 		// Items to be displayed on site content.
 		add_action( 'manta_hook_for_main_loop'        , array( __CLASS__, 'page_header' ) );
@@ -159,11 +160,30 @@ class Manta_Display {
 	}
 
 	/**
-	 * Conditionally include header image display template.
+	 * Conditionally include header image display template above primary navigation menu.
 	 *
 	 * @since 1.0.0
 	 */
-	public static function custom_header() {
+	public static function custom_header_above_nav() {
+		if ( 'above-main-nav' !== get_theme_mod( 'manta_custom_header_position', manta_get_theme_defaults( 'manta_custom_header_position' ) ) ) {
+			return;
+		}
+
+		if ( get_header_image() && is_front_page() ) {
+			manta_custom_header_markup();
+		}
+	}
+
+	/**
+	 * Conditionally include header image display template below primary navigation menu.
+	 *
+	 * @since 1.0.0
+	 */
+	public static function custom_header_below_nav() {
+		if ( 'below-main-nav' !== get_theme_mod( 'manta_custom_header_position', manta_get_theme_defaults( 'manta_custom_header_position' ) ) ) {
+			return;
+		}
+
 		if ( get_header_image() && is_front_page() ) {
 			manta_custom_header_markup();
 		}
@@ -406,7 +426,7 @@ class Manta_Display {
 	 * @since  1.0.0
 	 */
 	public static function post_navigation() {
-		if ( is_singular( 'post' ) ) {
+		if ( is_singular( 'post' ) && ( 1 === get_theme_mod( 'manta_show_prevnext', manta_get_theme_defaults( 'manta_show_prevnext' ) ) ) ) {
 			the_post_navigation( array(
 				'next_text' => '<span' . manta_get_attr( 'meta-nav' ) . ' aria-hidden="true">' . esc_html__( 'Next', 'manta' ) . '</span>
 					<span class="screen-reader-text">' . esc_html__( 'Next post:', 'manta' ) . '</span>
